@@ -6,15 +6,15 @@ if [ $? -eq 0 ]
 then
     echo "as keys criptográficas que assinam o software do ROS foram configuradas com sucesso"
     sudo apt update
-    sudo apt-get install ros-melodic-joy ros-melodic-teleop-tools  ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc ros-melodic-rgbd-launch  ros-melodic-rosserial-arduino ros-melodic-rosserial-python ros-melodic-rosserial-server ros-melodic-rosserial-client ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro ros-melodic-compressed-image-transport ros-melodic-rqt-image-view  ros-melodic-navigation ros-melodic-interactive-markers  ros-melodic-kobuki-ftdi ros-melodic-ar-track-alvar-msgs ros-melodic-teleop-tools python-rosinstall --y
+    sudo apt-get install -y ros-melodic-joy ros-melodic-teleop-tools  ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc ros-melodic-rgbd-launch  ros-melodic-rosserial-arduino ros-melodic-rosserial-python ros-melodic-rosserial-server ros-melodic-rosserial-client ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro ros-melodic-compressed-image-transport ros-melodic-rqt-image-view  ros-melodic-navigation ros-melodic-interactive-markers  ros-melodic-kobuki-ftdi ros-melodic-ar-track-alvar-msgs ros-melodic-teleop-tools python-rosinstall
     if [ $? -eq 0 ]
     then	
 	echo "O ROS foi instalado com sucesso"
-	sudo apt install     python-rosinstall-generator ros-melodic-ar-track-alvar ros-melodic-ar-track-alvar-dbgsym ros-melodic-ar-track-alvar-msgs ros-melodic-desktop-full ros-melodic-eigen-conversions ros-melodic-eigen-conversions-dbgsym ros-melodic-eigen-stl-containers ros-melodic-gscam ros-melodic-opencv-apps ros-melodic-opencv-apps-dbgsym ros-melodic-parrot-arsdk ros-melodic-turtlebot3-applications-msgs ros-melodic-turtlebot3-fake ros-melodic-turtlebot3-fake-dbgsym ros-melodic-turtlebot3-gazebo ros-melodic-turtlebot3-gazebo-dbgsym ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations ros-melodic-vision-opencv ros-melodic-turtlebot3-msgs ros-melodic-ar-track-alvar ros-melodic-turtlebot3-applications-msgs --y
+	sudo apt install -y python-rosinstall-generator ros-melodic-ar-track-alvar ros-melodic-ar-track-alvar-dbgsym ros-melodic-ar-track-alvar-msgs ros-melodic-desktop-full ros-melodic-eigen-conversions ros-melodic-eigen-conversions-dbgsym ros-melodic-eigen-stl-containers ros-melodic-gscam ros-melodic-opencv-apps ros-melodic-opencv-apps-dbgsym ros-melodic-parrot-arsdk ros-melodic-turtlebot3-applications-msgs ros-melodic-turtlebot3-fake ros-melodic-turtlebot3-fake-dbgsym ros-melodic-turtlebot3-gazebo ros-melodic-turtlebot3-gazebo-dbgsym ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations ros-melodic-vision-opencv ros-melodic-turtlebot3-msgs ros-melodic-ar-track-alvar ros-melodic-turtlebot3-applications-msgs
 	   if [ $? -eq 0 ]
    	   then
 		echo "As dependencias ROS do curso foram instaladas com sucesso"
-		sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-* gstreamer1.0-libav* gstreamer1.0-plugins* --y
+		sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-* gstreamer1.0-libav* gstreamer1.0-plugins* 
 	
 			   if [ $? -eq 0 ]
    	  		   then
@@ -30,7 +30,7 @@ then
    	  		   	   then
 					echo "O ambiente de trabalho do ROS foi configurado com sucesso"
 					echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
-					sudo apt install ros-melodic-turtlebot3-msgs ros-melodic-ar-track-alvar ros-melodic-turtlebot3-applications-msgs --y
+					sudo apt install -y ros-melodic-turtlebot3-msgs ros-melodic-ar-track-alvar ros-melodic-turtlebot3-applications-msgs
 
 				
 					   if [ $? -eq 0 ]
