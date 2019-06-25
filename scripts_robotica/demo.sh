@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#Autor - Licia Sales
+#25-Jun-2019
 echo "Certifique-se de que esta conectado na mesma rede que o robo, e que o IP esta atualizado no .bashrc"
 cd ~/catkin_ws/src/robot19/ros/exemplos_python/scripts
 gnome-terminal -e  "roscore"
