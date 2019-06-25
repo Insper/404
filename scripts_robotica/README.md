@@ -1,4 +1,4 @@
-# SCRIPTS PARA AULA DE ROBOTICA COMPUTACIONAL
+# Scripts para aula de Robotica Computacional
 
 Codigos desenvolvidos para otimizar setups diversos 
 
