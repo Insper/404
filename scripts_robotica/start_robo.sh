@@ -2,6 +2,7 @@
 #Author: Licia Sales
 #25-Jun-19
 
+
 echo "Certifique-se de que esta conectado na mesma rede que o robo, e que o IP esta atualizado no .bashrc"
 gnome-terminal -- bash -c "roscore";
 sleep  3
