@@ -5,8 +5,8 @@
 while true
 do
    ip_host=$(rosnode machine)
-   echo $ip_host > log.txt
-   host=$(cut -c16- log.txt)
+   echo $ip_host > /home/pi/log.txt
+   host=$(cut -c16- /home/pi/log.txt)
    echo "aguardando ip"
 
     if [[ "$host" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0$
