@@ -2,6 +2,7 @@
 
 Codigos desenvolvidos para otimizar setups diversos 
 
+[Script para limpar historico de comandos no terminal, senha/login na rede wifi e o historico do firefox ](./limpeza_marota.sh)
 
 [Script para executar o launch da camera no turtlebot](./camera.sh)
 
