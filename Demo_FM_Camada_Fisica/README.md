@@ -16,7 +16,7 @@ A instalação é muito simples, basta executar o comando abaixo:
  sudo apt install gnuradio
  
 ```
-# Colando para funcionar o Demo
+# Observações dos arquivos
 
 **DEMO_FM_TX.gcr** = Codigo exemplo do transmissor FM
 
