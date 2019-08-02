@@ -34,15 +34,26 @@ python3 -m pip install --user matplotlib
 
 sudo apt-get install python-dev python-pip python-tk
 
-python -m pip install --user numpy
-python -m pip install --user matplotlib
+python2 -m pip install --user numpy
+python2 -m pip install --user matplotlib
 
-sed -i "${//#include <GL/gl.h>}s/.*/${#include <GL/gl.h>}/" $/usr/local/cuda/include/cuda_gl_interop.h
+sudo mv /usr/local/cuda/include/cuda_gl_interop.h  /usr/local/cuda/include/cuda_gl_interop_save.h
+echo "PRECISO QUE VC FAÇA UMA CONFIGURAÇÃO MANUALMENTE PARA QUE POSSAMOS CONTINUAR!"
+echo "EM OUTRO TERMINAL, DIGITE gedit /usr/local/cuda/include/cuda_gl_interop.h "
+echo " Edite o arquivo para que fique desta forma >>>>"
+echo "//#if defined(__arm__) || defined(__aarch64__)
+//#ifndef GL_VERSION
+//#error Please include the appropriate gl headers before including cuda_gl_interop.h
+//#endif
+//#else
+ #include <GL/gl.h>
+//#endif"
 
-cd /usr/lib/aarch64-linux-gnu/
-sudo ln -sf tegra/libGL.so libGL.so
+echo "Faça a alteração e digite sim neste terminal para que possamos continuar"
+read CONFIRMA
 
-
+case $CONFIRMA in 
+    "sim")
 echo "============================ tudo certo, vamos instalar o OpenCV-3.4.0 =============================="
 
 mkdir -p ~/src
@@ -64,4 +75,13 @@ make -j4
 sudo make install
 
 echo "============================ tudo certo, so usar jovem! =============================="
+echo 0
+    ;;
+
+      
+     *)
+        echo  "FAZ OQ EU PEDI JOVEM!!!!!!!!!"
+    ;;
+esac
+
 
