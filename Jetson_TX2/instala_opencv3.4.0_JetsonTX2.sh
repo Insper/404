@@ -37,9 +37,10 @@ sudo apt-get install python-dev python-pip python-tk
 python2 -m pip install --user numpy
 python2 -m pip install --user matplotlib
 
-sudo mv /usr/local/cuda/include/cuda_gl_interop.h  /usr/local/cuda/include/cuda_gl_interop_save.h
+sudo cp /usr/local/cuda/include/cuda_gl_interop.h  /usr/local/cuda/include/cuda_gl_interop_save.h
+echo "====================================ATENÇÃO====================================================================
 echo "PRECISO QUE VC FAÇA UMA CONFIGURAÇÃO MANUALMENTE PARA QUE POSSAMOS CONTINUAR!"
-echo "EM OUTRO TERMINAL, DIGITE gedit /usr/local/cuda/include/cuda_gl_interop.h "
+echo "EM OUTRO TERMINAL, DIGITE sudo gedit /usr/local/cuda/include/cuda_gl_interop.h "
 echo " Edite o arquivo para que fique desta forma >>>>"
 echo "//#if defined(__arm__) || defined(__aarch64__)
 //#ifndef GL_VERSION
