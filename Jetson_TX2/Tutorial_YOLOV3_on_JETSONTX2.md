@@ -66,16 +66,19 @@ sudo ~/jetson_clocks.sh
 ```
 
 - Para Rodar o Yolo usando uma Câmera USB use o comando:
+*Aonde -c 1 é o valor do device da sua câmera, se não rodar com -c 1, tente -c 0 
 
 ```
-bash ~/yolov3/darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights  -c 1
+cd  ~/yolov3
+./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights  -c 1
 
 ```
 
 - Para Rodar o Yolo em um arquivo de video .mp4
 
 ```
-bash ~/darknet.exe detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -i 0
+cd ~/yolov3
+./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights \ video.mp4
 
 ```
 
