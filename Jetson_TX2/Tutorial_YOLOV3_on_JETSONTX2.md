@@ -3,13 +3,13 @@ title: Laborátorio de Informática
 date: Julho 2019
 ---
 
-#  YOLOV3 na Jetson TX2
+# YOLOV3 no Jetson Carrier Board J120 ou Development Kit TX2 
 ![yollov3](img/yolov3.jpeg)
 
 
 # O que vamos precisar
 
-- JetsonTX2 com o JetPack 3.2.1 Instalado [Temos um tutorial para isso aqui](Tutorial_JetPack3.2.1_JetsonTX2.md)
+- JetsonTX2 com o JetPack 3.2.1 Instalado [Temos um tutorial para o Development Kit aqui](Tutorial_JetPack3.2.1_JetsonTX2.md) e [um para o Carrier Board J120 aqui](Tutorial_JetPack3.2.1_JetsonTX2.md)
 - OpenCV 3.4.0 Instalado na JetsonTX2 *Temos um script que remove o Opencv nativo e instala o Opencv 3.4.0 na sua Jetson TX2* [aqui](https://github.com/Insper/404/blob/master/Jetson_TX2/instala_opencv3.4.0_JetsonTX2.sh)
 - Mouse/Teclado/Tela
 - Conexão com Internet
@@ -53,6 +53,11 @@ make
 ```
 
 - Faça o Download de uma malha treinada [COCO Yolo v3 tiny](https://pjreddie.com/media/files/yolov3-tiny.weights)
+- Mova o arquivo para a pasta do Yolo com o comando
+
+```
+mv ~/Download/yolov3-tiny.weights  ~/yolov3/
+```
 
 # Hora de testar!
 
