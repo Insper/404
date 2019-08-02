@@ -56,7 +56,8 @@ read CONFIRMA
 case $CONFIRMA in 
     "sim")
 echo "============================ tudo certo, vamos instalar o OpenCV-3.4.0 =============================="
-
+sudo ln -sf tegra/libGL.so libGL.so
+sudo ldconfig
 mkdir -p ~/src
 cd ~/src
 wget https://github.com/opencv/opencv/archive/3.4.0.zip \
