@@ -41,7 +41,9 @@ then
 						git clone https://github.com/ros-teleop/teleop_twist_keyboard.git    
 						git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 						git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git  
-						git clone https://github.com/Insper/robot19.git 
+						git clone https://github.com/Insper/robot19.git
+						git clone https://github.com/ros-perception/openslam_gmapping
+						git clone https://github.com/ros-perception/slam_gmapping
 						cd ~/catkin_ws/
 						catkin_make
 
