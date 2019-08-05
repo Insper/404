@@ -21,8 +21,8 @@ A instalação é muito simples, basta executar o comando abaixo:
 Driver RTL2382U
 
 ```
- apt-get update
- apt-get install cmake build-essential libusb-1.0-0-dev
+ sudo apt update
+ sudo apt install cmake build-essential libusb-1.0-0-dev
  
  git clone https://github.com/osmocom/rtl-sdr.git
  cd rtl-sdr
