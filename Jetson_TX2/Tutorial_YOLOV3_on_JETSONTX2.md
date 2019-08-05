@@ -88,3 +88,4 @@ cd ~/yolov3
 ```
 
 ![yollov3_gif](img/yolov3.gif)
+![yollov3_J120_gif](https://github.com/liciascl/insper-docs/blob/master/Informatica/Robotica/img/yolo_j120.gif)
