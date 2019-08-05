@@ -5,7 +5,8 @@ echo "Certifique-se de que esta conectado na mesma rede que o robo, e que o IP e
 cd ~/catkin_ws/src/robot19/ros/exemplos_python/scripts
 gnome-terminal -e  "roscore"
 sleep  3
-gnome-terminal -e "roslaunch turtlebot3_bringup turtlebot3_remote.launch"
+# gnome-terminal -e "roslaunch turtlebot3_bringup turtlebot3_remote.launch"
+gnome-terminal -e "roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping"
 sleep 5
 gnome-terminal -e  "rosrun topic_tools relay /raspicam_node/image/compressed /kamera"
 sleep 2
