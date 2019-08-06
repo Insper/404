@@ -1,6 +1,9 @@
 #!/bin/bash
 #Autor Lícia Sales
 #30-Jul-2019
+
+path=$(pwd)
+echo $path
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -43,25 +46,25 @@ then
 						git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 						git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git  
 						git clone https://github.com/Insper/robot19.git 
-						git clone https://github.com/ros-perception/openslam_gmapping
-						git clone https://github.com/ros-perception/slam_gmapping
 						cd ~/catkin_ws/
 						catkin_make
 
 					        if [ $? -eq 0 ]
    	  		   	               then
 								echo "os gits para controle do Turtlebot foram clonandos com sucesso dos repositórios da ROBOTIS"
-								exec "~/insper-docs/Informatica/Robotica/Scripts/instalar_opencv_jupyter.sh"							
+								cd $path
+								exec "./instalar_opencv_jupyter.sh"							
 							
 								if [ $? -eq 0 ]
    	  		   	                	then
-									echo "o opencv no python3 foi instalado, vamos instalar no python2 agora"					
-									exec "~/insper-docs/Informatica/Robotica/Scripts/instalar_opencv_python2.sh"
+									echo "o opencv no python3 foi instalado, vamos instalar no python2 agora"								cd $path
+									exec "./instalar_opencv_python2.sh"
 									
 									if [ $? -eq 0 ]
 	   	  		   	                	then
+										cd $path
 								 		echo "o opencv foi instalado com sucesso no python2 tambem, agora vamos instalar o hector slam"
-										exec "~/insper-docs/Informatica/Robotica/Scripts/instalar_hector_slam.sh"
+										exec "./instalar_hector_slam.sh"
 								
 									fi
 								fi
@@ -73,19 +76,6 @@ then
 		fi				   
 	fi
 fi
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
