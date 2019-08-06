@@ -1,4 +1,6 @@
 #!/bin/bash
+#Autor Lícia Sales
+#30-Jul-2019
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
@@ -17,7 +19,7 @@ then
 		echo "As dependencias ROS do curso foram instaladas com sucesso"
 		sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-* gstreamer1.0-libav* gstreamer1.0-plugins* 
 	
-			   if [ $? -eq 0 ]
+			if [ $? -eq 0 ]
    	  		   then
 				echo "Os softwares para lidar com stream de vídeo vindo do robô foram instaladas com sucesso"
 				source /opt/ros/melodic/setup.bash
@@ -26,7 +28,6 @@ then
 				catkin_init_workspace
 				cd ~/catkin_ws
 				catkin_make
-				
 				   if [ $? -eq 0 ]
    	  		   	   then
 					echo "O ambiente de trabalho do ROS foi configurado com sucesso"
@@ -41,21 +42,56 @@ then
 						git clone https://github.com/ros-teleop/teleop_twist_keyboard.git    
 						git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 						git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git  
-						git clone https://github.com/Insper/robot19.git
+						git clone https://github.com/Insper/robot19.git 
 						git clone https://github.com/ros-perception/openslam_gmapping
 						git clone https://github.com/ros-perception/slam_gmapping
 						cd ~/catkin_ws/
 						catkin_make
 
-
 					        if [ $? -eq 0 ]
-   	  		   	                then
-							echo "os gits para controle do Turtlebot foram clonandos com sucesso dos repositórios da ROBOTIS"
-							echo "A infraestrutura para a aula de Robotica Computacional foi instalada com sucesso!!!"
+   	  		   	               then
+								echo "os gits para controle do Turtlebot foram clonandos com sucesso dos repositórios da ROBOTIS"
+								exec "~/insper-docs/Informatica/Robotica/Scripts/instalar_opencv_jupyter.sh"							
+							
+								if [ $? -eq 0 ]
+   	  		   	                	then
+									echo "o opencv no python3 foi instalado, vamos instalar no python2 agora"					
+									exec "~/insper-docs/Informatica/Robotica/Scripts/instalar_opencv_python2.sh"
+									
+									if [ $? -eq 0 ]
+	   	  		   	                	then
+								 		echo "o opencv foi instalado com sucesso no python2 tambem, agora vamos instalar o hector slam"
+										exec "~/insper-docs/Informatica/Robotica/Scripts/instalar_hector_slam.sh"
+								
+									fi
+								fi
+							fi
 						fi
 					fi
-				fi
-			fi
-		fi
+				fi				
+			fi		
+		fi				   
 	fi
 fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
