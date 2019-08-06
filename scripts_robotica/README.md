@@ -8,7 +8,7 @@ Codigos desenvolvidos para otimizar setups diversos
 
 [Script que roda a demo do turtlebot - procura a caixa laranja ](./demo.sh)
 
-[Script que instala infra de Robotica Computacional no Linux 18.04 ](./infra_robotica.sh)
+[Script que instala infra de Robotica Computacional no Linux 18.04 ](https://github.com/Insper/insper-docs/blob/master/Informatica/Robotica/Scripts/Instala_infra_robotica.sh)
 
 [Script que faz o Bringup do turtlebot no host (computador) ](./start_robo.sh)
 
