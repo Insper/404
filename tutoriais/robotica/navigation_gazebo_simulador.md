@@ -30,7 +30,7 @@ Comente as linhas
 
 # Como gerar o mapa do espaco fisico em ambiente simulado
 
-*Temos um tutorial de como usar o gmapping em um Turtlebot3 real, usando o ROS Melodic [aqui]()
+*Temos um tutorial de como usar o gmapping em um Turtlebot3 real, usando o ROS Melodic [aqui]()*
 
 
 Abra o gazebo
@@ -84,7 +84,7 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map
 
 
 
-#Rerência
+# Rerência
 
 http://emanual.robotis.com/docs/en/platform/turtlebot3/slam/
 https://newscrewdriver.com/2018/08/12/turtlebot3-demo-navigating-gazebo-simulation-world/
