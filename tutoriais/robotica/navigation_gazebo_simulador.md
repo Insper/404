@@ -61,6 +61,9 @@ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 Navegue com o turtlebot para mapear a area, execute o seguinte comando para salvar o mapa
 
 
+![mapeando](https://github.com/Insper/404/blob/master/tutoriais/robotica/img/gmapping.gif)
+
+
 ```
 rosrun map_server map_saver -f ~/map
 ```
