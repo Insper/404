@@ -84,12 +84,25 @@ Abra o mapa salvo no gazebo
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
 ```
 
+Clique em 2D pose estimate, depois, defina a referencia para o turtlebot saber aonde esta
+
+![referencia]()
+
+
+Clique em 2D nav goal para definir aonde o turtlebot deve chegar
+
+![navigation]()
+
+![navigation](img/navegationn.mp4)
 
 
 
 # Rerência
 
 http://emanual.robotis.com/docs/en/platform/turtlebot3/slam/
+
 https://newscrewdriver.com/2018/08/12/turtlebot3-demo-navigating-gazebo-simulation-world/
+
 https://newscrewdriver.com/2018/08/11/running-turtlebot3-mapping-demonstration-with-a-twist/
+
 https://www.youtube.com/watch?v=yv0FhmqPfUo&feature=youtu.be
