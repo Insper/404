@@ -86,12 +86,12 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map
 
 Clique em 2D pose estimate, depois, defina a referencia para o turtlebot saber aonde esta
 
-![referencia]()
+![referencia](https://github.com/liciascl/insper-docs/blob/master/Informatica/Robotica/img/2dpose.png)
 
 
 Clique em 2D nav goal para definir aonde o turtlebot deve chegar
 
-![navigation]()
+![referencia](https://github.com/liciascl/insper-docs/blob/master/Informatica/Robotica/img/2dpoose.png)
 
 ![navigation](img/navegationn.mp4)
 
