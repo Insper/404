@@ -24,6 +24,6 @@ exec  instalar_opencv_python3.sh
 pip3 install --user yolo34py-gpu
 git clone https://github.com/madhawav/YOLO3-4-Py/
 cd ~/YOLO3-4-Py/
-python3 setup.py build_ext --inplace
-exec download_models.sh
-python3 webcam_demo.py
+python3 ~/YOLO3-4-Py/setup.py build_ext --inplace
+exec ~/YOLO3-4-Py/download_models.sh
+python3 ~/YOLO3-4-Py/webcam_demo.py
