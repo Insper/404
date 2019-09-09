@@ -58,13 +58,13 @@ then
 								if [ $? -eq 0 ]
    	  		   	                	then
 									echo "o opencv no python3 foi instalado, vamos instalar no python2 agora"								cd $path
-									exec "~/404/scripts_robotica//instalar_opencv_python2.sh"
+									exec "~/404/scripts_robotica/instalar_opencv_python2.sh"
 									
 									if [ $? -eq 0 ]
 	   	  		   	                	then
 										cd $path
 								 		echo "o opencv foi instalado com sucesso no python2 tambem, agora vamos instalar o hector slam"
-										exec "~/404/scripts_robotica//instalar_hector_slam.sh"
+										exec "~/404/scripts_robotica/instalar_hector_slam.sh"
 								
 									fi
 								fi
