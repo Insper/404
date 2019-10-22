@@ -105,7 +105,9 @@ Ou o comando abaixo para se conectar a um servidor
 
 ```
 
+Coloque o endereço para conectar
 
+![ip+display](https://github.com/Insper/404/blob/master/elementos/Screenshot%20from%202019-10-22%2013-42-43.png)
 
 
 # Rerência
