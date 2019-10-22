@@ -5,6 +5,11 @@ date: Outubro 2019
 
 Guia para instalar e configurar o TurboVNC Client + VirtualGL 
 
+# Link do video no Youtube:
+https://www.youtube.com/watch?v=s-7_5a_yqow&feature=youtu.beL 
+
+
+
 # VirtualGL 
 Slam Gmapping e um pacote do ROS capaz de gerar um mapa em 2D (como uma planta baixa de um prédio) a partir do LIDAR do Turtlebot.
 
