@@ -47,7 +47,7 @@ sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-d
 sudo apt-get install -y libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev \
                         libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm \
                         libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev
-
+sudo apt-get install -y gstreamer1.0-tools
 # Parallelism and linear algebra libraries:
 sudo apt-get install -y libtbb-dev libeigen3-dev
 
