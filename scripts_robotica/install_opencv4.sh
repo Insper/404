@@ -13,6 +13,7 @@ OPENCV_CONTRIB='YES'          # Install OpenCV's extra modules (YES/NO)
 # |------------------------------------------------------|
 # | OS               | OpenCV       | Test | Last test   |
 # |------------------|--------------|------|-------------|
+# | Raspibian        | OpenCV 4.1.1 | OK   | 13 Nov 2019 |  
 # | Debian 10.1      | OpenCV 4.1.1 | OK   | 28 Sep 2019 |
 # |----------------------------------------------------- |
 # | Ubuntu 18.04 LTS | OpenCV 4.1.0 | OK   | 22 Jun 2019 |
@@ -47,7 +48,18 @@ sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-d
 sudo apt-get install -y libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev \
                         libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm \
                         libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev
-sudo apt-get install -y gstreamer1.0-tools
+
+
+#GStreamer-1.0
+sudo apt-get install -y python-gi python3-gi \
+                    gstreamer1.0-tools \
+                    gir1.2-gstreamer-1.0 \
+                    gir1.2-gst-plugins-base-1.0 \
+                    gstreamer1.0-plugins-good \
+                    gstreamer1.0-plugins-ugly \
+                    gstreamer1.0-plugins-bad \
+                    gstreamer1.0-libav
+
 # Parallelism and linear algebra libraries:
 sudo apt-get install -y libtbb-dev libeigen3-dev
 
@@ -88,7 +100,10 @@ cmake -DWITH_QT=ON -DWITH_OPENGL=ON -DFORCE_VTK=ON -DWITH_TBB=ON -DWITH_GDAL=ON 
       -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ..
 fi
 
-make -j4
+
+#make -j4
+
+make 
 sudo make install
 sudo ldconfig
 
