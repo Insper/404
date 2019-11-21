@@ -59,6 +59,10 @@ sudo apt-get install -y python-gi python3-gi \
                     gstreamer1.0-plugins-ugly \
                     gstreamer1.0-plugins-bad \
                     gstreamer1.0-libav
+                    
+                    
+sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+
 
 # Parallelism and linear algebra libraries:
 sudo apt-get install -y libtbb-dev libeigen3-dev
