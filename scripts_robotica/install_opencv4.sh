@@ -7,13 +7,15 @@
 # ---------------------------------------------------------------------|
 OPENCV_VERSION='4.1.1'       # Version to be installed
 OPENCV_CONTRIB='YES'          # Install OpenCV's extra modules (YES/NO)
+RASPBERRY='NO'                 # Install OpenCV on Raspberry pi 3 or 4
 # -------------------------------------------------------------------- |
 
 # |          THIS SCRIPT IS TESTED CORRECTLY ON          |
 # |------------------------------------------------------|
 # | OS               | OpenCV       | Test | Last test   |
 # |------------------|--------------|------|-------------|
-# | Raspibian        | OpenCV 4.1.1 | OK   | 13 Nov 2019 |  
+# | Raspibian Buster | OpenCV 3.4.2 | OK   | 22 Nov 2019 |  
+# | Raspibian Buster | OpenCV 4.1.1 | OK   | 13 Nov 2019 |  
 # | Debian 10.1      | OpenCV 4.1.1 | OK   | 28 Sep 2019 |
 # |----------------------------------------------------- |
 # | Ubuntu 18.04 LTS | OpenCV 4.1.0 | OK   | 22 Jun 2019 |
@@ -48,7 +50,7 @@ sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-d
 sudo apt-get install -y libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev \
                         libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm \
                         libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev
-
+echo "sudo modprobe bcm2835-v4l2" >> ~/.profile
 
 #GStreamer-1.0
 sudo apt-get install -y python-gi python3-gi \
@@ -104,12 +106,22 @@ cmake -DWITH_QT=ON -DWITH_OPENGL=ON -DFORCE_VTK=ON -DWITH_TBB=ON -DWITH_GDAL=ON 
       -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ..
 fi
 
-
-#make -j4
-
+if [ $RASPBERRY = 'YES' ]; then
+sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=1024/g' /etc/dphys-swapfile
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+pip3 install --user numpy
+pip3 install --user dlib
 make 
 sudo make install
 sudo ldconfig
+fi
+
+if [ $RASPBERRY = 'NO' ]; then
+make -j4
+sudo make install
+sudo ldconfig
+fi
 
 
 # 4. EXECUTE SOME OPENCV EXAMPLES AND COMPILE A DEMONSTRATION
