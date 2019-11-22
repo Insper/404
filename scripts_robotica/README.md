@@ -14,3 +14,5 @@ Codigos desenvolvidos para otimizar setups diversos
 
 [Script que faz o Bringup do turtlebot na Raspberry ](./start_turtle.sh)
 
+
+[Script que instala o opencv 3.4 ou o 4.2 no Computador ou na Raspberry pi3 ou 4](./install_opencv4.sh)
