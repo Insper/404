@@ -5,8 +5,9 @@
 path=$(pwd)
 echo $path
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-
+ sudo apt-key adv --keyserver keys.gnupg.net --recv-key 6F3EFCDE
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+echo 'deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo bionic main' | sudo tee /etc/apt/sources.list.d/realsense-public.list
 
 echo "as keys criptográficas que assinam o software do ROS foram configuradas com sucesso"
 sudo apt update
@@ -24,6 +25,7 @@ cd ~/catkin_ws
 catkin_make
 echo "O ambiente de trabalho do ROS foi configurado com sucesso"
 echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+sudo apt-get install librealsense2-dev librealsense2-utils ros-melodic-rgbd-launch
 sudo apt install -y ros-melodic-turtlebot3-msgs ros-melodic-ar-track-alvar ros-melodic-turtlebot3-applications-msgs
 echo "A biblioteca que reconhece marcadores de RA foi instalada com sucesso"
 cd ~/catkin_ws/src
@@ -31,6 +33,8 @@ git clone https://github.com/ros-teleop/teleop_twist_keyboard.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git  
 git clone https://github.com/Insper/robot19.git 
+git clone https://github.com/intel-ros/realsense.git
+
 cd ~/catkin_ws/
 catkin_create_pkg gscam raspicam.launch  rospy roscpp
 catkin_make
