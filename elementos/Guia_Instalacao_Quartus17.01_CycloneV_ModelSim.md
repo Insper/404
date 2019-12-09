@@ -1,8 +1,6 @@
-**Só seguir esses passos se você souber o que está fazendo!*** 
-
 - Ubuntu 18.04
 
-# 3 - Quartus Prime e ModelSim
+# Quartus Prime e ModelSim
 
 Execute no terminal os comandos a seguir, o Quartus necessita de dependências da arquitetura i384.
 
