@@ -1,32 +1,8 @@
 **Só seguir esses passos se você souber o que está fazendo!*** 
 
-# Linux 
-
 - Ubuntu 18.04
 
-## Python 3
-
-Execute no terminal:
-
-``` bash
-$ sudo apt-get update
-$ sudo apt-get -y upgrade
-$ sudo apt-get install python3 python3-pip python-pip
-```
-
-### Dependências 
-
-Faça o download do repositório [Z01.1](https://github.com/Insper/Z01.1) e vá para o raiz desse projeto. Note a existência do arquivo *requirements.txt*, esse arquivo possui todas as dependências python utilizadas no projeto:
-
-> Execute o comando a seguir na pasta raiz do repositório: `Z01/`
-
-``` bash
-$ git clone https://github.com/Insper/Z01.1
-$ cd Z01.1
-$ pip3 install --user -r requirements.txt
-```
-
-### 3 - Quartus Prime e ModelSim
+# 3 - Quartus Prime e ModelSim
 
 Execute no terminal os comandos a seguir, o Quartus necessita de dependências da arquitetura i384.
 
@@ -38,7 +14,7 @@ $ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
   libpng16-16:i386 libpng16-16 python-gobject libnotify-bin 
 ```
 
-#### [Libpng12](http://www.bitsnbites.eu/installing-intelaltera-quartus-in-ubuntu-17-10/)
+### [Libpng12](http://www.bitsnbites.eu/installing-intelaltera-quartus-in-ubuntu-17-10/)
 
 > The simplest way is to build and install libpng12 from source (requires build-essential).
 >    Install build-essential (to get gcc etc): sudo apt install build-essential
@@ -55,8 +31,7 @@ $ sudo ldconfig
 ```
 
 
-
-#### Instalando  
+## Instalando  
 
 Faça o download dos arquivos a seguir (salve na mesma todos os arquivos):
 
@@ -77,7 +52,7 @@ $ ./QuartusLiteSetup-17.1.0.590-linux.run
 
 > Se o Quartus falhar na instalação, mova o modelsim dessa pasta e instale novamente. Depois será necessário instalar o modelsim a parte.
 
-#### Modelsim
+## Modelsim
 
 1. Editar vco
 
@@ -104,7 +79,7 @@ Adicione ao final do  `bashrc` a seguinte linha:
 +export LD_LIBRARY_PATH=/home/borg/intelFPGA/17.1/modelsim_ase/lib32
 ```
 
-### Configurando o USB Blaster
+## Configurando o USB Blaster
 
 #### [libudev1:i386](https://forums.intel.com/s/question/0D50P00003yySE5SAM/newbie-usb-blaster-on-ubuntu-linux-xenial-1604-wont-probe-chain?language=en_US)
 
@@ -137,49 +112,6 @@ Recarrege o as permissões via o comando a seguir:
 $ sudo service udev restart
 ```
 
-## [Java 8 - Oracle](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
-
-```bash
-$ sudo add-apt-repository ppa:webupd8team/java
-$ sudo apt-get update
-$ sudo apt-get install oracle-java8-installer
-```
-
-Verifique se o java padrão está como java 8 da Oracle:
-
-```bash
-$ sudo update-alternatives --config java
-```
-
-Deve selecionar algo como:
-
-```diff
-There are 3 choices for the alternative java (providing /usr/bin/java).
-
-  Selection    Path                                            Priority   Status
- ------------------------------------------------------------
-  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1101      auto mode
-  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1101      manual mode
-  2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
-+*3            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      manual
-```
-
-## Certificado Google Firebase
-
-Devemos instalar o certificado do `elementos.json` na pasta: `~/.local/share/`. 
-
-```bash
-$ cp elementos.json ~/.local/share/
-```
-
-**O Arquivo `elementos.json` deve ser obtido com os técnicos!!**
-
-Adicione ao final do `bashrc` a seguinte linha:
-
-```diff
-+export GOOGLE_APPLICATION_CREDENTIALS=/home/borg/.local/share/elementos.json
-```
-
 ## Configurando variáveis de ambiente
 
 Adicione ao final do `bashrc` as seguintes linhas:
@@ -190,14 +122,12 @@ Adicione ao final do `bashrc` as seguintes linhas:
 +export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
 +export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
 +export VUNIT_SIMULATOR=modelsim
-+export GOOGLE_APPLICATION_CREDENTIALS=/home/borg/.local/share/elementos.json
 +export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/:${ALTERAPATH}/modelsim_ase/lib32
 ```
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.
 
 
- 
 # Validando 
 
 >  Reinicie o computador (ou máquina virtual) para concluir a instalação
@@ -205,15 +135,4 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 1. **Quartus:** Escreva `quartus` no terminal, o mesmo deve abrir a janela do Quartus
 1. **Programador:** Com a FPGA plugada no pc, digite `jtagconfig` ele deve aparecer o device.
 1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim
-1. **Z01.1** 
-
-Vá para a pasta a raiz do repositório Z01.1 e execute o seguinte comando no terminal:
-
-``` bash
-$ ./Projetos/src/0-Infra/testeVHDL.py
-```
-
-O resultado deve ser o seguinte:
-
-![Resultado validação infra](figs/testeVHDL.png)
 
