@@ -36,7 +36,8 @@ sudo apt install -y ros-melodic-desktop-full
 # 4. DEPENDECIES FOR BUILDING PACKAGES
 
 # Build tools:
-sudo apt-get install -y  python-rosinstall-generator
+sudo apt-get install -y python-rosdep
+sudo apt-get install -y python-rosinstall-generator
 sudo apt-get install -y python-rosinstall 
 sudo apt-get install -y ros-melodic-joy
 sudo apt-get install -y ros-melodic-teleop-tools
@@ -137,5 +138,8 @@ catkin_make
 mv /home/borg/404/scripts_robotica/raspicam.launch /opt/ros/melodic/share/gscam
 
 
+#9. INITIALIZING ROSDEP
+sudo rosdep init
+rosdep update
 echo "-------------------FINISH INSTALL ---------------------"
 
