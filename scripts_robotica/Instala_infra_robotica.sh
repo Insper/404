@@ -53,7 +53,7 @@ sudo apt-get install -y ros-melodic-rosserial-msgs
 sudo apt-get install -y ros-melodic-amcl
 
 # Build Navigation:
-sudo apt-get install -y ros-melodic-openslam-gmapping
+sudo apt install -y ros-melodic-slam-gmapping
 sudo apt-get install -y ros-melodic-map-server
 sudo apt-get install -y ros-melodic-move-base
 sudo apt-get install -y ros-melodic-urdf 
