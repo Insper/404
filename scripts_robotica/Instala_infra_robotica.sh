@@ -24,9 +24,9 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 # 2. KEEP UBUNTU OR DEBIAN UP TO DATE
 
 sudo apt-get -y update
-# sudo apt-get -y upgrade       # Uncomment to install new versions of packages currently installed
+sudo apt-get -y upgrade       # Uncomment to install new versions of packages currently installed
 # sudo apt-get -y dist-upgrade  # Uncomment to handle changing dependencies with new vers. of pack.
-# sudo apt-get -y autoremove    # Uncomment to remove packages that are now no longer needed
+sudo apt-get -y autoremove    # Uncomment to remove packages that are now no longer needed
 
 
 # 3. INSTALL ROS DESKTOP-FULL
@@ -86,6 +86,7 @@ sudo apt-get install -y ros-melodic-turtlebot3-gazebo-dbgsym
 sudo apt-get install -y ros-melodic-turtlebot3-msgs
 sudo apt-get install -y  ros-melodic-turtlebot3-simulations
 sudo apt-get install -y ros-melodic-turtlebot3-msgs 
+sudo apt install ros-melodic-ddynamic-reconfigure
 
 # Stream vídeo packages"
 
@@ -95,9 +96,11 @@ sudo apt-get install -y gstreamer1.0-libav*
 sudo apt-get install -y gstreamer1.0-plugins* 
 sudo apt-get install -y librealsense2-dev 
 sudo apt-get install -y librealsense2-utils 
+
 # 5. ENVIRONMENT SETUP
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
+source /opt/ros/melodic/setup.bash
 
 # 6. CREATE AND BUILD A WORKSPACE 
 
