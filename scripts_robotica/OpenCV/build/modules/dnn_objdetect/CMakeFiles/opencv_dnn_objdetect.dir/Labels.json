@@ -1,0 +1,48 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/dnn_objdetect/include/opencv2/core_detect.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_dnn_objdetect",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/dnn_objdetect/src/core_detect.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_dnn_objdetect",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/dnn_objdetect/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_dnn_objdetect",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h"
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_dnn_objdetect",
+			"Module"
+		],
+		"name" : "opencv_dnn_objdetect"
+	}
+}

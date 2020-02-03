@@ -1,0 +1,27 @@
+# Target labels
+ Extra
+ opencv_phase_unwrapping
+ Module
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping.hpp
+ Extra
+ opencv_phase_unwrapping
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping/histogramphaseunwrapping.hpp
+ Extra
+ opencv_phase_unwrapping
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/phase_unwrapping/include/opencv2/phase_unwrapping/phase_unwrapping.hpp
+ Extra
+ opencv_phase_unwrapping
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/phase_unwrapping/src/histogramphaseunwrapping.cpp
+ Extra
+ opencv_phase_unwrapping
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/phase_unwrapping/src/precomp.hpp
+ Extra
+ opencv_phase_unwrapping
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h
+/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp

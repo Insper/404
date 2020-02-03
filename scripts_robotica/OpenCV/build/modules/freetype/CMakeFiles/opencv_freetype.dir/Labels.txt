@@ -1,0 +1,19 @@
+# Target labels
+ Extra
+ opencv_freetype
+ Module
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/freetype/include/opencv2/freetype.hpp
+ Extra
+ opencv_freetype
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/freetype/src/freetype.cpp
+ Extra
+ opencv_freetype
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/freetype/src/precomp.hpp
+ Extra
+ opencv_freetype
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h
+/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp

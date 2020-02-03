@@ -1,0 +1,49 @@
+PORTED FUNCs LIST (39 of 39):
+
+ Ptr_GrayworldWB cv::xphoto::createGrayworldWB()
+ Ptr_LearningBasedWB cv::xphoto::createLearningBasedWB(String path_to_model = String())
+ Ptr_SimpleWB cv::xphoto::createSimpleWB()
+ Ptr_TonemapDurand cv::xphoto::createTonemapDurand(float gamma = 1.0f, float contrast = 4.0f, float saturation = 1.0f, float sigma_space = 2.0f, float sigma_color = 2.0f)
+ void cv::xphoto::applyChannelGains(Mat src, Mat& dst, float gainB, float gainG, float gainR)
+ void cv::xphoto::bm3dDenoising(Mat src, Mat& dst, float h = 1, int templateWindowSize = 4, int searchWindowSize = 16, int blockMatchingStep1 = 2500, int blockMatchingStep2 = 400, int groupSize = 8, int slidingStep = 1, float beta = 2.0f, int normType = cv::NORM_L2, int step = cv::xphoto::BM3D_STEPALL, int transformType = cv::xphoto::HAAR)
+ void cv::xphoto::bm3dDenoising(Mat src, Mat& dstStep1, Mat& dstStep2, float h = 1, int templateWindowSize = 4, int searchWindowSize = 16, int blockMatchingStep1 = 2500, int blockMatchingStep2 = 400, int groupSize = 8, int slidingStep = 1, float beta = 2.0f, int normType = cv::NORM_L2, int step = cv::xphoto::BM3D_STEPALL, int transformType = cv::xphoto::HAAR)
+ void cv::xphoto::dctDenoising(Mat src, Mat dst, double sigma, int psize = 16)
+ void cv::xphoto::inpaint(Mat src, Mat mask, Mat dst, int algorithmType)
+ void cv::xphoto::oilPainting(Mat src, Mat& dst, int size, int dynRatio, int code)
+ void cv::xphoto::oilPainting(Mat src, Mat& dst, int size, int dynRatio)
+ float cv::xphoto::TonemapDurand::getContrast()
+ float cv::xphoto::TonemapDurand::getSaturation()
+ float cv::xphoto::TonemapDurand::getSigmaColor()
+ float cv::xphoto::TonemapDurand::getSigmaSpace()
+ void cv::xphoto::TonemapDurand::setContrast(float contrast)
+ void cv::xphoto::TonemapDurand::setSaturation(float saturation)
+ void cv::xphoto::TonemapDurand::setSigmaColor(float sigma_color)
+ void cv::xphoto::TonemapDurand::setSigmaSpace(float sigma_space)
+ float cv::xphoto::GrayworldWB::getSaturationThreshold()
+ void cv::xphoto::GrayworldWB::setSaturationThreshold(float val)
+ float cv::xphoto::LearningBasedWB::getSaturationThreshold()
+ int cv::xphoto::LearningBasedWB::getHistBinNum()
+ int cv::xphoto::LearningBasedWB::getRangeMaxVal()
+ void cv::xphoto::LearningBasedWB::extractSimpleFeatures(Mat src, Mat& dst)
+ void cv::xphoto::LearningBasedWB::setHistBinNum(int val)
+ void cv::xphoto::LearningBasedWB::setRangeMaxVal(int val)
+ void cv::xphoto::LearningBasedWB::setSaturationThreshold(float val)
+ void cv::xphoto::WhiteBalancer::balanceWhite(Mat src, Mat& dst)
+ float cv::xphoto::SimpleWB::getInputMax()
+ float cv::xphoto::SimpleWB::getInputMin()
+ float cv::xphoto::SimpleWB::getOutputMax()
+ float cv::xphoto::SimpleWB::getOutputMin()
+ float cv::xphoto::SimpleWB::getP()
+ void cv::xphoto::SimpleWB::setInputMax(float val)
+ void cv::xphoto::SimpleWB::setInputMin(float val)
+ void cv::xphoto::SimpleWB::setOutputMax(float val)
+ void cv::xphoto::SimpleWB::setOutputMin(float val)
+ void cv::xphoto::SimpleWB::setP(float val)
+
+SKIPPED FUNCs LIST (0 of 39):
+
+
+0 def args - 34 funcs
+1 def args - 2 funcs
+11 def args - 2 funcs
+5 def args - 1 funcs

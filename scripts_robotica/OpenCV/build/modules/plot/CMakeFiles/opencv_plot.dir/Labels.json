@@ -1,0 +1,48 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/plot/include/opencv2/plot.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/plot/src/plot.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/plot/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h"
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_plot",
+			"Module"
+		],
+		"name" : "opencv_plot"
+	}
+}

@@ -1,0 +1,10 @@
+PORTED FUNCs LIST (2 of 2):
+
+ void cv::phase_unwrapping::PhaseUnwrapping::unwrapPhaseMap(Mat wrappedPhaseMap, Mat& unwrappedPhaseMap, Mat shadowMask = Mat())
+ void cv::phase_unwrapping::HistogramPhaseUnwrapping::getInverseReliabilityMap(Mat& reliabilityMap)
+
+SKIPPED FUNCs LIST (0 of 2):
+
+
+0 def args - 1 funcs
+1 def args - 1 funcs

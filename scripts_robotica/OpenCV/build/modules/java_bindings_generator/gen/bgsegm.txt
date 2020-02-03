@@ -1,0 +1,62 @@
+PORTED FUNCs LIST (50 of 50):
+
+ bool cv::bgsegm::BackgroundSubtractorGMG::getUpdateBackgroundModel()
+ double cv::bgsegm::BackgroundSubtractorGMG::getBackgroundPrior()
+ double cv::bgsegm::BackgroundSubtractorGMG::getDecisionThreshold()
+ double cv::bgsegm::BackgroundSubtractorGMG::getDefaultLearningRate()
+ double cv::bgsegm::BackgroundSubtractorGMG::getMaxVal()
+ double cv::bgsegm::BackgroundSubtractorGMG::getMinVal()
+ int cv::bgsegm::BackgroundSubtractorGMG::getMaxFeatures()
+ int cv::bgsegm::BackgroundSubtractorGMG::getNumFrames()
+ int cv::bgsegm::BackgroundSubtractorGMG::getQuantizationLevels()
+ int cv::bgsegm::BackgroundSubtractorGMG::getSmoothingRadius()
+ void cv::bgsegm::BackgroundSubtractorGMG::setBackgroundPrior(double bgprior)
+ void cv::bgsegm::BackgroundSubtractorGMG::setDecisionThreshold(double thresh)
+ void cv::bgsegm::BackgroundSubtractorGMG::setDefaultLearningRate(double lr)
+ void cv::bgsegm::BackgroundSubtractorGMG::setMaxFeatures(int maxFeatures)
+ void cv::bgsegm::BackgroundSubtractorGMG::setMaxVal(double val)
+ void cv::bgsegm::BackgroundSubtractorGMG::setMinVal(double val)
+ void cv::bgsegm::BackgroundSubtractorGMG::setNumFrames(int nframes)
+ void cv::bgsegm::BackgroundSubtractorGMG::setQuantizationLevels(int nlevels)
+ void cv::bgsegm::BackgroundSubtractorGMG::setSmoothingRadius(int radius)
+ void cv::bgsegm::BackgroundSubtractorGMG::setUpdateBackgroundModel(bool update)
+ Ptr_BackgroundSubtractorCNT cv::bgsegm::createBackgroundSubtractorCNT(int minPixelStability = 15, bool useHistory = true, int maxPixelStability = 15*60, bool isParallel = true)
+ Ptr_BackgroundSubtractorGMG cv::bgsegm::createBackgroundSubtractorGMG(int initializationFrames = 120, double decisionThreshold = 0.8)
+ Ptr_BackgroundSubtractorGSOC cv::bgsegm::createBackgroundSubtractorGSOC(int mc = LSBP_CAMERA_MOTION_COMPENSATION_NONE, int nSamples = 20, float replaceRate = 0.003f, float propagationRate = 0.01f, int hitsThreshold = 32, float alpha = 0.01f, float beta = 0.0022f, float blinkingSupressionDecay = 0.1f, float blinkingSupressionMultiplier = 0.1f, float noiseRemovalThresholdFacBG = 0.0004f, float noiseRemovalThresholdFacFG = 0.0008f)
+ Ptr_BackgroundSubtractorLSBP cv::bgsegm::createBackgroundSubtractorLSBP(int mc = LSBP_CAMERA_MOTION_COMPENSATION_NONE, int nSamples = 20, int LSBPRadius = 16, float Tlower = 2.0f, float Tupper = 32.0f, float Tinc = 1.0f, float Tdec = 0.05f, float Rscale = 10.0f, float Rincdec = 0.005f, float noiseRemovalThresholdFacBG = 0.0004f, float noiseRemovalThresholdFacFG = 0.0008f, int LSBPthreshold = 8, int minCount = 2)
+ Ptr_BackgroundSubtractorMOG cv::bgsegm::createBackgroundSubtractorMOG(int history = 200, int nmixtures = 5, double backgroundRatio = 0.7, double noiseSigma = 0)
+ Ptr_SyntheticSequenceGenerator cv::bgsegm::createSyntheticSequenceGenerator(Mat background, Mat object, double amplitude = 2.0, double wavelength = 20.0, double wavespeed = 0.2, double objspeed = 6.0)
+ bool cv::bgsegm::BackgroundSubtractorCNT::getIsParallel()
+ bool cv::bgsegm::BackgroundSubtractorCNT::getUseHistory()
+ int cv::bgsegm::BackgroundSubtractorCNT::getMaxPixelStability()
+ int cv::bgsegm::BackgroundSubtractorCNT::getMinPixelStability()
+ void cv::bgsegm::BackgroundSubtractorCNT::apply(Mat image, Mat& fgmask, double learningRate = -1)
+ void cv::bgsegm::BackgroundSubtractorCNT::getBackgroundImage(Mat& backgroundImage)
+ void cv::bgsegm::BackgroundSubtractorCNT::setIsParallel(bool value)
+ void cv::bgsegm::BackgroundSubtractorCNT::setMaxPixelStability(int value)
+ void cv::bgsegm::BackgroundSubtractorCNT::setMinPixelStability(int value)
+ void cv::bgsegm::BackgroundSubtractorCNT::setUseHistory(bool value)
+ void cv::bgsegm::BackgroundSubtractorLSBP::apply(Mat image, Mat& fgmask, double learningRate = -1)
+ void cv::bgsegm::BackgroundSubtractorLSBP::getBackgroundImage(Mat& backgroundImage)
+  cv::bgsegm::SyntheticSequenceGenerator::SyntheticSequenceGenerator(Mat background, Mat object, double amplitude, double wavelength, double wavespeed, double objspeed)
+ void cv::bgsegm::SyntheticSequenceGenerator::getNextFrame(Mat& frame, Mat& gtMask)
+ void cv::bgsegm::BackgroundSubtractorGSOC::apply(Mat image, Mat& fgmask, double learningRate = -1)
+ void cv::bgsegm::BackgroundSubtractorGSOC::getBackgroundImage(Mat& backgroundImage)
+ double cv::bgsegm::BackgroundSubtractorMOG::getBackgroundRatio()
+ double cv::bgsegm::BackgroundSubtractorMOG::getNoiseSigma()
+ int cv::bgsegm::BackgroundSubtractorMOG::getHistory()
+ int cv::bgsegm::BackgroundSubtractorMOG::getNMixtures()
+ void cv::bgsegm::BackgroundSubtractorMOG::setBackgroundRatio(double backgroundRatio)
+ void cv::bgsegm::BackgroundSubtractorMOG::setHistory(int nframes)
+ void cv::bgsegm::BackgroundSubtractorMOG::setNMixtures(int nmix)
+ void cv::bgsegm::BackgroundSubtractorMOG::setNoiseSigma(double noiseSigma)
+
+SKIPPED FUNCs LIST (0 of 50):
+
+
+0 def args - 41 funcs
+1 def args - 3 funcs
+2 def args - 1 funcs
+4 def args - 3 funcs
+11 def args - 1 funcs
+13 def args - 1 funcs

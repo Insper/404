@@ -1,0 +1,62 @@
+PORTED FUNCs LIST (20 of 30):
+
+ Mat cv::text::createOCRHMMTransitionsTable(String vocabulary, vector_String lexicon)
+ Ptr_ERFilter cv::text::createERFilterNM1(String filename, int thresholdDelta = 1, float minArea = (float)0.00025, float maxArea = (float)0.13, float minProbability = (float)0.4, bool nonMaxSuppression = true, float minProbabilityDiff = (float)0.1)
+ Ptr_ERFilter cv::text::createERFilterNM2(String filename, float minProbability = (float)0.3)
+ void cv::text::computeNMChannels(Mat _src, vector_Mat& _channels, int _mode = ERFILTER_NM_RGBLGrad)
+ void cv::text::detectRegions(Mat image, Ptr_ERFilter er_filter1, Ptr_ERFilter er_filter2, vector_Rect& groups_rects, int method = ERGROUPING_ORIENTATION_HORIZ, String filename = String(), float minProbability = (float)0.5)
+ void cv::text::detectRegions(Mat image, Ptr_ERFilter er_filter1, Ptr_ERFilter er_filter2, vector_vector_Point& regions)
+ void cv::text::erGrouping(Mat image, Mat channel, vector_vector_Point regions, vector_Rect& groups_rects, int method = ERGROUPING_ORIENTATION_HORIZ, String filename = String(), float minProbablity = (float)0.5)
+static Ptr_OCRBeamSearchDecoder cv::text::OCRBeamSearchDecoder::create(String filename, String vocabulary, Mat transition_probabilities_table, Mat emission_probabilities_table, int mode = OCR_DECODER_VITERBI, int beam_size = 500)
+ String cv::text::OCRBeamSearchDecoder::run(Mat image, Mat mask, int min_confidence, int component_level = 0)
+ String cv::text::OCRBeamSearchDecoder::run(Mat image, int min_confidence, int component_level = 0)
+ void cv::text::TextDetector::detect(Mat inputImage, vector_Rect& Bbox, vector_float& confidence)
+static Ptr_OCRTesseract cv::text::OCRTesseract::create(c_string datapath = 0, c_string language = 0, c_string char_whitelist = 0, int oem = OEM_DEFAULT, int psmode = PSM_AUTO)
+ String cv::text::OCRTesseract::run(Mat image, Mat mask, int min_confidence, int component_level = 0)
+ String cv::text::OCRTesseract::run(Mat image, int min_confidence, int component_level = 0)
+ void cv::text::OCRTesseract::setWhiteList(String char_whitelist)
+static Ptr_OCRHMMDecoder cv::text::OCRHMMDecoder::create(String filename, String vocabulary, Mat transition_probabilities_table, Mat emission_probabilities_table, int mode = OCR_DECODER_VITERBI, int classifier = OCR_KNN_CLASSIFIER)
+ String cv::text::OCRHMMDecoder::run(Mat image, Mat mask, int min_confidence, int component_level = 0)
+ String cv::text::OCRHMMDecoder::run(Mat image, int min_confidence, int component_level = 0)
+static Ptr_TextDetectorCNN cv::text::TextDetectorCNN::create(String modelArchFilename, String modelWeightsFilename)
+ void cv::text::TextDetectorCNN::detect(Mat inputImage, vector_Rect& Bbox, vector_float& confidence)
+
+SKIPPED FUNCs LIST (10 of 30):
+
+ Ptr_ERFilter cv::text::createERFilterNM1(Ptr_ERFilter_Callback cb, int thresholdDelta = 1, float minArea = (float)0.00025, float maxArea = (float)0.13, float minProbability = (float)0.4, bool nonMaxSuppression = true, float minProbabilityDiff = (float)0.1)
+// Unknown type 'Ptr_ERFilter_Callback' (I), skipping the function
+
+ Ptr_ERFilter cv::text::createERFilterNM2(Ptr_ERFilter_Callback cb, float minProbability = (float)0.3)
+// Unknown type 'Ptr_ERFilter_Callback' (I), skipping the function
+
+ Ptr_ERFilter_Callback cv::text::loadClassifierNM1(String filename)
+// Return type 'Ptr_ERFilter_Callback' is not supported, skipping the function
+
+ Ptr_ERFilter_Callback cv::text::loadClassifierNM2(String filename)
+// Return type 'Ptr_ERFilter_Callback' is not supported, skipping the function
+
+ Ptr_OCRBeamSearchDecoder_ClassifierCallback cv::text::loadOCRBeamSearchClassifierCNN(String filename)
+// Return type 'Ptr_OCRBeamSearchDecoder_ClassifierCallback' is not supported, skipping the function
+
+ Ptr_OCRHMMDecoder_ClassifierCallback cv::text::loadOCRHMMClassifier(String filename, int classifier)
+// Return type 'Ptr_OCRHMMDecoder_ClassifierCallback' is not supported, skipping the function
+
+ Ptr_OCRHMMDecoder_ClassifierCallback cv::text::loadOCRHMMClassifierCNN(String filename)
+// Return type 'Ptr_OCRHMMDecoder_ClassifierCallback' is not supported, skipping the function
+
+ Ptr_OCRHMMDecoder_ClassifierCallback cv::text::loadOCRHMMClassifierNM(String filename)
+// Return type 'Ptr_OCRHMMDecoder_ClassifierCallback' is not supported, skipping the function
+
+static Ptr_OCRBeamSearchDecoder cv::text::OCRBeamSearchDecoder::create(Ptr_OCRBeamSearchDecoder_ClassifierCallback classifier, String vocabulary, Mat transition_probabilities_table, Mat emission_probabilities_table, int mode = OCR_DECODER_VITERBI, int beam_size = 500)
+// Unknown type 'Ptr_OCRBeamSearchDecoder_ClassifierCallback' (I), skipping the function
+
+static Ptr_OCRHMMDecoder cv::text::OCRHMMDecoder::create(Ptr_OCRHMMDecoder_ClassifierCallback classifier, String vocabulary, Mat transition_probabilities_table, Mat emission_probabilities_table, int mode = OCR_DECODER_VITERBI)
+// Unknown type 'Ptr_OCRHMMDecoder_ClassifierCallback' (I), skipping the function
+
+
+0 def args - 12 funcs
+1 def args - 10 funcs
+2 def args - 3 funcs
+3 def args - 2 funcs
+5 def args - 1 funcs
+6 def args - 2 funcs

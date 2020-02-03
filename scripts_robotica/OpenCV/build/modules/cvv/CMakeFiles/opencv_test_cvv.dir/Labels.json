@@ -1,0 +1,81 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_debug_flag.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_is_any_of.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_location.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_main.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_observer_ptr.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_reference.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/cvv/test/test_precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_cvv",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/modules/cvv/opencv_test_cvv_autogen/mocs_compilation.cpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_cvv",
+			"AccuracyTest"
+		],
+		"name" : "opencv_test_cvv"
+	}
+}

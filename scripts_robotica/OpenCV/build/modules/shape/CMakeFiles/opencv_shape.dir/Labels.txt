@@ -1,0 +1,67 @@
+# Target labels
+ Extra
+ opencv_shape
+ Module
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/include/opencv2/shape.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/include/opencv2/shape/emdL1.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/include/opencv2/shape/hist_cost.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/include/opencv2/shape/shape.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/include/opencv2/shape/shape_distance.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/include/opencv2/shape/shape_transformer.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/aff_trans.cpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/emdL1.cpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/haus_dis.cpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/hist_cost.cpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/sc_dis.cpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/tps_trans.cpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/emdL1_def.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/precomp.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/shape/src/scd_def.hpp
+ Extra
+ opencv_shape
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h
+/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp

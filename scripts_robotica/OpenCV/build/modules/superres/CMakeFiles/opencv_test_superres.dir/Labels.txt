@@ -1,0 +1,17 @@
+# Target labels
+ Extra
+ opencv_superres
+ AccuracyTest
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/superres/test/test_main.cpp
+ Extra
+ opencv_superres
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/superres/test/test_superres.cpp
+ Extra
+ opencv_superres
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/superres/test/test_precomp.hpp
+ Extra
+ opencv_superres
+ AccuracyTest

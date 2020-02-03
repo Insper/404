@@ -1,0 +1,300 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/include/opencv2/viz.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/include/opencv2/viz/types.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/include/opencv2/viz/viz3d.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/include/opencv2/viz/vizcore.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/include/opencv2/viz/widget_accessor.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/include/opencv2/viz/widgets.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/clouds.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/shapes.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/types.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/viz3d.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vizcore.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vizimpl.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkCloudMatSink.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkCloudMatSource.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkImageMatSource.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkOBJWriter.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkTrajectorySource.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkVizInteractorStyle.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkXYZReader.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkXYZWriter.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/widget.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vizimpl.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkVizInteractorStyle.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkCloudMatSink.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkCloudMatSource.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkImageMatSource.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkOBJWriter.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkTrajectorySource.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkXYZReader.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/src/vtk/vtkXYZWriter.h",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h"
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_viz",
+			"Module"
+		],
+		"name" : "opencv_viz"
+	}
+}

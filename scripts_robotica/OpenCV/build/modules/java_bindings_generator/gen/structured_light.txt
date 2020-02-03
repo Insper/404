@@ -1,0 +1,26 @@
+PORTED FUNCs LIST (13 of 14):
+
+static Ptr_SinusoidalPattern cv::structured_light::SinusoidalPattern::create(Ptr_SinusoidalPattern_Params parameters = makePtr<SinusoidalPattern::Params>())
+ void cv::structured_light::SinusoidalPattern::computeDataModulationTerm(vector_Mat patternImages, Mat& dataModulationTerm, Mat shadowMask)
+ void cv::structured_light::SinusoidalPattern::computePhaseMap(vector_Mat patternImages, Mat& wrappedPhaseMap, Mat& shadowMask = Mat(), Mat fundamental = Mat())
+ void cv::structured_light::SinusoidalPattern::findProCamMatches(Mat projUnwrappedPhaseMap, Mat camUnwrappedPhaseMap, vector_Mat& matches)
+ void cv::structured_light::SinusoidalPattern::unwrapPhaseMap(vector_Mat wrappedPhaseMap, Mat& unwrappedPhaseMap, Size camSize, Mat shadowMask = Mat())
+ bool cv::structured_light::StructuredLightPattern::generate(vector_Mat& patternImages)
+  cv::structured_light::SinusoidalPattern::Params::Params()
+static Ptr_GrayCodePattern cv::structured_light::GrayCodePattern::create(int width, int height)
+ bool cv::structured_light::GrayCodePattern::getProjPixel(vector_Mat patternImages, int x, int y, Point& projPix)
+ size_t cv::structured_light::GrayCodePattern::getNumberOfPatternImages()
+ void cv::structured_light::GrayCodePattern::getImagesForShadowMasks(Mat& blackImage, Mat& whiteImage)
+ void cv::structured_light::GrayCodePattern::setBlackThreshold(size_t value)
+ void cv::structured_light::GrayCodePattern::setWhiteThreshold(size_t value)
+
+SKIPPED FUNCs LIST (1 of 14):
+
+ bool cv::structured_light::StructuredLightPattern::decode(vector_vector_Mat patternImages, Mat& disparityMap, vector_Mat blackImages = vector_Mat(), vector_Mat whiteImages = vector_Mat(), int flags = DECODE_3D_UNDERWORLD)
+// Unknown type 'vector_vector_Mat' (I), skipping the function
+
+
+0 def args - 10 funcs
+1 def args - 2 funcs
+2 def args - 1 funcs
+3 def args - 1 funcs
