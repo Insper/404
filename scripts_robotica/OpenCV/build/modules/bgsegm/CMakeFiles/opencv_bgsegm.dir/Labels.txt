@@ -1,0 +1,35 @@
+# Target labels
+ Extra
+ opencv_bgsegm
+ Module
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/include/opencv2/bgsegm.hpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/src/bgfg_gaussmix.cpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/src/bgfg_gmg.cpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/src/bgfg_gsoc.cpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/src/bgfg_subcnt.cpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/src/synthetic_seq.cpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bgsegm/src/precomp.hpp
+ Extra
+ opencv_bgsegm
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h
+/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp

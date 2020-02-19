@@ -1,0 +1,57 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/hdf/include/opencv2/hdf.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_hdf",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/hdf/include/opencv2/hdf/hdf5.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_hdf",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/hdf/src/hdf5.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_hdf",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/hdf/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_hdf",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h"
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_hdf",
+			"Module"
+		],
+		"name" : "opencv_hdf"
+	}
+}

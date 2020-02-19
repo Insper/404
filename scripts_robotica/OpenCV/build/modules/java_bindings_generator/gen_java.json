@@ -1,0 +1,35 @@
+{
+  "rootdir": "/home/borg/404/scripts_robotica/OpenCV",
+  "modules": [
+    { "name": "core", "location": "modules/core" },
+    { "name": "imgproc", "location": "modules/imgproc" },
+    { "name": "ml", "location": "modules/ml" },
+    { "name": "phase_unwrapping", "location": "opencv_contrib/modules/phase_unwrapping" },
+    { "name": "photo", "location": "modules/photo" },
+    { "name": "plot", "location": "opencv_contrib/modules/plot" },
+    { "name": "xphoto", "location": "opencv_contrib/modules/xphoto" },
+    { "name": "dnn", "location": "modules/dnn" },
+    { "name": "features2d", "location": "modules/features2d" },
+    { "name": "img_hash", "location": "opencv_contrib/modules/img_hash" },
+    { "name": "imgcodecs", "location": "modules/imgcodecs" },
+    { "name": "videoio", "location": "modules/videoio" },
+    { "name": "calib3d", "location": "modules/calib3d" },
+    { "name": "highgui", "location": "modules/highgui" },
+    { "name": "objdetect", "location": "modules/objdetect" },
+    { "name": "structured_light", "location": "opencv_contrib/modules/structured_light" },
+    { "name": "text", "location": "opencv_contrib/modules/text" },
+    { "name": "video", "location": "modules/video" },
+    { "name": "xfeatures2d", "location": "opencv_contrib/modules/xfeatures2d" },
+    { "name": "ximgproc", "location": "opencv_contrib/modules/ximgproc" },
+    { "name": "aruco", "location": "opencv_contrib/modules/aruco" },
+    { "name": "bgsegm", "location": "opencv_contrib/modules/bgsegm" },
+    { "name": "bioinspired", "location": "opencv_contrib/modules/bioinspired" },
+    { "name": "face", "location": "opencv_contrib/modules/face" },
+    { "name": "tracking", "location": "opencv_contrib/modules/tracking" }
+  ],
+  "files_remap": [
+    { "src": "modules/java/generator/src/java/org/opencv/osgi/OpenCVNativeLoader.java.in", "target": "/home/borg/404/scripts_robotica/OpenCV/build/configured/modules/java/generator/src/java/org/opencv/osgi/OpenCVNativeLoader.java" },
+    { "src": "modules/java/generator/android/java/org/opencv/android/OpenCVLoader.java.in", "target": "/home/borg/404/scripts_robotica/OpenCV/build/configured/modules/java/generator/android/java/org/opencv/android/OpenCVLoader.java" },
+    { "src": "modules/core/misc/java/src/java/core+Core.jcode.in", "target": "/home/borg/404/scripts_robotica/OpenCV/build/configured/modules/core/misc/java/src/java/core+Core.jcode" }
+  ]
+}

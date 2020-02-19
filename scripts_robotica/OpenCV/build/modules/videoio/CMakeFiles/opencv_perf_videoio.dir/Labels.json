@@ -1,0 +1,51 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/modules/videoio/perf/perf_input.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/modules/videoio/perf/perf_main.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/modules/videoio/perf/perf_output.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"PerfTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/modules/videoio/perf/perf_precomp.hpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"PerfTest"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Main",
+			"opencv_videoio",
+			"PerfTest"
+		],
+		"name" : "opencv_perf_videoio"
+	}
+}

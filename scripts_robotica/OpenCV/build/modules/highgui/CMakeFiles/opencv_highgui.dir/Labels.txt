@@ -1,0 +1,49 @@
+# Target labels
+ Main
+ opencv_highgui
+ Module
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/include/opencv2/highgui.hpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/include/opencv2/highgui/highgui.hpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/include/opencv2/highgui/highgui_c.h
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/src/window.cpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/src/roiSelector.cpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/src/window_QT.cpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/src/window_QT.h
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/modules/highgui/src/moc_window_QT.cpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/modules/highgui/qrc_window_QT.cpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/src/precomp.hpp
+ Main
+ opencv_highgui
+ Module
+/home/borg/404/scripts_robotica/OpenCV/build/cvconfig.h
+/home/borg/404/scripts_robotica/OpenCV/build/opencv2/opencv_modules.hpp
+/home/borg/404/scripts_robotica/OpenCV/build/modules/highgui/src/moc_window_QT.cpp.rule
+/home/borg/404/scripts_robotica/OpenCV/modules/highgui/src/window_QT.qrc

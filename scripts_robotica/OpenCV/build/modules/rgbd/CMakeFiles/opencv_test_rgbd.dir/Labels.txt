@@ -1,0 +1,33 @@
+# Target labels
+ Extra
+ opencv_rgbd
+ AccuracyTest
+# Source files and their labels
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_kinfu.cpp
+ Extra
+ opencv_rgbd
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_main.cpp
+ Extra
+ opencv_rgbd
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_normal.cpp
+ Extra
+ opencv_rgbd
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_odometry.cpp
+ Extra
+ opencv_rgbd
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_registration.cpp
+ Extra
+ opencv_rgbd
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_utils.cpp
+ Extra
+ opencv_rgbd
+ AccuracyTest
+/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/rgbd/test/test_precomp.hpp
+ Extra
+ opencv_rgbd
+ AccuracyTest

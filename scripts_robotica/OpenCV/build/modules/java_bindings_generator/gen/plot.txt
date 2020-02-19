@@ -1,0 +1,27 @@
+PORTED FUNCs LIST (20 of 20):
+
+static Ptr_Plot2d cv::plot::Plot2d::create(Mat data)
+static Ptr_Plot2d cv::plot::Plot2d::create(Mat dataX, Mat dataY)
+ void cv::plot::Plot2d::render(Mat& _plotResult)
+ void cv::plot::Plot2d::setGridLinesNumber(int gridLinesNumber)
+ void cv::plot::Plot2d::setInvertOrientation(bool _invertOrientation)
+ void cv::plot::Plot2d::setMaxX(double _plotMaxX)
+ void cv::plot::Plot2d::setMaxY(double _plotMaxY)
+ void cv::plot::Plot2d::setMinX(double _plotMinX)
+ void cv::plot::Plot2d::setMinY(double _plotMinY)
+ void cv::plot::Plot2d::setNeedPlotLine(bool _needPlotLine)
+ void cv::plot::Plot2d::setPlotAxisColor(Scalar _plotAxisColor)
+ void cv::plot::Plot2d::setPlotBackgroundColor(Scalar _plotBackgroundColor)
+ void cv::plot::Plot2d::setPlotGridColor(Scalar _plotGridColor)
+ void cv::plot::Plot2d::setPlotLineColor(Scalar _plotLineColor)
+ void cv::plot::Plot2d::setPlotLineWidth(int _plotLineWidth)
+ void cv::plot::Plot2d::setPlotSize(int _plotSizeWidth, int _plotSizeHeight)
+ void cv::plot::Plot2d::setPlotTextColor(Scalar _plotTextColor)
+ void cv::plot::Plot2d::setPointIdxToPrint(int pointIdx)
+ void cv::plot::Plot2d::setShowGrid(bool needShowGrid)
+ void cv::plot::Plot2d::setShowText(bool needShowText)
+
+SKIPPED FUNCs LIST (0 of 20):
+
+
+0 def args - 20 funcs

@@ -1,0 +1,23 @@
+PORTED FUNCs LIST (16 of 16):
+
+ bool cv::Tracker::init(Mat image, Rect2d boundingBox)
+ bool cv::Tracker::update(Mat image, Rect2d& boundingBox)
+static Ptr_TrackerMIL cv::TrackerMIL::create()
+static Ptr_TrackerGOTURN cv::TrackerGOTURN::create()
+static Ptr_TrackerTLD cv::TrackerTLD::create()
+static Ptr_TrackerMedianFlow cv::TrackerMedianFlow::create()
+static Ptr_TrackerBoosting cv::TrackerBoosting::create()
+  cv::MultiTracker::MultiTracker()
+static Ptr_MultiTracker cv::MultiTracker::create()
+ bool cv::MultiTracker::add(Ptr_Tracker newTracker, Mat image, Rect2d boundingBox)
+ bool cv::MultiTracker::update(Mat image, vector_Rect2d& boundingBox)
+ vector_Rect2d cv::MultiTracker::getObjects()
+static Ptr_TrackerCSRT cv::TrackerCSRT::create()
+ void cv::TrackerCSRT::setInitialMask(Mat mask)
+static Ptr_TrackerMOSSE cv::TrackerMOSSE::create()
+static Ptr_TrackerKCF cv::TrackerKCF::create()
+
+SKIPPED FUNCs LIST (0 of 16):
+
+
+0 def args - 16 funcs

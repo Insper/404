@@ -1,0 +1,87 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_common.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_main.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_tutorial2.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_tutorial3.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_viz3d.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/tests_simple.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_common.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		},
+		{
+			"file" : "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/viz/test/test_precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_viz",
+				"AccuracyTest"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_viz",
+			"AccuracyTest"
+		],
+		"name" : "opencv_test_viz"
+	}
+}
