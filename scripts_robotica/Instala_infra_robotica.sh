@@ -134,7 +134,7 @@ git clone https://github.com/intel-ros/realsense.git
 cd ~/catkin_ws/
 catkin_create_pkg gscam raspicam.launch  rospy roscpp
 catkin_make
-mv /home/borg/404/scripts_robotica/raspicam.launch /opt/ros/melodic/share/gscam
+sudo mv /home/borg/404/scripts_robotica/raspicam.launch /opt/ros/melodic/share/gscam
 
 
 #9. INITIALIZING ROSDEP
