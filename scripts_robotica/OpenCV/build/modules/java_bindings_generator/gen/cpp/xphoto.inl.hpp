@@ -11,12 +11,12 @@
 
 #include "opencv2/xphoto.hpp"
 
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/inpainting.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/dct_image_denoising.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/oilpainting.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/bm3d_image_denoising.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/tonemap.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/white_balance.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/dct_image_denoising.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/bm3d_image_denoising.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/oilpainting.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/tonemap.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xphoto/include/opencv2/xphoto/inpainting.hpp"
 
 #define LOG_TAG "org.opencv.xphoto"
 #include "common.h"
@@ -1217,70 +1217,6 @@ JNIEXPORT void JNICALL Java_org_opencv_xphoto_TonemapDurand_delete
 
 
 //
-//  float cv::xphoto::GrayworldWB::getSaturationThreshold()
-//
-
-using namespace cv::xphoto;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_xphoto_GrayworldWB_getSaturationThreshold_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_xphoto_GrayworldWB_getSaturationThreshold_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "xphoto::getSaturationThreshold_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::xphoto::GrayworldWB>* me = (Ptr<cv::xphoto::GrayworldWB>*) self; //TODO: check for NULL
-        return (*me)->getSaturationThreshold();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::xphoto::GrayworldWB::setSaturationThreshold(float val)
-//
-
-using namespace cv::xphoto;
-
-JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_setSaturationThreshold_10 (JNIEnv*, jclass, jlong, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_setSaturationThreshold_10
-  (JNIEnv* env, jclass , jlong self, jfloat val)
-{
-    static const char method_name[] = "xphoto::setSaturationThreshold_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::xphoto::GrayworldWB>* me = (Ptr<cv::xphoto::GrayworldWB>*) self; //TODO: check for NULL
-        (*me)->setSaturationThreshold( (float)val );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::xphoto::GrayworldWB>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::xphoto::GrayworldWB>*) self;
-}
-
-
-//
 //  float cv::xphoto::LearningBasedWB::getSaturationThreshold()
 //
 
@@ -1470,6 +1406,70 @@ JNIEXPORT void JNICALL Java_org_opencv_xphoto_LearningBasedWB_delete
   (JNIEnv*, jclass, jlong self)
 {
     delete (Ptr<cv::xphoto::LearningBasedWB>*) self;
+}
+
+
+//
+//  float cv::xphoto::GrayworldWB::getSaturationThreshold()
+//
+
+using namespace cv::xphoto;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_xphoto_GrayworldWB_getSaturationThreshold_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_xphoto_GrayworldWB_getSaturationThreshold_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "xphoto::getSaturationThreshold_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::xphoto::GrayworldWB>* me = (Ptr<cv::xphoto::GrayworldWB>*) self; //TODO: check for NULL
+        return (*me)->getSaturationThreshold();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::xphoto::GrayworldWB::setSaturationThreshold(float val)
+//
+
+using namespace cv::xphoto;
+
+JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_setSaturationThreshold_10 (JNIEnv*, jclass, jlong, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_setSaturationThreshold_10
+  (JNIEnv* env, jclass , jlong self, jfloat val)
+{
+    static const char method_name[] = "xphoto::setSaturationThreshold_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::xphoto::GrayworldWB>* me = (Ptr<cv::xphoto::GrayworldWB>*) self; //TODO: check for NULL
+        (*me)->setSaturationThreshold( (float)val );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::xphoto::GrayworldWB>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_xphoto_GrayworldWB_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::xphoto::GrayworldWB>*) self;
 }
 
 

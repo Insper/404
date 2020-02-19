@@ -12,8 +12,8 @@
 #include "opencv2/xfeatures2d.hpp"
 
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/nonfree.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/cuda.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d/nonfree.hpp"
 
 #define LOG_TAG "org.opencv.xfeatures2d"
 #include "common.h"

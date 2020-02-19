@@ -22,7 +22,7 @@
         <attribute name="Specification-Title" value="OpenCV"/>
         <attribute name="Specification-Version" value="4.1.1"/>
         <attribute name="Implementation-Title" value="OpenCV"/>
-        <attribute name="Implementation-Version" value="0ba4298-dirty"/>
+        <attribute name="Implementation-Version" value="46f2325b-dirty"/>
         <attribute name="Implementation-Date" value="${timestamp}"/>
       </manifest>
     </jar>
@@ -39,7 +39,7 @@
       destdir="/home/borg/404/scripts_robotica/OpenCV/build/doc/doxygen/html/javadoc"
       Windowtitle="OpenCV 4.1.1 Java documentation"
       Doctitle="OpenCV Java documentation (4.1.1)"
-      bottom="Generated on ${timestamp} / OpenCV 0ba4298-dirty"
+      bottom="Generated on ${timestamp} / OpenCV 46f2325b-dirty"
       failonerror="true"
       encoding="UTF-8" charset="UTF-8" docencoding="UTF-8"
       link="https://docs.oracle.com/javase/6/docs/api/"

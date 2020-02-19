@@ -49,12 +49,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
   "/usr/include/gdal"
   "/usr/include/x86_64-linux-gnu"
-  "../3rdparty/openexr/Half"
-  "../3rdparty/openexr/Iex"
-  "../3rdparty/openexr/IlmThread"
-  "../3rdparty/openexr/Imath"
-  "../3rdparty/openexr/IlmImf"
-  "3rdparty/openexr"
+  "/usr/include/OpenEXR"
   "../modules/imgcodecs/include"
   "modules/imgcodecs"
   "../modules/core/include"
@@ -74,7 +69,6 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/borg/404/scripts_robotica/OpenCV/build/modules/imgproc/CMakeFiles/opencv_imgproc.dir/DependInfo.cmake"
   "/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/ippiw/CMakeFiles/ippiw.dir/DependInfo.cmake"
   "/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/libjasper/CMakeFiles/libjasper.dir/DependInfo.cmake"
-  "/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/IlmImf.dir/DependInfo.cmake"
   "/home/borg/404/scripts_robotica/OpenCV/build/modules/core/CMakeFiles/opencv_core.dir/DependInfo.cmake"
   )
 

@@ -11,8 +11,8 @@
 
 #include "opencv2/text.hpp"
 
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/text/include/opencv2/text/ocr.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/text/include/opencv2/text/erfilter.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/text/include/opencv2/text/ocr.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/text/include/opencv2/text/textDetector.hpp"
 
 #define LOG_TAG "org.opencv.text"

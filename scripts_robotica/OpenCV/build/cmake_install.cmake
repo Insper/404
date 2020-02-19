@@ -109,7 +109,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/libjasper/cmake_install.cmake")
-  include("/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/cmake_install.cmake")
   include("/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/ippiw/cmake_install.cmake")
   include("/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/protobuf/cmake_install.cmake")
   include("/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/quirc/cmake_install.cmake")

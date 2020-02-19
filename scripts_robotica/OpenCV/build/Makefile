@@ -114,8 +114,8 @@ test/fast: test
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -253,19 +253,6 @@ libjasper: cmake_check_build_system
 libjasper/fast:
 	$(MAKE) -f 3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make 3rdparty/libjasper/CMakeFiles/libjasper.dir/build
 .PHONY : libjasper/fast
-
-#=============================================================================
-# Target rules for targets named IlmImf
-
-# Build rule for target.
-IlmImf: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IlmImf
-.PHONY : IlmImf
-
-# fast build rule for target.
-IlmImf/fast:
-	$(MAKE) -f 3rdparty/openexr/CMakeFiles/IlmImf.dir/build.make 3rdparty/openexr/CMakeFiles/IlmImf.dir/build
-.PHONY : IlmImf/fast
 
 #=============================================================================
 # Target rules for targets named ippiw
@@ -2055,7 +2042,6 @@ help:
 	@echo "... package"
 	@echo "... package_source"
 	@echo "... libjasper"
-	@echo "... IlmImf"
 	@echo "... ippiw"
 	@echo "... libprotobuf"
 	@echo "... quirc"

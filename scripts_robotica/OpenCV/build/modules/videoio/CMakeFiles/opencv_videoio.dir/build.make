@@ -459,6 +459,7 @@ lib/libopencv_videoio.so.4.1.1: /usr/lib/x86_64-linux-gnu/libavcodec.so
 lib/libopencv_videoio.so.4.1.1: /usr/lib/x86_64-linux-gnu/libavformat.so
 lib/libopencv_videoio.so.4.1.1: /usr/lib/x86_64-linux-gnu/libavutil.so
 lib/libopencv_videoio.so.4.1.1: /usr/lib/x86_64-linux-gnu/libswscale.so
+lib/libopencv_videoio.so.4.1.1: /usr/lib/x86_64-linux-gnu/libavresample.so
 lib/libopencv_videoio.so.4.1.1: modules/videoio/CMakeFiles/opencv_videoio.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX shared library ../../lib/libopencv_videoio.so"
 	cd /home/borg/404/scripts_robotica/OpenCV/build/modules/videoio && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opencv_videoio.dir/link.txt --verbose=$(VERBOSE)

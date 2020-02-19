@@ -3,7 +3,7 @@
 //
 package org.opencv.face;
 
-
+import org.opencv.face.Facemark;
 
 // C++: class FacemarkKazemi
 

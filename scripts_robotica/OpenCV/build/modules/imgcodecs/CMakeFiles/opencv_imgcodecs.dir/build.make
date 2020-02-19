@@ -596,10 +596,23 @@ lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libpng.so
 lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libz.so
 lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libtiff.so
 lib/libopencv_imgcodecs.so.4.1.1: 3rdparty/lib/liblibjasper.a
-lib/libopencv_imgcodecs.so.4.1.1: 3rdparty/lib/libIlmImf.a
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libImath.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libIlmImf.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libIex.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libHalf.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libIlmThread.so
 lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/libgdal.so
 lib/libopencv_imgcodecs.so.4.1.1: lib/libopencv_core.so.4.1.1
-lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libz.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libjpeg.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libwebp.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libpng.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libtiff.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libImath.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libIlmImf.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libIex.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libHalf.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/x86_64-linux-gnu/libIlmThread.so
+lib/libopencv_imgcodecs.so.4.1.1: /usr/lib/libgdal.so
 lib/libopencv_imgcodecs.so.4.1.1: modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX shared library ../../lib/libopencv_imgcodecs.so"
 	cd /home/borg/404/scripts_robotica/OpenCV/build/modules/imgcodecs && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opencv_imgcodecs.dir/link.txt --verbose=$(VERBOSE)

@@ -12,8 +12,8 @@
 #include "opencv2/bioinspired.hpp"
 
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retinafasttonemapping.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retina.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/transientareassegmentationmodule.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retina.hpp"
 
 #define LOG_TAG "org.opencv.bioinspired"
 #include "common.h"

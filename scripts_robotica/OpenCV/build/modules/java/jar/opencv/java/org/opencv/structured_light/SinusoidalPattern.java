@@ -8,7 +8,6 @@ import java.util.List;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.structured_light.SinusoidalPattern;
-import org.opencv.structured_light.StructuredLightPattern;
 import org.opencv.utils.Converters;
 
 // C++: class SinusoidalPattern

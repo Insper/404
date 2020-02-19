@@ -936,3 +936,17 @@ Linking C executable cmTC_121ea
 make[1]: Leaving directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the function dgemm_ exists passed with the following output:
+Change Dir: /home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1190c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1190c.dir/build.make CMakeFiles/cmTC_1190c.dir/build
+make[1]: Entering directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1190c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -DCHECK_FUNCTION_EXISTS=dgemm_ -O3 -DNDEBUG -fPIE   -o CMakeFiles/cmTC_1190c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1190c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1190c.dir/link.txt --verbose=1
+/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -DCHECK_FUNCTION_EXISTS=dgemm_ -O3 -DNDEBUG    -Wl,--gc-sections  CMakeFiles/cmTC_1190c.dir/CheckFunctionExists.c.o  -o cmTC_1190c /usr/lib/x86_64-linux-gnu/libf77blas.so /usr/lib/x86_64-linux-gnu/libatlas.so 
+make[1]: Leaving directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
+
+

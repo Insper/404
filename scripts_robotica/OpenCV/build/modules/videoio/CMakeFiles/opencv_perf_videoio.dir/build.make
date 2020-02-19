@@ -176,6 +176,7 @@ bin/opencv_perf_videoio: /usr/lib/x86_64-linux-gnu/libavcodec.so
 bin/opencv_perf_videoio: /usr/lib/x86_64-linux-gnu/libavformat.so
 bin/opencv_perf_videoio: /usr/lib/x86_64-linux-gnu/libavutil.so
 bin/opencv_perf_videoio: /usr/lib/x86_64-linux-gnu/libswscale.so
+bin/opencv_perf_videoio: /usr/lib/x86_64-linux-gnu/libavresample.so
 bin/opencv_perf_videoio: modules/videoio/CMakeFiles/opencv_perf_videoio.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../bin/opencv_perf_videoio"
 	cd /home/borg/404/scripts_robotica/OpenCV/build/modules/videoio && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opencv_perf_videoio.dir/link.txt --verbose=$(VERBOSE)

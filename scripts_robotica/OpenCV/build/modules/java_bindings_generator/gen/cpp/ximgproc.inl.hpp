@@ -12,25 +12,25 @@
 #include "opencv2/ximgproc.hpp"
 
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edgepreserving_filter.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/disparity_filter.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/deriche_filter.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edge_filter.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/weighted_median_filter.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/ridgefilter.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/seeds.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/structured_edge_detection.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/slic.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/sparse_match_interpolator.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/color_match.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/segmentation.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/fast_hough_transform.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/lsc.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/slic.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/peilin.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/estimated_covariance.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/fast_line_detector.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edgeboxes.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/fourier_descriptors.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/fast_line_detector.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/color_match.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/estimated_covariance.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edge_filter.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/seeds.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/lsc.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/ridgefilter.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/structured_edge_detection.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/segmentation.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/deriche_filter.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edgepreserving_filter.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/edgeboxes.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/sparse_match_interpolator.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/weighted_median_filter.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/ximgproc/include/opencv2/ximgproc/disparity_filter.hpp"
 
 #define LOG_TAG "org.opencv.ximgproc"
 #include "common.h"
@@ -1875,6 +1875,1979 @@ JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityFilter_delete
   (JNIEnv*, jclass, jlong self)
 {
     delete (Ptr<cv::ximgproc::DisparityFilter>*) self;
+}
+
+
+//
+//  Mat cv::ximgproc::DisparityWLSFilter::getConfidenceMap()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getConfidenceMap_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getConfidenceMap_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getConfidenceMap_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        ::Mat _retval_ = (*me)->getConfidenceMap();
+        return (jlong) new ::Mat(_retval_);
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  Rect cv::ximgproc::DisparityWLSFilter::getROI()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jdoubleArray JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getROI_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jdoubleArray JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getROI_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getROI_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        Rect _retval_ = (*me)->getROI();
+        jdoubleArray _da_retval_ = env->NewDoubleArray(4);  jdouble _tmp_retval_[4] = {(jdouble)_retval_.x, (jdouble)_retval_.y, (jdouble)_retval_.width, (jdouble)_retval_.height}; env->SetDoubleArrayRegion(_da_retval_, 0, 4, _tmp_retval_);
+        return _da_retval_;
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  double cv::ximgproc::DisparityWLSFilter::getLambda()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLambda_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLambda_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getLambda_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        return (*me)->getLambda();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  double cv::ximgproc::DisparityWLSFilter::getSigmaColor()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getSigmaColor_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getSigmaColor_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getSigmaColor_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        return (*me)->getSigmaColor();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  int cv::ximgproc::DisparityWLSFilter::getDepthDiscontinuityRadius()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getDepthDiscontinuityRadius_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getDepthDiscontinuityRadius_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getDepthDiscontinuityRadius_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        return (*me)->getDepthDiscontinuityRadius();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  int cv::ximgproc::DisparityWLSFilter::getLRCthresh()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLRCthresh_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLRCthresh_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getLRCthresh_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        return (*me)->getLRCthresh();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::ximgproc::DisparityWLSFilter::setDepthDiscontinuityRadius(int _disc_radius)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setDepthDiscontinuityRadius_10 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setDepthDiscontinuityRadius_10
+  (JNIEnv* env, jclass , jlong self, jint _disc_radius)
+{
+    static const char method_name[] = "ximgproc::setDepthDiscontinuityRadius_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        (*me)->setDepthDiscontinuityRadius( (int)_disc_radius );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::DisparityWLSFilter::setLRCthresh(int _LRC_thresh)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLRCthresh_10 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLRCthresh_10
+  (JNIEnv* env, jclass , jlong self, jint _LRC_thresh)
+{
+    static const char method_name[] = "ximgproc::setLRCthresh_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        (*me)->setLRCthresh( (int)_LRC_thresh );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::DisparityWLSFilter::setLambda(double _lambda)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLambda_10 (JNIEnv*, jclass, jlong, jdouble);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLambda_10
+  (JNIEnv* env, jclass , jlong self, jdouble _lambda)
+{
+    static const char method_name[] = "ximgproc::setLambda_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        (*me)->setLambda( (double)_lambda );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::DisparityWLSFilter::setSigmaColor(double _sigma_color)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setSigmaColor_10 (JNIEnv*, jclass, jlong, jdouble);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setSigmaColor_10
+  (JNIEnv* env, jclass , jlong self, jdouble _sigma_color)
+{
+    static const char method_name[] = "ximgproc::setSigmaColor_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
+        (*me)->setSigmaColor( (double)_sigma_color );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::DisparityWLSFilter>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::DisparityWLSFilter>*) self;
+}
+
+
+//
+// static Ptr_RidgeDetectionFilter cv::ximgproc::RidgeDetectionFilter::create(int ddepth = CV_32FC1, int dx = 1, int dy = 1, int ksize = 3, int out_dtype = CV_8UC1, double scale = 1, double delta = 0, int borderType = BORDER_DEFAULT)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_10 (JNIEnv*, jclass, jint, jint, jint, jint, jint, jdouble, jdouble, jint);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_10
+  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype, jdouble scale, jdouble delta, jint borderType)
+{
+    static const char method_name[] = "ximgproc::create_10()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype, (double)scale, (double)delta, (int)borderType );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_11 (JNIEnv*, jclass, jint, jint, jint, jint, jint, jdouble, jdouble);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_11
+  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype, jdouble scale, jdouble delta)
+{
+    static const char method_name[] = "ximgproc::create_11()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype, (double)scale, (double)delta );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_12 (JNIEnv*, jclass, jint, jint, jint, jint, jint, jdouble);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_12
+  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype, jdouble scale)
+{
+    static const char method_name[] = "ximgproc::create_12()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype, (double)scale );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_13 (JNIEnv*, jclass, jint, jint, jint, jint, jint);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_13
+  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype)
+{
+    static const char method_name[] = "ximgproc::create_13()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_14 (JNIEnv*, jclass, jint, jint, jint, jint);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_14
+  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize)
+{
+    static const char method_name[] = "ximgproc::create_14()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_15 (JNIEnv*, jclass, jint, jint, jint);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_15
+  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy)
+{
+    static const char method_name[] = "ximgproc::create_15()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_16 (JNIEnv*, jclass, jint, jint);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_16
+  (JNIEnv* env, jclass , jint ddepth, jint dx)
+{
+    static const char method_name[] = "ximgproc::create_16()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_17 (JNIEnv*, jclass, jint);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_17
+  (JNIEnv* env, jclass , jint ddepth)
+{
+    static const char method_name[] = "ximgproc::create_17()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth );
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_18 (JNIEnv*, jclass);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_18
+  (JNIEnv* env, jclass )
+{
+    static const char method_name[] = "ximgproc::create_18()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
+        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create();
+        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::ximgproc::RidgeDetectionFilter::getRidgeFilteredImage(Mat _img, Mat& out)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_getRidgeFilteredImage_10 (JNIEnv*, jclass, jlong, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_getRidgeFilteredImage_10
+  (JNIEnv* env, jclass , jlong self, jlong _img_nativeObj, jlong out_nativeObj)
+{
+    static const char method_name[] = "ximgproc::getRidgeFilteredImage_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::RidgeDetectionFilter>* me = (Ptr<cv::ximgproc::RidgeDetectionFilter>*) self; //TODO: check for NULL
+        Mat& _img = *((Mat*)_img_nativeObj);
+        Mat& out = *((Mat*)out_nativeObj);
+        (*me)->getRidgeFilteredImage( _img, out );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::RidgeDetectionFilter>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::RidgeDetectionFilter>*) self;
+}
+
+
+//
+//  bool cv::ximgproc::EdgeAwareInterpolator::getUsePostProcessing()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jboolean JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getUsePostProcessing_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jboolean JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getUsePostProcessing_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getUsePostProcessing_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        return (*me)->getUsePostProcessing();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::ximgproc::EdgeAwareInterpolator::getFGSLambda()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSLambda_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSLambda_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getFGSLambda_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        return (*me)->getFGSLambda();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::ximgproc::EdgeAwareInterpolator::getFGSSigma()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSSigma_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSSigma_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getFGSSigma_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        return (*me)->getFGSSigma();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::ximgproc::EdgeAwareInterpolator::getLambda()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getLambda_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getLambda_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getLambda_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        return (*me)->getLambda();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::ximgproc::EdgeAwareInterpolator::getSigma()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getSigma_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getSigma_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getSigma_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        return (*me)->getSigma();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  int cv::ximgproc::EdgeAwareInterpolator::getK()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getK_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getK_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getK_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        return (*me)->getK();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::ximgproc::EdgeAwareInterpolator::setFGSLambda(float _lambda)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSLambda_10 (JNIEnv*, jclass, jlong, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSLambda_10
+  (JNIEnv* env, jclass , jlong self, jfloat _lambda)
+{
+    static const char method_name[] = "ximgproc::setFGSLambda_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        (*me)->setFGSLambda( (float)_lambda );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::EdgeAwareInterpolator::setFGSSigma(float _sigma)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSSigma_10 (JNIEnv*, jclass, jlong, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSSigma_10
+  (JNIEnv* env, jclass , jlong self, jfloat _sigma)
+{
+    static const char method_name[] = "ximgproc::setFGSSigma_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        (*me)->setFGSSigma( (float)_sigma );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::EdgeAwareInterpolator::setK(int _k)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setK_10 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setK_10
+  (JNIEnv* env, jclass , jlong self, jint _k)
+{
+    static const char method_name[] = "ximgproc::setK_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        (*me)->setK( (int)_k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::EdgeAwareInterpolator::setLambda(float _lambda)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setLambda_10 (JNIEnv*, jclass, jlong, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setLambda_10
+  (JNIEnv* env, jclass , jlong self, jfloat _lambda)
+{
+    static const char method_name[] = "ximgproc::setLambda_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        (*me)->setLambda( (float)_lambda );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::EdgeAwareInterpolator::setSigma(float _sigma)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setSigma_10 (JNIEnv*, jclass, jlong, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setSigma_10
+  (JNIEnv* env, jclass , jlong self, jfloat _sigma)
+{
+    static const char method_name[] = "ximgproc::setSigma_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        (*me)->setSigma( (float)_sigma );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::EdgeAwareInterpolator::setUsePostProcessing(bool _use_post_proc)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setUsePostProcessing_10 (JNIEnv*, jclass, jlong, jboolean);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setUsePostProcessing_10
+  (JNIEnv* env, jclass , jlong self, jboolean _use_post_proc)
+{
+    static const char method_name[] = "ximgproc::setUsePostProcessing_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
+        (*me)->setUsePostProcessing( (bool)_use_post_proc );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::EdgeAwareInterpolator>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self;
+}
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentationStrategySize_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentationStrategySize_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>*) self;
+}
+
+
+//
+// static Ptr_AdaptiveManifoldFilter cv::ximgproc::AdaptiveManifoldFilter::create()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_create_10 (JNIEnv*, jclass);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_create_10
+  (JNIEnv* env, jclass )
+{
+    static const char method_name[] = "ximgproc::create_10()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::ximgproc::AdaptiveManifoldFilter> Ptr_AdaptiveManifoldFilter;
+        Ptr_AdaptiveManifoldFilter _retval_ = cv::ximgproc::AdaptiveManifoldFilter::create();
+        return (jlong)(new Ptr_AdaptiveManifoldFilter(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::ximgproc::AdaptiveManifoldFilter::collectGarbage()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_collectGarbage_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_collectGarbage_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::collectGarbage_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::AdaptiveManifoldFilter>* me = (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self; //TODO: check for NULL
+        (*me)->collectGarbage();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::AdaptiveManifoldFilter::filter(Mat src, Mat& dst, Mat joint = Mat())
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_10 (JNIEnv*, jclass, jlong, jlong, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_10
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj, jlong joint_nativeObj)
+{
+    static const char method_name[] = "ximgproc::filter_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::AdaptiveManifoldFilter>* me = (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& dst = *((Mat*)dst_nativeObj);
+        Mat& joint = *((Mat*)joint_nativeObj);
+        (*me)->filter( src, dst, joint );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_11 (JNIEnv*, jclass, jlong, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_11
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
+{
+    static const char method_name[] = "ximgproc::filter_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::AdaptiveManifoldFilter>* me = (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& dst = *((Mat*)dst_nativeObj);
+        (*me)->filter( src, dst );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::AdaptiveManifoldFilter>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self;
+}
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::addGraphSegmentation(Ptr_GraphSegmentation g)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addGraphSegmentation_10 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addGraphSegmentation_10
+  (JNIEnv* env, jclass , jlong self, jlong g_nativeObj)
+{
+    static const char method_name[] = "ximgproc::addGraphSegmentation_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->addGraphSegmentation( *((Ptr<cv::ximgproc::segmentation::GraphSegmentation>*)g_nativeObj) );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::addImage(Mat img)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addImage_10 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addImage_10
+  (JNIEnv* env, jclass , jlong self, jlong img_nativeObj)
+{
+    static const char method_name[] = "ximgproc::addImage_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        Mat& img = *((Mat*)img_nativeObj);
+        (*me)->addImage( img );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::addStrategy(Ptr_SelectiveSearchSegmentationStrategy s)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addStrategy_10 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addStrategy_10
+  (JNIEnv* env, jclass , jlong self, jlong s_nativeObj)
+{
+    static const char method_name[] = "ximgproc::addStrategy_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->addStrategy( *((Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy>*)s_nativeObj) );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::clearGraphSegmentations()
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearGraphSegmentations_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearGraphSegmentations_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::clearGraphSegmentations_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->clearGraphSegmentations();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::clearImages()
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearImages_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearImages_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::clearImages_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->clearImages();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::clearStrategies()
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearStrategies_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearStrategies_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::clearStrategies_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->clearStrategies();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::process(vector_Rect& rects)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_process_10 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_process_10
+  (JNIEnv* env, jclass , jlong self, jlong rects_mat_nativeObj)
+{
+    static const char method_name[] = "ximgproc::process_10()";
+    try {
+        LOGD("%s", method_name);
+        std::vector<Rect> rects;
+        Mat& rects_mat = *((Mat*)rects_mat_nativeObj);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->process( rects );
+        vector_Rect_to_Mat( rects, rects_mat );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::setBaseImage(Mat img)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_setBaseImage_10 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_setBaseImage_10
+  (JNIEnv* env, jclass , jlong self, jlong img_nativeObj)
+{
+    static const char method_name[] = "ximgproc::setBaseImage_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        Mat& img = *((Mat*)img_nativeObj);
+        (*me)->setBaseImage( img );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::switchToSelectiveSearchFast(int base_k = 150, int inc_k = 150, float sigma = 0.8f)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_10 (JNIEnv*, jclass, jlong, jint, jint, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_10
+  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k, jfloat sigma)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchFast( (int)base_k, (int)inc_k, (float)sigma );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_11 (JNIEnv*, jclass, jlong, jint, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_11
+  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchFast( (int)base_k, (int)inc_k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_12 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_12
+  (JNIEnv* env, jclass , jlong self, jint base_k)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_12()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchFast( (int)base_k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_13 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_13
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_13()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchFast();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::switchToSelectiveSearchQuality(int base_k = 150, int inc_k = 150, float sigma = 0.8f)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_10 (JNIEnv*, jclass, jlong, jint, jint, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_10
+  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k, jfloat sigma)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchQuality( (int)base_k, (int)inc_k, (float)sigma );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_11 (JNIEnv*, jclass, jlong, jint, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_11
+  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchQuality( (int)base_k, (int)inc_k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_12 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_12
+  (JNIEnv* env, jclass , jlong self, jint base_k)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_12()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchQuality( (int)base_k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_13 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_13
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_13()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSelectiveSearchQuality();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::switchToSingleStrategy(int k = 200, float sigma = 0.8f)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_10 (JNIEnv*, jclass, jlong, jint, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_10
+  (JNIEnv* env, jclass , jlong self, jint k, jfloat sigma)
+{
+    static const char method_name[] = "ximgproc::switchToSingleStrategy_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSingleStrategy( (int)k, (float)sigma );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_11 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_11
+  (JNIEnv* env, jclass , jlong self, jint k)
+{
+    static const char method_name[] = "ximgproc::switchToSingleStrategy_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSingleStrategy( (int)k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_12 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_12
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::switchToSingleStrategy_12()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
+        (*me)->switchToSingleStrategy();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self;
+}
+
+
+//
+//  int cv::ximgproc::SuperpixelSLIC::getNumberOfSuperpixels()
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getNumberOfSuperpixels_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getNumberOfSuperpixels_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getNumberOfSuperpixels_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        return (*me)->getNumberOfSuperpixels();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::ximgproc::SuperpixelSLIC::enforceLabelConnectivity(int min_element_size = 25)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_10 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_10
+  (JNIEnv* env, jclass , jlong self, jint min_element_size)
+{
+    static const char method_name[] = "ximgproc::enforceLabelConnectivity_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        (*me)->enforceLabelConnectivity( (int)min_element_size );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_11 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_11
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::enforceLabelConnectivity_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        (*me)->enforceLabelConnectivity();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::SuperpixelSLIC::getLabelContourMask(Mat& image, bool thick_line = true)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_10 (JNIEnv*, jclass, jlong, jlong, jboolean);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_10
+  (JNIEnv* env, jclass , jlong self, jlong image_nativeObj, jboolean thick_line)
+{
+    static const char method_name[] = "ximgproc::getLabelContourMask_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        Mat& image = *((Mat*)image_nativeObj);
+        (*me)->getLabelContourMask( image, (bool)thick_line );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_11 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_11
+  (JNIEnv* env, jclass , jlong self, jlong image_nativeObj)
+{
+    static const char method_name[] = "ximgproc::getLabelContourMask_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        Mat& image = *((Mat*)image_nativeObj);
+        (*me)->getLabelContourMask( image );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::SuperpixelSLIC::getLabels(Mat& labels_out)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabels_10 (JNIEnv*, jclass, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabels_10
+  (JNIEnv* env, jclass , jlong self, jlong labels_out_nativeObj)
+{
+    static const char method_name[] = "ximgproc::getLabels_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        Mat& labels_out = *((Mat*)labels_out_nativeObj);
+        (*me)->getLabels( labels_out );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::SuperpixelSLIC::iterate(int num_iterations = 10)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_10 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_10
+  (JNIEnv* env, jclass , jlong self, jint num_iterations)
+{
+    static const char method_name[] = "ximgproc::iterate_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        (*me)->iterate( (int)num_iterations );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_11 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_11
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::iterate_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
+        (*me)->iterate();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::SuperpixelSLIC>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::SuperpixelSLIC>*) self;
+}
+
+
+//
+//  double cv::ximgproc::segmentation::GraphSegmentation::getSigma()
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getSigma_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getSigma_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getSigma_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        return (*me)->getSigma();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::ximgproc::segmentation::GraphSegmentation::getK()
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getK_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getK_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getK_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        return (*me)->getK();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  int cv::ximgproc::segmentation::GraphSegmentation::getMinSize()
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getMinSize_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getMinSize_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "ximgproc::getMinSize_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        return (*me)->getMinSize();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::GraphSegmentation::processImage(Mat src, Mat& dst)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_processImage_10 (JNIEnv*, jclass, jlong, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_processImage_10
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
+{
+    static const char method_name[] = "ximgproc::processImage_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& dst = *((Mat*)dst_nativeObj);
+        (*me)->processImage( src, dst );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::GraphSegmentation::setK(float k)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setK_10 (JNIEnv*, jclass, jlong, jfloat);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setK_10
+  (JNIEnv* env, jclass , jlong self, jfloat k)
+{
+    static const char method_name[] = "ximgproc::setK_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        (*me)->setK( (float)k );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::GraphSegmentation::setMinSize(int min_size)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setMinSize_10 (JNIEnv*, jclass, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setMinSize_10
+  (JNIEnv* env, jclass , jlong self, jint min_size)
+{
+    static const char method_name[] = "ximgproc::setMinSize_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        (*me)->setMinSize( (int)min_size );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  void cv::ximgproc::segmentation::GraphSegmentation::setSigma(double sigma)
+//
+
+using namespace cv::ximgproc::segmentation;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setSigma_10 (JNIEnv*, jclass, jlong, jdouble);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setSigma_10
+  (JNIEnv* env, jclass , jlong self, jdouble sigma)
+{
+    static const char method_name[] = "ximgproc::setSigma_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
+        (*me)->setSigma( (double)sigma );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::segmentation::GraphSegmentation>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self;
+}
+
+
+//
+//  void cv::ximgproc::GuidedFilter::filter(Mat src, Mat& dst, int dDepth = -1)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_10 (JNIEnv*, jclass, jlong, jlong, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_10
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj, jint dDepth)
+{
+    static const char method_name[] = "ximgproc::filter_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::GuidedFilter>* me = (Ptr<cv::ximgproc::GuidedFilter>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& dst = *((Mat*)dst_nativeObj);
+        (*me)->filter( src, dst, (int)dDepth );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_11 (JNIEnv*, jclass, jlong, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_11
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
+{
+    static const char method_name[] = "ximgproc::filter_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::GuidedFilter>* me = (Ptr<cv::ximgproc::GuidedFilter>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& dst = *((Mat*)dst_nativeObj);
+        (*me)->filter( src, dst );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::GuidedFilter>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::GuidedFilter>*) self;
+}
+
+
+//
+//  void cv::ximgproc::RFFeatureGetter::getFeatures(Mat src, Mat features, int gnrmRad, int gsmthRad, int shrink, int outNum, int gradNum)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_getFeatures_10 (JNIEnv*, jclass, jlong, jlong, jlong, jint, jint, jint, jint, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_getFeatures_10
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong features_nativeObj, jint gnrmRad, jint gsmthRad, jint shrink, jint outNum, jint gradNum)
+{
+    static const char method_name[] = "ximgproc::getFeatures_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::RFFeatureGetter>* me = (Ptr<cv::ximgproc::RFFeatureGetter>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& features = *((Mat*)features_nativeObj);
+        (*me)->getFeatures( src, features, (int)gnrmRad, (int)gsmthRad, (int)shrink, (int)outNum, (int)gradNum );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::RFFeatureGetter>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::RFFeatureGetter>*) self;
+}
+
+
+//
+//  void cv::ximgproc::FastGlobalSmootherFilter::filter(Mat src, Mat& dst)
+//
+
+using namespace cv::ximgproc;
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_filter_10 (JNIEnv*, jclass, jlong, jlong, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_filter_10
+  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
+{
+    static const char method_name[] = "ximgproc::filter_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::ximgproc::FastGlobalSmootherFilter>* me = (Ptr<cv::ximgproc::FastGlobalSmootherFilter>*) self; //TODO: check for NULL
+        Mat& src = *((Mat*)src_nativeObj);
+        Mat& dst = *((Mat*)dst_nativeObj);
+        (*me)->filter( src, dst );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::ximgproc::FastGlobalSmootherFilter>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::ximgproc::FastGlobalSmootherFilter>*) self;
 }
 
 
@@ -5105,1979 +7078,6 @@ JNIEXPORT void JNICALL Java_org_opencv_ximgproc_Ximgproc_weightedMedianFilter_13
     }
 }
 
-
-
-//
-// static Ptr_RidgeDetectionFilter cv::ximgproc::RidgeDetectionFilter::create(int ddepth = CV_32FC1, int dx = 1, int dy = 1, int ksize = 3, int out_dtype = CV_8UC1, double scale = 1, double delta = 0, int borderType = BORDER_DEFAULT)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_10 (JNIEnv*, jclass, jint, jint, jint, jint, jint, jdouble, jdouble, jint);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_10
-  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype, jdouble scale, jdouble delta, jint borderType)
-{
-    static const char method_name[] = "ximgproc::create_10()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype, (double)scale, (double)delta, (int)borderType );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_11 (JNIEnv*, jclass, jint, jint, jint, jint, jint, jdouble, jdouble);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_11
-  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype, jdouble scale, jdouble delta)
-{
-    static const char method_name[] = "ximgproc::create_11()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype, (double)scale, (double)delta );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_12 (JNIEnv*, jclass, jint, jint, jint, jint, jint, jdouble);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_12
-  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype, jdouble scale)
-{
-    static const char method_name[] = "ximgproc::create_12()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype, (double)scale );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_13 (JNIEnv*, jclass, jint, jint, jint, jint, jint);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_13
-  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize, jint out_dtype)
-{
-    static const char method_name[] = "ximgproc::create_13()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize, (int)out_dtype );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_14 (JNIEnv*, jclass, jint, jint, jint, jint);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_14
-  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy, jint ksize)
-{
-    static const char method_name[] = "ximgproc::create_14()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy, (int)ksize );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_15 (JNIEnv*, jclass, jint, jint, jint);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_15
-  (JNIEnv* env, jclass , jint ddepth, jint dx, jint dy)
-{
-    static const char method_name[] = "ximgproc::create_15()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx, (int)dy );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_16 (JNIEnv*, jclass, jint, jint);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_16
-  (JNIEnv* env, jclass , jint ddepth, jint dx)
-{
-    static const char method_name[] = "ximgproc::create_16()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth, (int)dx );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_17 (JNIEnv*, jclass, jint);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_17
-  (JNIEnv* env, jclass , jint ddepth)
-{
-    static const char method_name[] = "ximgproc::create_17()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create( (int)ddepth );
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_18 (JNIEnv*, jclass);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_create_18
-  (JNIEnv* env, jclass )
-{
-    static const char method_name[] = "ximgproc::create_18()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::RidgeDetectionFilter> Ptr_RidgeDetectionFilter;
-        Ptr_RidgeDetectionFilter _retval_ = cv::ximgproc::RidgeDetectionFilter::create();
-        return (jlong)(new Ptr_RidgeDetectionFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::ximgproc::RidgeDetectionFilter::getRidgeFilteredImage(Mat _img, Mat& out)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_getRidgeFilteredImage_10 (JNIEnv*, jclass, jlong, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_getRidgeFilteredImage_10
-  (JNIEnv* env, jclass , jlong self, jlong _img_nativeObj, jlong out_nativeObj)
-{
-    static const char method_name[] = "ximgproc::getRidgeFilteredImage_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::RidgeDetectionFilter>* me = (Ptr<cv::ximgproc::RidgeDetectionFilter>*) self; //TODO: check for NULL
-        Mat& _img = *((Mat*)_img_nativeObj);
-        Mat& out = *((Mat*)out_nativeObj);
-        (*me)->getRidgeFilteredImage( _img, out );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::RidgeDetectionFilter>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RidgeDetectionFilter_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::RidgeDetectionFilter>*) self;
-}
-
-
-//
-//  bool cv::ximgproc::EdgeAwareInterpolator::getUsePostProcessing()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jboolean JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getUsePostProcessing_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jboolean JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getUsePostProcessing_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getUsePostProcessing_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        return (*me)->getUsePostProcessing();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::ximgproc::EdgeAwareInterpolator::getFGSLambda()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSLambda_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSLambda_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getFGSLambda_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        return (*me)->getFGSLambda();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::ximgproc::EdgeAwareInterpolator::getFGSSigma()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSSigma_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getFGSSigma_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getFGSSigma_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        return (*me)->getFGSSigma();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::ximgproc::EdgeAwareInterpolator::getLambda()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getLambda_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getLambda_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getLambda_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        return (*me)->getLambda();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::ximgproc::EdgeAwareInterpolator::getSigma()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getSigma_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getSigma_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getSigma_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        return (*me)->getSigma();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  int cv::ximgproc::EdgeAwareInterpolator::getK()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getK_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_getK_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getK_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        return (*me)->getK();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::ximgproc::EdgeAwareInterpolator::setFGSLambda(float _lambda)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSLambda_10 (JNIEnv*, jclass, jlong, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSLambda_10
-  (JNIEnv* env, jclass , jlong self, jfloat _lambda)
-{
-    static const char method_name[] = "ximgproc::setFGSLambda_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        (*me)->setFGSLambda( (float)_lambda );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::EdgeAwareInterpolator::setFGSSigma(float _sigma)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSSigma_10 (JNIEnv*, jclass, jlong, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setFGSSigma_10
-  (JNIEnv* env, jclass , jlong self, jfloat _sigma)
-{
-    static const char method_name[] = "ximgproc::setFGSSigma_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        (*me)->setFGSSigma( (float)_sigma );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::EdgeAwareInterpolator::setK(int _k)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setK_10 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setK_10
-  (JNIEnv* env, jclass , jlong self, jint _k)
-{
-    static const char method_name[] = "ximgproc::setK_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        (*me)->setK( (int)_k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::EdgeAwareInterpolator::setLambda(float _lambda)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setLambda_10 (JNIEnv*, jclass, jlong, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setLambda_10
-  (JNIEnv* env, jclass , jlong self, jfloat _lambda)
-{
-    static const char method_name[] = "ximgproc::setLambda_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        (*me)->setLambda( (float)_lambda );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::EdgeAwareInterpolator::setSigma(float _sigma)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setSigma_10 (JNIEnv*, jclass, jlong, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setSigma_10
-  (JNIEnv* env, jclass , jlong self, jfloat _sigma)
-{
-    static const char method_name[] = "ximgproc::setSigma_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        (*me)->setSigma( (float)_sigma );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::EdgeAwareInterpolator::setUsePostProcessing(bool _use_post_proc)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setUsePostProcessing_10 (JNIEnv*, jclass, jlong, jboolean);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_setUsePostProcessing_10
-  (JNIEnv* env, jclass , jlong self, jboolean _use_post_proc)
-{
-    static const char method_name[] = "ximgproc::setUsePostProcessing_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::EdgeAwareInterpolator>* me = (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self; //TODO: check for NULL
-        (*me)->setUsePostProcessing( (bool)_use_post_proc );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::EdgeAwareInterpolator>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_EdgeAwareInterpolator_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::EdgeAwareInterpolator>*) self;
-}
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentationStrategySize_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentationStrategySize_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategySize>*) self;
-}
-
-
-//
-// static Ptr_AdaptiveManifoldFilter cv::ximgproc::AdaptiveManifoldFilter::create()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_create_10 (JNIEnv*, jclass);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_create_10
-  (JNIEnv* env, jclass )
-{
-    static const char method_name[] = "ximgproc::create_10()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::ximgproc::AdaptiveManifoldFilter> Ptr_AdaptiveManifoldFilter;
-        Ptr_AdaptiveManifoldFilter _retval_ = cv::ximgproc::AdaptiveManifoldFilter::create();
-        return (jlong)(new Ptr_AdaptiveManifoldFilter(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::ximgproc::AdaptiveManifoldFilter::collectGarbage()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_collectGarbage_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_collectGarbage_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::collectGarbage_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::AdaptiveManifoldFilter>* me = (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self; //TODO: check for NULL
-        (*me)->collectGarbage();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::AdaptiveManifoldFilter::filter(Mat src, Mat& dst, Mat joint = Mat())
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_10 (JNIEnv*, jclass, jlong, jlong, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_10
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj, jlong joint_nativeObj)
-{
-    static const char method_name[] = "ximgproc::filter_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::AdaptiveManifoldFilter>* me = (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& dst = *((Mat*)dst_nativeObj);
-        Mat& joint = *((Mat*)joint_nativeObj);
-        (*me)->filter( src, dst, joint );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_11 (JNIEnv*, jclass, jlong, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_filter_11
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
-{
-    static const char method_name[] = "ximgproc::filter_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::AdaptiveManifoldFilter>* me = (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& dst = *((Mat*)dst_nativeObj);
-        (*me)->filter( src, dst );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::AdaptiveManifoldFilter>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_AdaptiveManifoldFilter_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::AdaptiveManifoldFilter>*) self;
-}
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::addGraphSegmentation(Ptr_GraphSegmentation g)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addGraphSegmentation_10 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addGraphSegmentation_10
-  (JNIEnv* env, jclass , jlong self, jlong g_nativeObj)
-{
-    static const char method_name[] = "ximgproc::addGraphSegmentation_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->addGraphSegmentation( *((Ptr<cv::ximgproc::segmentation::GraphSegmentation>*)g_nativeObj) );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::addImage(Mat img)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addImage_10 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addImage_10
-  (JNIEnv* env, jclass , jlong self, jlong img_nativeObj)
-{
-    static const char method_name[] = "ximgproc::addImage_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        Mat& img = *((Mat*)img_nativeObj);
-        (*me)->addImage( img );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::addStrategy(Ptr_SelectiveSearchSegmentationStrategy s)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addStrategy_10 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_addStrategy_10
-  (JNIEnv* env, jclass , jlong self, jlong s_nativeObj)
-{
-    static const char method_name[] = "ximgproc::addStrategy_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->addStrategy( *((Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentationStrategy>*)s_nativeObj) );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::clearGraphSegmentations()
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearGraphSegmentations_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearGraphSegmentations_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::clearGraphSegmentations_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->clearGraphSegmentations();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::clearImages()
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearImages_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearImages_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::clearImages_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->clearImages();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::clearStrategies()
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearStrategies_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_clearStrategies_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::clearStrategies_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->clearStrategies();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::process(vector_Rect& rects)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_process_10 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_process_10
-  (JNIEnv* env, jclass , jlong self, jlong rects_mat_nativeObj)
-{
-    static const char method_name[] = "ximgproc::process_10()";
-    try {
-        LOGD("%s", method_name);
-        std::vector<Rect> rects;
-        Mat& rects_mat = *((Mat*)rects_mat_nativeObj);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->process( rects );
-        vector_Rect_to_Mat( rects, rects_mat );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::setBaseImage(Mat img)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_setBaseImage_10 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_setBaseImage_10
-  (JNIEnv* env, jclass , jlong self, jlong img_nativeObj)
-{
-    static const char method_name[] = "ximgproc::setBaseImage_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        Mat& img = *((Mat*)img_nativeObj);
-        (*me)->setBaseImage( img );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::switchToSelectiveSearchFast(int base_k = 150, int inc_k = 150, float sigma = 0.8f)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_10 (JNIEnv*, jclass, jlong, jint, jint, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_10
-  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k, jfloat sigma)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchFast( (int)base_k, (int)inc_k, (float)sigma );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_11 (JNIEnv*, jclass, jlong, jint, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_11
-  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchFast( (int)base_k, (int)inc_k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_12 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_12
-  (JNIEnv* env, jclass , jlong self, jint base_k)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_12()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchFast( (int)base_k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_13 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchFast_13
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchFast_13()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchFast();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::switchToSelectiveSearchQuality(int base_k = 150, int inc_k = 150, float sigma = 0.8f)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_10 (JNIEnv*, jclass, jlong, jint, jint, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_10
-  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k, jfloat sigma)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchQuality( (int)base_k, (int)inc_k, (float)sigma );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_11 (JNIEnv*, jclass, jlong, jint, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_11
-  (JNIEnv* env, jclass , jlong self, jint base_k, jint inc_k)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchQuality( (int)base_k, (int)inc_k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_12 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_12
-  (JNIEnv* env, jclass , jlong self, jint base_k)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_12()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchQuality( (int)base_k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_13 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSelectiveSearchQuality_13
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::switchToSelectiveSearchQuality_13()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSelectiveSearchQuality();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::SelectiveSearchSegmentation::switchToSingleStrategy(int k = 200, float sigma = 0.8f)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_10 (JNIEnv*, jclass, jlong, jint, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_10
-  (JNIEnv* env, jclass , jlong self, jint k, jfloat sigma)
-{
-    static const char method_name[] = "ximgproc::switchToSingleStrategy_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSingleStrategy( (int)k, (float)sigma );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_11 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_11
-  (JNIEnv* env, jclass , jlong self, jint k)
-{
-    static const char method_name[] = "ximgproc::switchToSingleStrategy_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSingleStrategy( (int)k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_12 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_switchToSingleStrategy_12
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::switchToSingleStrategy_12()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>* me = (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self; //TODO: check for NULL
-        (*me)->switchToSingleStrategy();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SelectiveSearchSegmentation_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::segmentation::SelectiveSearchSegmentation>*) self;
-}
-
-
-//
-//  int cv::ximgproc::SuperpixelSLIC::getNumberOfSuperpixels()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getNumberOfSuperpixels_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getNumberOfSuperpixels_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getNumberOfSuperpixels_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        return (*me)->getNumberOfSuperpixels();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::ximgproc::SuperpixelSLIC::enforceLabelConnectivity(int min_element_size = 25)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_10 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_10
-  (JNIEnv* env, jclass , jlong self, jint min_element_size)
-{
-    static const char method_name[] = "ximgproc::enforceLabelConnectivity_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        (*me)->enforceLabelConnectivity( (int)min_element_size );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_11 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_enforceLabelConnectivity_11
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::enforceLabelConnectivity_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        (*me)->enforceLabelConnectivity();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::SuperpixelSLIC::getLabelContourMask(Mat& image, bool thick_line = true)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_10 (JNIEnv*, jclass, jlong, jlong, jboolean);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_10
-  (JNIEnv* env, jclass , jlong self, jlong image_nativeObj, jboolean thick_line)
-{
-    static const char method_name[] = "ximgproc::getLabelContourMask_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        Mat& image = *((Mat*)image_nativeObj);
-        (*me)->getLabelContourMask( image, (bool)thick_line );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_11 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabelContourMask_11
-  (JNIEnv* env, jclass , jlong self, jlong image_nativeObj)
-{
-    static const char method_name[] = "ximgproc::getLabelContourMask_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        Mat& image = *((Mat*)image_nativeObj);
-        (*me)->getLabelContourMask( image );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::SuperpixelSLIC::getLabels(Mat& labels_out)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabels_10 (JNIEnv*, jclass, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_getLabels_10
-  (JNIEnv* env, jclass , jlong self, jlong labels_out_nativeObj)
-{
-    static const char method_name[] = "ximgproc::getLabels_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        Mat& labels_out = *((Mat*)labels_out_nativeObj);
-        (*me)->getLabels( labels_out );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::SuperpixelSLIC::iterate(int num_iterations = 10)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_10 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_10
-  (JNIEnv* env, jclass , jlong self, jint num_iterations)
-{
-    static const char method_name[] = "ximgproc::iterate_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        (*me)->iterate( (int)num_iterations );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_11 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_iterate_11
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::iterate_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::SuperpixelSLIC>* me = (Ptr<cv::ximgproc::SuperpixelSLIC>*) self; //TODO: check for NULL
-        (*me)->iterate();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::SuperpixelSLIC>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_SuperpixelSLIC_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::SuperpixelSLIC>*) self;
-}
-
-
-//
-//  double cv::ximgproc::segmentation::GraphSegmentation::getSigma()
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getSigma_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getSigma_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getSigma_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        return (*me)->getSigma();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::ximgproc::segmentation::GraphSegmentation::getK()
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getK_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getK_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getK_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        return (*me)->getK();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  int cv::ximgproc::segmentation::GraphSegmentation::getMinSize()
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getMinSize_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_GraphSegmentation_getMinSize_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getMinSize_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        return (*me)->getMinSize();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::GraphSegmentation::processImage(Mat src, Mat& dst)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_processImage_10 (JNIEnv*, jclass, jlong, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_processImage_10
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
-{
-    static const char method_name[] = "ximgproc::processImage_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& dst = *((Mat*)dst_nativeObj);
-        (*me)->processImage( src, dst );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::GraphSegmentation::setK(float k)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setK_10 (JNIEnv*, jclass, jlong, jfloat);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setK_10
-  (JNIEnv* env, jclass , jlong self, jfloat k)
-{
-    static const char method_name[] = "ximgproc::setK_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        (*me)->setK( (float)k );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::GraphSegmentation::setMinSize(int min_size)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setMinSize_10 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setMinSize_10
-  (JNIEnv* env, jclass , jlong self, jint min_size)
-{
-    static const char method_name[] = "ximgproc::setMinSize_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        (*me)->setMinSize( (int)min_size );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::segmentation::GraphSegmentation::setSigma(double sigma)
-//
-
-using namespace cv::ximgproc::segmentation;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setSigma_10 (JNIEnv*, jclass, jlong, jdouble);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_setSigma_10
-  (JNIEnv* env, jclass , jlong self, jdouble sigma)
-{
-    static const char method_name[] = "ximgproc::setSigma_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::segmentation::GraphSegmentation>* me = (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self; //TODO: check for NULL
-        (*me)->setSigma( (double)sigma );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::segmentation::GraphSegmentation>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GraphSegmentation_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::segmentation::GraphSegmentation>*) self;
-}
-
-
-//
-//  void cv::ximgproc::GuidedFilter::filter(Mat src, Mat& dst, int dDepth = -1)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_10 (JNIEnv*, jclass, jlong, jlong, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_10
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj, jint dDepth)
-{
-    static const char method_name[] = "ximgproc::filter_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::GuidedFilter>* me = (Ptr<cv::ximgproc::GuidedFilter>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& dst = *((Mat*)dst_nativeObj);
-        (*me)->filter( src, dst, (int)dDepth );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_11 (JNIEnv*, jclass, jlong, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_filter_11
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
-{
-    static const char method_name[] = "ximgproc::filter_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::GuidedFilter>* me = (Ptr<cv::ximgproc::GuidedFilter>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& dst = *((Mat*)dst_nativeObj);
-        (*me)->filter( src, dst );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::GuidedFilter>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_GuidedFilter_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::GuidedFilter>*) self;
-}
-
-
-//
-//  void cv::ximgproc::RFFeatureGetter::getFeatures(Mat src, Mat features, int gnrmRad, int gsmthRad, int shrink, int outNum, int gradNum)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_getFeatures_10 (JNIEnv*, jclass, jlong, jlong, jlong, jint, jint, jint, jint, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_getFeatures_10
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong features_nativeObj, jint gnrmRad, jint gsmthRad, jint shrink, jint outNum, jint gradNum)
-{
-    static const char method_name[] = "ximgproc::getFeatures_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::RFFeatureGetter>* me = (Ptr<cv::ximgproc::RFFeatureGetter>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& features = *((Mat*)features_nativeObj);
-        (*me)->getFeatures( src, features, (int)gnrmRad, (int)gsmthRad, (int)shrink, (int)outNum, (int)gradNum );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::RFFeatureGetter>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_RFFeatureGetter_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::RFFeatureGetter>*) self;
-}
-
-
-//
-//  void cv::ximgproc::FastGlobalSmootherFilter::filter(Mat src, Mat& dst)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_filter_10 (JNIEnv*, jclass, jlong, jlong, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_filter_10
-  (JNIEnv* env, jclass , jlong self, jlong src_nativeObj, jlong dst_nativeObj)
-{
-    static const char method_name[] = "ximgproc::filter_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::FastGlobalSmootherFilter>* me = (Ptr<cv::ximgproc::FastGlobalSmootherFilter>*) self; //TODO: check for NULL
-        Mat& src = *((Mat*)src_nativeObj);
-        Mat& dst = *((Mat*)dst_nativeObj);
-        (*me)->filter( src, dst );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::FastGlobalSmootherFilter>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_FastGlobalSmootherFilter_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::FastGlobalSmootherFilter>*) self;
-}
-
-
-//
-//  Mat cv::ximgproc::DisparityWLSFilter::getConfidenceMap()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getConfidenceMap_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getConfidenceMap_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getConfidenceMap_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        ::Mat _retval_ = (*me)->getConfidenceMap();
-        return (jlong) new ::Mat(_retval_);
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  Rect cv::ximgproc::DisparityWLSFilter::getROI()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jdoubleArray JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getROI_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jdoubleArray JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getROI_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getROI_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        Rect _retval_ = (*me)->getROI();
-        jdoubleArray _da_retval_ = env->NewDoubleArray(4);  jdouble _tmp_retval_[4] = {(jdouble)_retval_.x, (jdouble)_retval_.y, (jdouble)_retval_.width, (jdouble)_retval_.height}; env->SetDoubleArrayRegion(_da_retval_, 0, 4, _tmp_retval_);
-        return _da_retval_;
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  double cv::ximgproc::DisparityWLSFilter::getLambda()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLambda_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLambda_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getLambda_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        return (*me)->getLambda();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  double cv::ximgproc::DisparityWLSFilter::getSigmaColor()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getSigmaColor_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jdouble JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getSigmaColor_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getSigmaColor_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        return (*me)->getSigmaColor();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  int cv::ximgproc::DisparityWLSFilter::getDepthDiscontinuityRadius()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getDepthDiscontinuityRadius_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getDepthDiscontinuityRadius_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getDepthDiscontinuityRadius_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        return (*me)->getDepthDiscontinuityRadius();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  int cv::ximgproc::DisparityWLSFilter::getLRCthresh()
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLRCthresh_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jint JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_getLRCthresh_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "ximgproc::getLRCthresh_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        return (*me)->getLRCthresh();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::ximgproc::DisparityWLSFilter::setDepthDiscontinuityRadius(int _disc_radius)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setDepthDiscontinuityRadius_10 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setDepthDiscontinuityRadius_10
-  (JNIEnv* env, jclass , jlong self, jint _disc_radius)
-{
-    static const char method_name[] = "ximgproc::setDepthDiscontinuityRadius_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        (*me)->setDepthDiscontinuityRadius( (int)_disc_radius );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::DisparityWLSFilter::setLRCthresh(int _LRC_thresh)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLRCthresh_10 (JNIEnv*, jclass, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLRCthresh_10
-  (JNIEnv* env, jclass , jlong self, jint _LRC_thresh)
-{
-    static const char method_name[] = "ximgproc::setLRCthresh_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        (*me)->setLRCthresh( (int)_LRC_thresh );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::DisparityWLSFilter::setLambda(double _lambda)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLambda_10 (JNIEnv*, jclass, jlong, jdouble);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setLambda_10
-  (JNIEnv* env, jclass , jlong self, jdouble _lambda)
-{
-    static const char method_name[] = "ximgproc::setLambda_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        (*me)->setLambda( (double)_lambda );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  void cv::ximgproc::DisparityWLSFilter::setSigmaColor(double _sigma_color)
-//
-
-using namespace cv::ximgproc;
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setSigmaColor_10 (JNIEnv*, jclass, jlong, jdouble);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_setSigmaColor_10
-  (JNIEnv* env, jclass , jlong self, jdouble _sigma_color)
-{
-    static const char method_name[] = "ximgproc::setSigmaColor_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::ximgproc::DisparityWLSFilter>* me = (Ptr<cv::ximgproc::DisparityWLSFilter>*) self; //TODO: check for NULL
-        (*me)->setSigmaColor( (double)_sigma_color );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::ximgproc::DisparityWLSFilter>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_ximgproc_DisparityWLSFilter_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::ximgproc::DisparityWLSFilter>*) self;
-}
 
 
 //

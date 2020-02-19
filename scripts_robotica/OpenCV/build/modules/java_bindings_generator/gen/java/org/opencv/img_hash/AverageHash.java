@@ -4,7 +4,6 @@
 package org.opencv.img_hash;
 
 import org.opencv.img_hash.AverageHash;
-import org.opencv.img_hash.ImgHashBase;
 
 // C++: class AverageHash
 /**

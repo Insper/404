@@ -11,13 +11,13 @@
 
 #include "opencv2/img_hash.hpp"
 
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/phash.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/average_hash.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/radial_variance_hash.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/color_moment_hash.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/block_mean_hash.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/img_hash_base.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/average_hash.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/phash.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/color_moment_hash.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/marr_hildreth_hash.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash/include/opencv2/img_hash/radial_variance_hash.hpp"
 
 #define LOG_TAG "org.opencv.img_hash"
 #include "common.h"

@@ -12,8 +12,8 @@
 #include "opencv2/aruco.hpp"
 
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp"
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/aruco/include/opencv2/aruco/charuco.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/aruco/include/opencv2/aruco/dictionary.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/aruco/include/opencv2/aruco/charuco.hpp"
 
 #define LOG_TAG "org.opencv.aruco"
 #include "common.h"
@@ -1564,228 +1564,6 @@ JNIEXPORT void JNICALL Java_org_opencv_aruco_DetectorParameters_delete
   (JNIEnv*, jclass, jlong self)
 {
     delete (Ptr<cv::aruco::DetectorParameters>*) self;
-}
-
-
-//
-// static Ptr_CharucoBoard cv::aruco::CharucoBoard::create(int squaresX, int squaresY, float squareLength, float markerLength, Ptr_Dictionary dictionary)
-//
-
-using namespace cv::aruco;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_create_10 (JNIEnv*, jclass, jint, jint, jfloat, jfloat, jlong);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_create_10
-  (JNIEnv* env, jclass , jint squaresX, jint squaresY, jfloat squareLength, jfloat markerLength, jlong dictionary_nativeObj)
-{
-    static const char method_name[] = "aruco::create_10()";
-    try {
-        LOGD("%s", method_name);
-        typedef Ptr<cv::aruco::CharucoBoard> Ptr_CharucoBoard;
-        Ptr_CharucoBoard _retval_ = cv::aruco::CharucoBoard::create( (int)squaresX, (int)squaresY, (float)squareLength, (float)markerLength, *((Ptr<cv::aruco::Dictionary>*)dictionary_nativeObj) );
-        return (jlong)(new Ptr_CharucoBoard(_retval_));
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  Size cv::aruco::CharucoBoard::getChessboardSize()
-//
-
-using namespace cv::aruco;
-
-JNIEXPORT jdoubleArray JNICALL Java_org_opencv_aruco_CharucoBoard_getChessboardSize_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jdoubleArray JNICALL Java_org_opencv_aruco_CharucoBoard_getChessboardSize_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "aruco::getChessboardSize_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        Size _retval_ = (*me)->getChessboardSize();
-        jdoubleArray _da_retval_ = env->NewDoubleArray(2);  jdouble _tmp_retval_[2] = {(jdouble)_retval_.width, (jdouble)_retval_.height}; env->SetDoubleArrayRegion(_da_retval_, 0, 2, _tmp_retval_);
-        return _da_retval_;
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::aruco::CharucoBoard::getMarkerLength()
-//
-
-using namespace cv::aruco;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getMarkerLength_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getMarkerLength_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "aruco::getMarkerLength_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        return (*me)->getMarkerLength();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  float cv::aruco::CharucoBoard::getSquareLength()
-//
-
-using namespace cv::aruco;
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getSquareLength_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getSquareLength_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "aruco::getSquareLength_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        return (*me)->getSquareLength();
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  void cv::aruco::CharucoBoard::draw(Size outSize, Mat& img, int marginSize = 0, int borderBits = 1)
-//
-
-using namespace cv::aruco;
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_10 (JNIEnv*, jclass, jlong, jdouble, jdouble, jlong, jint, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_10
-  (JNIEnv* env, jclass , jlong self, jdouble outSize_width, jdouble outSize_height, jlong img_nativeObj, jint marginSize, jint borderBits)
-{
-    static const char method_name[] = "aruco::draw_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        Size outSize((int)outSize_width, (int)outSize_height);
-        Mat& img = *((Mat*)img_nativeObj);
-        (*me)->draw( outSize, img, (int)marginSize, (int)borderBits );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::aruco;
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_11 (JNIEnv*, jclass, jlong, jdouble, jdouble, jlong, jint);
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_11
-  (JNIEnv* env, jclass , jlong self, jdouble outSize_width, jdouble outSize_height, jlong img_nativeObj, jint marginSize)
-{
-    static const char method_name[] = "aruco::draw_11()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        Size outSize((int)outSize_width, (int)outSize_height);
-        Mat& img = *((Mat*)img_nativeObj);
-        (*me)->draw( outSize, img, (int)marginSize );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-using namespace cv::aruco;
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_12 (JNIEnv*, jclass, jlong, jdouble, jdouble, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_12
-  (JNIEnv* env, jclass , jlong self, jdouble outSize_width, jdouble outSize_height, jlong img_nativeObj)
-{
-    static const char method_name[] = "aruco::draw_12()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        Size outSize((int)outSize_width, (int)outSize_height);
-        Mat& img = *((Mat*)img_nativeObj);
-        (*me)->draw( outSize, img );
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-}
-
-
-
-//
-// vector_Point3f CharucoBoard::chessboardCorners
-//
-
-using namespace cv::aruco;
-
-JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_get_1chessboardCorners_10 (JNIEnv*, jclass, jlong);
-
-JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_get_1chessboardCorners_10
-  (JNIEnv* env, jclass , jlong self)
-{
-    static const char method_name[] = "aruco::get_1chessboardCorners_10()";
-    try {
-        LOGD("%s", method_name);
-        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
-        std::vector<Point3f> _ret_val_vector_ = (*me)->chessboardCorners;//();
-        Mat* _retval_ = new Mat();
-        vector_Point3f_to_Mat(_ret_val_vector_, *_retval_);
-        return (jlong) _retval_;
-    } catch(const std::exception &e) {
-        throwJavaException(env, &e, method_name);
-    } catch (...) {
-        throwJavaException(env, 0, method_name);
-    }
-    return 0;
-}
-
-
-
-//
-//  native support for java finalize()
-//  static void Ptr<cv::aruco::CharucoBoard>::delete( __int64 self )
-//
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_delete(JNIEnv*, jclass, jlong);
-
-JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_delete
-  (JNIEnv*, jclass, jlong self)
-{
-    delete (Ptr<cv::aruco::CharucoBoard>*) self;
 }
 
 
@@ -4459,6 +4237,228 @@ JNIEXPORT void JNICALL Java_org_opencv_aruco_Aruco_refineDetectedMarkers_17
     }
 }
 
+
+
+//
+// static Ptr_CharucoBoard cv::aruco::CharucoBoard::create(int squaresX, int squaresY, float squareLength, float markerLength, Ptr_Dictionary dictionary)
+//
+
+using namespace cv::aruco;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_create_10 (JNIEnv*, jclass, jint, jint, jfloat, jfloat, jlong);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_create_10
+  (JNIEnv* env, jclass , jint squaresX, jint squaresY, jfloat squareLength, jfloat markerLength, jlong dictionary_nativeObj)
+{
+    static const char method_name[] = "aruco::create_10()";
+    try {
+        LOGD("%s", method_name);
+        typedef Ptr<cv::aruco::CharucoBoard> Ptr_CharucoBoard;
+        Ptr_CharucoBoard _retval_ = cv::aruco::CharucoBoard::create( (int)squaresX, (int)squaresY, (float)squareLength, (float)markerLength, *((Ptr<cv::aruco::Dictionary>*)dictionary_nativeObj) );
+        return (jlong)(new Ptr_CharucoBoard(_retval_));
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  Size cv::aruco::CharucoBoard::getChessboardSize()
+//
+
+using namespace cv::aruco;
+
+JNIEXPORT jdoubleArray JNICALL Java_org_opencv_aruco_CharucoBoard_getChessboardSize_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jdoubleArray JNICALL Java_org_opencv_aruco_CharucoBoard_getChessboardSize_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "aruco::getChessboardSize_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        Size _retval_ = (*me)->getChessboardSize();
+        jdoubleArray _da_retval_ = env->NewDoubleArray(2);  jdouble _tmp_retval_[2] = {(jdouble)_retval_.width, (jdouble)_retval_.height}; env->SetDoubleArrayRegion(_da_retval_, 0, 2, _tmp_retval_);
+        return _da_retval_;
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::aruco::CharucoBoard::getMarkerLength()
+//
+
+using namespace cv::aruco;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getMarkerLength_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getMarkerLength_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "aruco::getMarkerLength_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        return (*me)->getMarkerLength();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  float cv::aruco::CharucoBoard::getSquareLength()
+//
+
+using namespace cv::aruco;
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getSquareLength_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jfloat JNICALL Java_org_opencv_aruco_CharucoBoard_getSquareLength_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "aruco::getSquareLength_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        return (*me)->getSquareLength();
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  void cv::aruco::CharucoBoard::draw(Size outSize, Mat& img, int marginSize = 0, int borderBits = 1)
+//
+
+using namespace cv::aruco;
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_10 (JNIEnv*, jclass, jlong, jdouble, jdouble, jlong, jint, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_10
+  (JNIEnv* env, jclass , jlong self, jdouble outSize_width, jdouble outSize_height, jlong img_nativeObj, jint marginSize, jint borderBits)
+{
+    static const char method_name[] = "aruco::draw_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        Size outSize((int)outSize_width, (int)outSize_height);
+        Mat& img = *((Mat*)img_nativeObj);
+        (*me)->draw( outSize, img, (int)marginSize, (int)borderBits );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::aruco;
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_11 (JNIEnv*, jclass, jlong, jdouble, jdouble, jlong, jint);
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_11
+  (JNIEnv* env, jclass , jlong self, jdouble outSize_width, jdouble outSize_height, jlong img_nativeObj, jint marginSize)
+{
+    static const char method_name[] = "aruco::draw_11()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        Size outSize((int)outSize_width, (int)outSize_height);
+        Mat& img = *((Mat*)img_nativeObj);
+        (*me)->draw( outSize, img, (int)marginSize );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+using namespace cv::aruco;
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_12 (JNIEnv*, jclass, jlong, jdouble, jdouble, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_draw_12
+  (JNIEnv* env, jclass , jlong self, jdouble outSize_width, jdouble outSize_height, jlong img_nativeObj)
+{
+    static const char method_name[] = "aruco::draw_12()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        Size outSize((int)outSize_width, (int)outSize_height);
+        Mat& img = *((Mat*)img_nativeObj);
+        (*me)->draw( outSize, img );
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+}
+
+
+
+//
+// vector_Point3f CharucoBoard::chessboardCorners
+//
+
+using namespace cv::aruco;
+
+JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_get_1chessboardCorners_10 (JNIEnv*, jclass, jlong);
+
+JNIEXPORT jlong JNICALL Java_org_opencv_aruco_CharucoBoard_get_1chessboardCorners_10
+  (JNIEnv* env, jclass , jlong self)
+{
+    static const char method_name[] = "aruco::get_1chessboardCorners_10()";
+    try {
+        LOGD("%s", method_name);
+        Ptr<cv::aruco::CharucoBoard>* me = (Ptr<cv::aruco::CharucoBoard>*) self; //TODO: check for NULL
+        std::vector<Point3f> _ret_val_vector_ = (*me)->chessboardCorners;//();
+        Mat* _retval_ = new Mat();
+        vector_Point3f_to_Mat(_ret_val_vector_, *_retval_);
+        return (jlong) _retval_;
+    } catch(const std::exception &e) {
+        throwJavaException(env, &e, method_name);
+    } catch (...) {
+        throwJavaException(env, 0, method_name);
+    }
+    return 0;
+}
+
+
+
+//
+//  native support for java finalize()
+//  static void Ptr<cv::aruco::CharucoBoard>::delete( __int64 self )
+//
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_delete(JNIEnv*, jclass, jlong);
+
+JNIEXPORT void JNICALL Java_org_opencv_aruco_CharucoBoard_delete
+  (JNIEnv*, jclass, jlong self)
+{
+    delete (Ptr<cv::aruco::CharucoBoard>*) self;
+}
 
 
 

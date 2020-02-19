@@ -18,13 +18,13 @@
 ANT_EXECUTABLE:FILEPATH=/usr/bin/ant
 
 //Path to a library.
-Atlas_BLAS_LIBRARY:FILEPATH=Atlas_BLAS_LIBRARY-NOTFOUND
+Atlas_BLAS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libatlas.so
 
 //Path to a file.
 Atlas_CBLAS_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
 
 //Path to a library.
-Atlas_CBLAS_LIBRARY:FILEPATH=Atlas_CBLAS_LIBRARY-NOTFOUND
+Atlas_CBLAS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcblas.so
 
 //Path to a file.
 Atlas_CLAPACK_INCLUDE_DIR:PATH=Atlas_CLAPACK_INCLUDE_DIR-NOTFOUND
@@ -42,6 +42,9 @@ BLAS_acml_LIBRARY:FILEPATH=BLAS_acml_LIBRARY-NOTFOUND
 BLAS_acml_mp_LIBRARY:FILEPATH=BLAS_acml_mp_LIBRARY-NOTFOUND
 
 //Path to a library.
+BLAS_atlas_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libatlas.so
+
+//Path to a library.
 BLAS_blas_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libblas.so
 
 //Path to a library.
@@ -57,7 +60,7 @@ BLAS_dxml_LIBRARY:FILEPATH=BLAS_dxml_LIBRARY-NOTFOUND
 BLAS_essl_LIBRARY:FILEPATH=BLAS_essl_LIBRARY-NOTFOUND
 
 //Path to a library.
-BLAS_f77blas_LIBRARY:FILEPATH=BLAS_f77blas_LIBRARY-NOTFOUND
+BLAS_f77blas_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libf77blas.so
 
 //Path to a library.
 BLAS_goto2_LIBRARY:FILEPATH=BLAS_goto2_LIBRARY-NOTFOUND
@@ -879,7 +882,7 @@ OPENCV_DUMP_HOOKS_FLOW:BOOL=OFF
 OPENCV_ENABLE_MEMORY_SANITIZER:BOOL=OFF
 
 //Enable non-free algorithms
-OPENCV_ENABLE_NONFREE:BOOL=OFF
+OPENCV_ENABLE_NONFREE:BOOL=ON
 
 //Where to look for additional OpenCV modules (can be ;-separated
 // list of paths)
@@ -917,19 +920,28 @@ OPENCV_TIMESTAMP:STRING=2020-02-03T18:51:47Z
 OPENCV_WARNINGS_ARE_ERRORS:BOOL=OFF
 
 //Path to a library.
-OPENEXR_HALF_LIBRARY:FILEPATH=OPENEXR_HALF_LIBRARY-NOTFOUND
+OPENEXR_HALF_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libHalf.so
 
 //Path to a library.
-OPENEXR_IEX_LIBRARY:FILEPATH=OPENEXR_IEX_LIBRARY-NOTFOUND
+OPENEXR_IEX_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libIex.so
 
 //Path to a library.
-OPENEXR_ILMTHREAD_LIBRARY:FILEPATH=OPENEXR_ILMTHREAD_LIBRARY-NOTFOUND
+OPENEXR_ILMIMF_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libIlmImf.so
 
 //Path to a library.
-OPENEXR_IMATH_LIBRARY:FILEPATH=OPENEXR_IMATH_LIBRARY-NOTFOUND
+OPENEXR_ILMTHREAD_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libIlmThread.so
+
+//Path to a library.
+OPENEXR_IMATH_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libImath.so
 
 //Path to a file.
-OPENEXR_INCLUDE_PATH:PATH=OPENEXR_INCLUDE_PATH-NOTFOUND
+OPENEXR_INCLUDE_PATH:PATH=/usr/include/OpenEXR
+
+//The include paths needed to use OpenEXR
+OPENEXR_INCLUDE_PATHS:PATH=/usr/include/OpenEXR
+
+//The libraries needed to use OpenEXR
+OPENEXR_LIBRARIES:STRING=/usr/lib/x86_64-linux-gnu/libImath.so;/usr/lib/x86_64-linux-gnu/libIlmImf.so;/usr/lib/x86_64-linux-gnu/libIex.so;/usr/lib/x86_64-linux-gnu/libHalf.so;/usr/lib/x86_64-linux-gnu/libIlmThread.so
 
 //Path to a file.
 OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
@@ -1520,7 +1532,7 @@ opencv_img_hash_SOURCE_DIR:STATIC=/home/borg/404/scripts_robotica/OpenCV/opencv_
 opencv_imgcodecs_BINARY_DIR:STATIC=/home/borg/404/scripts_robotica/OpenCV/build/modules/imgcodecs
 
 //Dependencies for the target
-opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;pthread;general;rt;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;ippiw;general;ippicv;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libjpeg.so;general;/usr/lib/x86_64-linux-gnu/libwebp.so;general;/usr/lib/x86_64-linux-gnu/libpng.so;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libtiff.so;general;libjasper;general;IlmImf;general;/usr/lib/libgdal.so;
+opencv_imgcodecs_LIB_DEPENDS:STATIC=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;pthread;general;rt;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;ippiw;general;ippicv;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libjpeg.so;general;/usr/lib/x86_64-linux-gnu/libwebp.so;general;/usr/lib/x86_64-linux-gnu/libpng.so;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libtiff.so;general;libjasper;general;/usr/lib/x86_64-linux-gnu/libImath.so;general;/usr/lib/x86_64-linux-gnu/libIlmImf.so;general;/usr/lib/x86_64-linux-gnu/libIex.so;general;/usr/lib/x86_64-linux-gnu/libHalf.so;general;/usr/lib/x86_64-linux-gnu/libIlmThread.so;general;/usr/lib/libgdal.so;
 
 //Value Computed by CMake
 opencv_imgcodecs_SOURCE_DIR:STATIC=/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs
@@ -1886,6 +1898,9 @@ pkgcfg_lib_FFMPEG_avformat:FILEPATH=/usr/lib/x86_64-linux-gnu/libavformat.so
 pkgcfg_lib_FFMPEG_avutil:FILEPATH=/usr/lib/x86_64-linux-gnu/libavutil.so
 
 //Path to a library.
+pkgcfg_lib_FFMPEG_libavresample_avresample:FILEPATH=/usr/lib/x86_64-linux-gnu/libavresample.so
+
+//Path to a library.
 pkgcfg_lib_FFMPEG_swscale:FILEPATH=/usr/lib/x86_64-linux-gnu/libswscale.so
 
 //Path to a library.
@@ -1979,10 +1994,10 @@ BLAS_Accelerate_LIBRARY-ADVANCED:INTERNAL=1
 BLAS_acml_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: BLAS_acml_mp_LIBRARY
 BLAS_acml_mp_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_atlas_LIBRARY
+BLAS_atlas_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: BLAS_blas_LIBRARY
 BLAS_blas_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: BLAS_blas_WORKS
-BLAS_blas_WORKS-ADVANCED:INTERNAL=1
 //Have function sgemm_
 BLAS_blas_WORKS:INTERNAL=1
 //ADVANCED property for variable: BLAS_complib.sgimath_LIBRARY
@@ -1995,6 +2010,10 @@ BLAS_dxml_LIBRARY-ADVANCED:INTERNAL=1
 BLAS_essl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: BLAS_f77blas_LIBRARY
 BLAS_f77blas_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_f77blas_atlas_WORKS
+BLAS_f77blas_atlas_WORKS-ADVANCED:INTERNAL=1
+//Have function dgemm_
+BLAS_f77blas_atlas_WORKS:INTERNAL=1
 //ADVANCED property for variable: BLAS_goto2_LIBRARY
 BLAS_goto2_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: BLAS_openblas_LIBRARY
@@ -2016,6 +2035,8 @@ CACHED_CPU_DISPATCH_SSE4_1_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return
 CACHED_CPU_DISPATCH_SSE4_2_FLAGS:INTERNAL= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3  -mssse3 -msse4.1 -mpopcnt -msse4.2
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
+//STRINGS property for variable: CMAKE_BUILD_TYPE
+CMAKE_BUILD_TYPE-STRINGS:INTERNAL=Debug;Release
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/home/borg/404/scripts_robotica/OpenCV/build
 //Major version of cmake used to create the current loaded cache
@@ -2064,6 +2085,8 @@ CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//Path to cache edit program executable.
+CMAKE_EDIT_COMMAND:INTERNAL=/usr/bin/cmake-gui
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -2144,7 +2167,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=154
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=153
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -2314,26 +2337,36 @@ FFMPEG_libavformat_INCLUDEDIR:INTERNAL=/usr/include/x86_64-linux-gnu
 FFMPEG_libavformat_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
 FFMPEG_libavformat_PREFIX:INTERNAL=/usr
 FFMPEG_libavformat_VERSION:INTERNAL=57.83.100
-FFMPEG_libavresample_CFLAGS:INTERNAL=
+FFMPEG_libavresample_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
 FFMPEG_libavresample_CFLAGS_I:INTERNAL=
 FFMPEG_libavresample_CFLAGS_OTHER:INTERNAL=
-FFMPEG_libavresample_FOUND:INTERNAL=
-FFMPEG_libavresample_INCLUDEDIR:INTERNAL=
-FFMPEG_libavresample_LIBDIR:INTERNAL=
+FFMPEG_libavresample_FOUND:INTERNAL=1
+FFMPEG_libavresample_INCLUDEDIR:INTERNAL=/usr/include/x86_64-linux-gnu
+FFMPEG_libavresample_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+FFMPEG_libavresample_LDFLAGS:INTERNAL=-lavresample
+FFMPEG_libavresample_LDFLAGS_OTHER:INTERNAL=
+FFMPEG_libavresample_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+FFMPEG_libavresample_LIBRARIES:INTERNAL=/usr/lib/x86_64-linux-gnu/libavresample.so
+FFMPEG_libavresample_LIBRARY_DIRS:INTERNAL=
 FFMPEG_libavresample_LIBS:INTERNAL=
 FFMPEG_libavresample_LIBS_L:INTERNAL=
 FFMPEG_libavresample_LIBS_OTHER:INTERNAL=
 FFMPEG_libavresample_LIBS_PATHS:INTERNAL=
-FFMPEG_libavresample_PREFIX:INTERNAL=
-FFMPEG_libavresample_STATIC_CFLAGS:INTERNAL=
+FFMPEG_libavresample_PREFIX:INTERNAL=/usr
+FFMPEG_libavresample_STATIC_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
 FFMPEG_libavresample_STATIC_CFLAGS_I:INTERNAL=
 FFMPEG_libavresample_STATIC_CFLAGS_OTHER:INTERNAL=
+FFMPEG_libavresample_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+FFMPEG_libavresample_STATIC_LDFLAGS:INTERNAL=-lavresample;-lm;-lavutil;-ldrm;-lm
+FFMPEG_libavresample_STATIC_LDFLAGS_OTHER:INTERNAL=
 FFMPEG_libavresample_STATIC_LIBDIR:INTERNAL=
+FFMPEG_libavresample_STATIC_LIBRARIES:INTERNAL=avresample;m;avutil;drm;m
+FFMPEG_libavresample_STATIC_LIBRARY_DIRS:INTERNAL=
 FFMPEG_libavresample_STATIC_LIBS:INTERNAL=
 FFMPEG_libavresample_STATIC_LIBS_L:INTERNAL=
 FFMPEG_libavresample_STATIC_LIBS_OTHER:INTERNAL=
 FFMPEG_libavresample_STATIC_LIBS_PATHS:INTERNAL=
-FFMPEG_libavresample_VERSION:INTERNAL=
+FFMPEG_libavresample_VERSION:INTERNAL=3.7.0
 FFMPEG_libavresample_libavresample_INCLUDEDIR:INTERNAL=
 FFMPEG_libavresample_libavresample_LIBDIR:INTERNAL=
 FFMPEG_libavresample_libavresample_PREFIX:INTERNAL=
@@ -3771,7 +3804,7 @@ OPENCV_MODULE_opencv_imgcodecs_DESCRIPTION:INTERNAL=Image I/O
 OPENCV_MODULE_opencv_imgcodecs_HEADERS:INTERNAL=/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs.hpp;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs.hpp;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs_c.h;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/ios.h;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/legacy/constants_c.h
 OPENCV_MODULE_opencv_imgcodecs_IS_PART_OF_WORLD:INTERNAL=ON
 OPENCV_MODULE_opencv_imgcodecs_LABEL:INTERNAL=Main;opencv_imgcodecs
-OPENCV_MODULE_opencv_imgcodecs_LINK_DEPS:INTERNAL=;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libwebp.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libtiff.so;libjasper;IlmImf;/usr/lib/libgdal.so
+OPENCV_MODULE_opencv_imgcodecs_LINK_DEPS:INTERNAL=;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libwebp.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libtiff.so;libjasper;/usr/lib/x86_64-linux-gnu/libImath.so;/usr/lib/x86_64-linux-gnu/libIlmImf.so;/usr/lib/x86_64-linux-gnu/libIex.so;/usr/lib/x86_64-linux-gnu/libHalf.so;/usr/lib/x86_64-linux-gnu/libIlmThread.so;/usr/lib/libgdal.so
 //Location of opencv_imgcodecs module sources
 OPENCV_MODULE_opencv_imgcodecs_LOCATION:INTERNAL=/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs
 //Optional dependencies of opencv_imgcodecs module
@@ -4870,10 +4903,16 @@ OPENCV_WORLD_MODULES:INTERNAL=
 OPENEXR_HALF_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENEXR_IEX_LIBRARY
 OPENEXR_IEX_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENEXR_ILMIMF_LIBRARY
+OPENEXR_ILMIMF_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENEXR_ILMTHREAD_LIBRARY
 OPENEXR_ILMTHREAD_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENEXR_IMATH_LIBRARY
 OPENEXR_IMATH_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENEXR_INCLUDE_PATHS
+OPENEXR_INCLUDE_PATHS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENEXR_LIBRARIES
+OPENEXR_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
 OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLX_INCLUDE_DIR
@@ -5030,6 +5069,7 @@ __VALID_FFMPEG:INTERNAL=TRUE
 __VALID_OPENCL:INTERNAL=FALSE
 __pkg_config_arguments_DC1394_2:INTERNAL=libdc1394-2
 __pkg_config_arguments_FFMPEG:INTERNAL=libavcodec;libavformat;libavutil;libswscale
+__pkg_config_arguments_FFMPEG_libavresample:INTERNAL=libavresample
 __pkg_config_arguments_FREETYPE:INTERNAL=freetype2
 __pkg_config_arguments_GSTREAMER_app:INTERNAL=gstreamer-app-1.0
 __pkg_config_arguments_GSTREAMER_base:INTERNAL=gstreamer-base-1.0
@@ -5056,6 +5096,8 @@ pkgcfg_lib_FFMPEG_avcodec-ADVANCED:INTERNAL=1
 pkgcfg_lib_FFMPEG_avformat-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_FFMPEG_avutil
 pkgcfg_lib_FFMPEG_avutil-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_FFMPEG_libavresample_avresample
+pkgcfg_lib_FFMPEG_libavresample_avresample-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_FFMPEG_swscale
 pkgcfg_lib_FFMPEG_swscale-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_FREETYPE_freetype

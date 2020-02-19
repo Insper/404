@@ -17,10 +17,10 @@ public class Text {
 
     // C++: enum <unnamed>
     public static final int
-            OCR_LEVEL_WORD = 0,
-            OCR_LEVEL_TEXTLINE = 1,
             ERFILTER_NM_RGBLGrad = 0,
-            ERFILTER_NM_IHSGrad = 1;
+            ERFILTER_NM_IHSGrad = 1,
+            OCR_LEVEL_WORD = 0,
+            OCR_LEVEL_TEXTLINE = 1;
 
 
     // C++: enum decoder_mode

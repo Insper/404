@@ -21,16 +21,6 @@
 /home/borg/404/scripts_robotica/OpenCV/build/3rdparty/libjasper/CMakeFiles/test.dir
 /home/borg/404/scripts_robotica/OpenCV/build/3rdparty/libjasper/CMakeFiles/edit_cache.dir
 /home/borg/404/scripts_robotica/OpenCV/build/3rdparty/libjasper/CMakeFiles/rebuild_cache.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/install/strip.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/install.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/list_install_components.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/package.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/package_source.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/IlmImf.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/rebuild_cache.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/install/local.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/test.dir
-/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr/CMakeFiles/edit_cache.dir
 /home/borg/404/scripts_robotica/OpenCV/build/3rdparty/ippiw/CMakeFiles/install/strip.dir
 /home/borg/404/scripts_robotica/OpenCV/build/3rdparty/ippiw/CMakeFiles/install.dir
 /home/borg/404/scripts_robotica/OpenCV/build/3rdparty/ippiw/CMakeFiles/list_install_components.dir

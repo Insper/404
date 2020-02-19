@@ -16,9 +16,6 @@
 /usr/local/share/licenses/opencv4/jasper-LICENSE
 /usr/local/share/licenses/opencv4/jasper-README
 /usr/local/share/licenses/opencv4/jasper-copyright
-/usr/local/share/licenses/opencv4/openexr-LICENSE
-/usr/local/share/licenses/opencv4/openexr-AUTHORS.ilmbase
-/usr/local/share/licenses/opencv4/openexr-AUTHORS.openexr
 /usr/local/share/licenses/opencv4/protobuf-LICENSE
 /usr/local/share/licenses/opencv4/protobuf-README.md
 /usr/local/share/licenses/opencv4/quirc-LICENSE

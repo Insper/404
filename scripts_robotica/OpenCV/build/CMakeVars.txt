@@ -12,9 +12,9 @@ ARGV0=
 ARGV1=TOFILE
 ARGV2=CMakeVars.txt
 ATLAS_FOUND=FALSE
-Atlas_BLAS_LIBRARY=Atlas_BLAS_LIBRARY-NOTFOUND
+Atlas_BLAS_LIBRARY=/usr/lib/x86_64-linux-gnu/libatlas.so
 Atlas_CBLAS_INCLUDE_DIR=/usr/include/x86_64-linux-gnu
-Atlas_CBLAS_LIBRARY=Atlas_CBLAS_LIBRARY-NOTFOUND
+Atlas_CBLAS_LIBRARY=/usr/lib/x86_64-linux-gnu/libcblas.so
 Atlas_CLAPACK_INCLUDE_DIR=Atlas_CLAPACK_INCLUDE_DIR-NOTFOUND
 Atlas_FOUND=FALSE
 Atlas_INCLUDE_SEARCH_PATHS=/usr/include/atlas;/usr/include/atlas-base;/include
@@ -23,17 +23,19 @@ Atlas_LIB_SEARCH_PATHS=/usr/lib/atlas;/usr/lib/atlas-base;/lib
 BLAS_ACML_LIB_DIRS=
 BLAS_Accelerate_LIBRARY=BLAS_Accelerate_LIBRARY-NOTFOUND
 BLAS_FOUND=TRUE
-BLAS_LIBRARIES=/usr/lib/x86_64-linux-gnu/libblas.so
+BLAS_LIBRARIES=/usr/lib/x86_64-linux-gnu/libf77blas.so;/usr/lib/x86_64-linux-gnu/libatlas.so
 BLAS_SEARCH_LIBS=mkl_intel mkl_intel_thread mkl_core guide;mkl_intel_lp64 mkl_intel_thread mkl_core guide;mkl_intel_lp64 mkl_intel_thread mkl_core iomp5;mkl_intel_lp64 mkl_sequential mkl_core;mkl;mkl_ia32;mkl_em64t
 BLAS_acml_LIBRARY=BLAS_acml_LIBRARY-NOTFOUND
 BLAS_acml_mp_LIBRARY=BLAS_acml_mp_LIBRARY-NOTFOUND
+BLAS_atlas_LIBRARY=/usr/lib/x86_64-linux-gnu/libatlas.so
 BLAS_blas_LIBRARY=/usr/lib/x86_64-linux-gnu/libblas.so
 BLAS_blas_WORKS=1
 BLAS_complib.sgimath_LIBRARY=BLAS_complib.sgimath_LIBRARY-NOTFOUND
 BLAS_cxml_LIBRARY=BLAS_cxml_LIBRARY-NOTFOUND
 BLAS_dxml_LIBRARY=BLAS_dxml_LIBRARY-NOTFOUND
 BLAS_essl_LIBRARY=BLAS_essl_LIBRARY-NOTFOUND
-BLAS_f77blas_LIBRARY=BLAS_f77blas_LIBRARY-NOTFOUND
+BLAS_f77blas_LIBRARY=/usr/lib/x86_64-linux-gnu/libf77blas.so
+BLAS_f77blas_atlas_WORKS=1
 BLAS_goto2_LIBRARY=BLAS_goto2_LIBRARY-NOTFOUND
 BLAS_mkl_SEARCH_SYMBOL=sgemm
 BLAS_openblas_LIBRARY=BLAS_openblas_LIBRARY-NOTFOUND
@@ -134,13 +136,10 @@ CACHED_CPU_DISPATCH_SSE4_1_FLAGS= -fsigned-char -W -Wall -Werror=return-type -We
 CACHED_CPU_DISPATCH_SSE4_2_FLAGS= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3  -mssse3 -msse4.1 -mpopcnt -msse4.2
 CAN_BUILD_ANDROID_PROJECTS=FALSE
 CCACHE_PROGRAM=CCACHE_PROGRAM-NOTFOUND
-CHECK_FUNCTION_EXISTS_ADD_LIBRARIES=LINK_LIBRARIES;/usr/lib/x86_64-linux-gnu/liblapack.so;/usr/lib/x86_64-linux-gnu/libblas.so
-CHECK_INCLUDE_FILE_VAR=pthread.h
 CLAMDBLAS_INCLUDE_DIR=CLAMDBLAS_INCLUDE_DIR-NOTFOUND
 CLAMDBLAS_ROOT_DIR=CLAMDBLAS_ROOT_DIR-NOTFOUND
 CLAMDFFT_INCLUDE_DIR=CLAMDFFT_INCLUDE_DIR-NOTFOUND
 CLAMDFFT_ROOT_DIR=CLAMDFFT_ROOT_DIR-NOTFOUND
-CMAKE_16BIT_TYPE=unsigned short
 CMAKE_AR=/usr/bin/ar
 CMAKE_AR=/usr/bin/ar
 CMAKE_AUTOMOC_COMPILER_PREDEFINES=ON
@@ -159,25 +158,15 @@ CMAKE_C90_STANDARD_COMPILE_OPTION=-std=c90
 CMAKE_C99_COMPILE_FEATURES=c_std_99;c_restrict;c_variadic_macros
 CMAKE_C99_EXTENSION_COMPILE_OPTION=-std=gnu99
 CMAKE_C99_STANDARD_COMPILE_OPTION=-std=c99
+CMAKE_CACHEFILE_DIR=/home/borg/404/scripts_robotica/OpenCV/build
+CMAKE_CACHE_MAJOR_VERSION=3
+CMAKE_CACHE_MINOR_VERSION=10
+CMAKE_CACHE_PATCH_VERSION=2
 CMAKE_CFG_INTDIR=.
 CMAKE_COLOR_MAKEFILE=ON
 CMAKE_COMMAND=/usr/bin/cmake
 CMAKE_COMPILER_IS_GNUCC=1
 CMAKE_COMPILER_IS_GNUCXX=1
-CMAKE_CONFIGURABLE_FILE_CONTENT=/* */
-#include <pthread.h>
-
-int main(int argc, char** argv)
-{
-  (void)argv;
-#ifndef pthread_create
-  return ((int*)(&pthread_create))[argc];
-#else
-  (void)argc;
-  return 0;
-#endif
-}
-
 CMAKE_CONFIGURATION_TYPES=Debug;Release
 CMAKE_CPACK_COMMAND=/usr/bin/cpack
 CMAKE_CROSSCOMPILING=FALSE
@@ -212,270 +201,12 @@ CMAKE_CXX_COMPILER=/usr/bin/c++
 CMAKE_CXX_COMPILER_ABI=ELF
 CMAKE_CXX_COMPILER_AR=/usr/bin/gcc-ar-7
 CMAKE_CXX_COMPILER_AR=/usr/bin/gcc-ar-7
-CMAKE_CXX_COMPILER_ARCHITECTURE_ID=
 CMAKE_CXX_COMPILER_ARG1=
 CMAKE_CXX_COMPILER_ENV_VAR=CXX
 CMAKE_CXX_COMPILER_ID=GNU
-CMAKE_CXX_COMPILER_ID_PLATFORM_CONTENT=#define STRINGIFY_HELPER(X) #X
-#define STRINGIFY(X) STRINGIFY_HELPER(X)
-
-/* Identify known platforms by name.  */
-#if defined(__linux) || defined(__linux__) || defined(linux)
-# define PLATFORM_ID "Linux"
-
-#elif defined(__CYGWIN__)
-# define PLATFORM_ID "Cygwin"
-
-#elif defined(__MINGW32__)
-# define PLATFORM_ID "MinGW"
-
-#elif defined(__APPLE__)
-# define PLATFORM_ID "Darwin"
-
-#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-# define PLATFORM_ID "Windows"
-
-#elif defined(__FreeBSD__) || defined(__FreeBSD)
-# define PLATFORM_ID "FreeBSD"
-
-#elif defined(__NetBSD__) || defined(__NetBSD)
-# define PLATFORM_ID "NetBSD"
-
-#elif defined(__OpenBSD__) || defined(__OPENBSD)
-# define PLATFORM_ID "OpenBSD"
-
-#elif defined(__sun) || defined(sun)
-# define PLATFORM_ID "SunOS"
-
-#elif defined(_AIX) || defined(__AIX) || defined(__AIX__) || defined(__aix) || defined(__aix__)
-# define PLATFORM_ID "AIX"
-
-#elif defined(__sgi) || defined(__sgi__) || defined(_SGI)
-# define PLATFORM_ID "IRIX"
-
-#elif defined(__hpux) || defined(__hpux__)
-# define PLATFORM_ID "HP-UX"
-
-#elif defined(__HAIKU__)
-# define PLATFORM_ID "Haiku"
-
-#elif defined(__BeOS) || defined(__BEOS__) || defined(_BEOS)
-# define PLATFORM_ID "BeOS"
-
-#elif defined(__QNX__) || defined(__QNXNTO__)
-# define PLATFORM_ID "QNX"
-
-#elif defined(__tru64) || defined(_tru64) || defined(__TRU64__)
-# define PLATFORM_ID "Tru64"
-
-#elif defined(__riscos) || defined(__riscos__)
-# define PLATFORM_ID "RISCos"
-
-#elif defined(__sinix) || defined(__sinix__) || defined(__SINIX__)
-# define PLATFORM_ID "SINIX"
-
-#elif defined(__UNIX_SV__)
-# define PLATFORM_ID "UNIX_SV"
-
-#elif defined(__bsdos__)
-# define PLATFORM_ID "BSDOS"
-
-#elif defined(_MPRAS) || defined(MPRAS)
-# define PLATFORM_ID "MP-RAS"
-
-#elif defined(__osf) || defined(__osf__)
-# define PLATFORM_ID "OSF1"
-
-#elif defined(_SCO_SV) || defined(SCO_SV) || defined(sco_sv)
-# define PLATFORM_ID "SCO_SV"
-
-#elif defined(__ultrix) || defined(__ultrix__) || defined(_ULTRIX)
-# define PLATFORM_ID "ULTRIX"
-
-#elif defined(__XENIX__) || defined(_XENIX) || defined(XENIX)
-# define PLATFORM_ID "Xenix"
-
-#elif defined(__WATCOMC__)
-# if defined(__LINUX__)
-#  define PLATFORM_ID "Linux"
-
-# elif defined(__DOS__)
-#  define PLATFORM_ID "DOS"
-
-# elif defined(__OS2__)
-#  define PLATFORM_ID "OS2"
-
-# elif defined(__WINDOWS__)
-#  define PLATFORM_ID "Windows3x"
-
-# else /* unknown platform */
-#  define PLATFORM_ID
-# endif
-
-#else /* unknown platform */
-# define PLATFORM_ID
-
-#endif
-
-/* For windows compilers MSVC and Intel we can determine
-   the architecture of the compiler being used.  This is because
-   the compilers do not have flags that can change the architecture,
-   but rather depend on which compiler is being used
-*/
-#if defined(_WIN32) && defined(_MSC_VER)
-# if defined(_M_IA64)
-#  define ARCHITECTURE_ID "IA64"
-
-# elif defined(_M_X64) || defined(_M_AMD64)
-#  define ARCHITECTURE_ID "x64"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# elif defined(_M_ARM64)
-#  define ARCHITECTURE_ID "ARM64"
-
-# elif defined(_M_ARM)
-#  if _M_ARM == 4
-#   define ARCHITECTURE_ID "ARMV4I"
-#  elif _M_ARM == 5
-#   define ARCHITECTURE_ID "ARMV5I"
-#  else
-#   define ARCHITECTURE_ID "ARMV" STRINGIFY(_M_ARM)
-#  endif
-
-# elif defined(_M_MIPS)
-#  define ARCHITECTURE_ID "MIPS"
-
-# elif defined(_M_SH)
-#  define ARCHITECTURE_ID "SHx"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__WATCOMC__)
-# if defined(_M_I86)
-#  define ARCHITECTURE_ID "I86"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__IAR_SYSTEMS_ICC__) || defined(__IAR_SYSTEMS_ICC)
-# if defined(__ICCARM__)
-#  define ARCHITECTURE_ID "ARM"
-
-# elif defined(__ICCAVR__)
-#  define ARCHITECTURE_ID "AVR"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-#else
-#  define ARCHITECTURE_ID
-#endif
-
-/* Convert integer to decimal digit literals.  */
-#define DEC(n)                   \
-  ('0' + (((n) / 10000000)%10)), \
-  ('0' + (((n) / 1000000)%10)),  \
-  ('0' + (((n) / 100000)%10)),   \
-  ('0' + (((n) / 10000)%10)),    \
-  ('0' + (((n) / 1000)%10)),     \
-  ('0' + (((n) / 100)%10)),      \
-  ('0' + (((n) / 10)%10)),       \
-  ('0' +  ((n) % 10))
-
-/* Convert integer to hex digit literals.  */
-#define HEX(n)             \
-  ('0' + ((n)>>28 & 0xF)), \
-  ('0' + ((n)>>24 & 0xF)), \
-  ('0' + ((n)>>20 & 0xF)), \
-  ('0' + ((n)>>16 & 0xF)), \
-  ('0' + ((n)>>12 & 0xF)), \
-  ('0' + ((n)>>8  & 0xF)), \
-  ('0' + ((n)>>4  & 0xF)), \
-  ('0' + ((n)     & 0xF))
-
-/* Construct a string literal encoding the version number components. */
-#ifdef COMPILER_VERSION_MAJOR
-char const info_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
-  COMPILER_VERSION_MAJOR,
-# ifdef COMPILER_VERSION_MINOR
-  '.', COMPILER_VERSION_MINOR,
-#  ifdef COMPILER_VERSION_PATCH
-   '.', COMPILER_VERSION_PATCH,
-#   ifdef COMPILER_VERSION_TWEAK
-    '.', COMPILER_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct a string literal encoding the internal version number. */
-#ifdef COMPILER_VERSION_INTERNAL
-char const info_version_internal[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','_',
-  'i','n','t','e','r','n','a','l','[',
-  COMPILER_VERSION_INTERNAL,']','\0'};
-#endif
-
-/* Construct a string literal encoding the version number components. */
-#ifdef SIMULATE_VERSION_MAJOR
-char const info_simulate_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  's','i','m','u','l','a','t','e','_','v','e','r','s','i','o','n','[',
-  SIMULATE_VERSION_MAJOR,
-# ifdef SIMULATE_VERSION_MINOR
-  '.', SIMULATE_VERSION_MINOR,
-#  ifdef SIMULATE_VERSION_PATCH
-   '.', SIMULATE_VERSION_PATCH,
-#   ifdef SIMULATE_VERSION_TWEAK
-    '.', SIMULATE_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct the string literal in pieces to prevent the source from
-   getting matched.  Store it in a pointer rather than an array
-   because some compilers will just produce instructions to fill the
-   array rather than assigning a pointer to a static array.  */
-char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
-char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
-
-
 CMAKE_CXX_COMPILER_ID_RUN=1
-CMAKE_CXX_COMPILER_ID_TEST_FLAGS=-c;--c++;--ec++
-CMAKE_CXX_COMPILER_ID_TOOL_MATCH_INDEX=2
-CMAKE_CXX_COMPILER_ID_TOOL_MATCH_REGEX=
-Ld[^
-]*(
-[ 	]+[^
-]*)*
-[ 	]+([^ 	
-]+)[^
-]*-o[^
-]*CompilerIdCXX/(\./)?(CompilerIdCXX.xctest/)?CompilerIdCXX[ 	
-\"]
-CMAKE_CXX_COMPILER_ID_VENDORS=IAR
-CMAKE_CXX_COMPILER_ID_VENDOR_REGEX_IAR=IAR .+ Compiler
-CMAKE_CXX_COMPILER_INIT=NOTFOUND
-CMAKE_CXX_COMPILER_LIST=c++;CC;g++;aCC;cl;bcc;xlC;clang++
 CMAKE_CXX_COMPILER_LOADED=1
-CMAKE_CXX_COMPILER_NAMES=c++
 CMAKE_CXX_COMPILER_PREDEFINES_COMMAND=/usr/bin/c++;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-CMAKE_CXX_COMPILER_PRODUCED_FILES=a.out
-CMAKE_CXX_COMPILER_PRODUCED_OUTPUT=
 CMAKE_CXX_COMPILER_RANLIB=/usr/bin/gcc-ranlib-7
 CMAKE_CXX_COMPILER_RANLIB=/usr/bin/gcc-ranlib-7
 CMAKE_CXX_COMPILER_VERSION=7.4.0
@@ -529,7 +260,6 @@ CMAKE_CXX_STANDARD_COMPUTED_DEFAULT=14
 CMAKE_CXX_STANDARD_DEFAULT=14
 CMAKE_CXX_STANDARD_REQUIRED=TRUE
 CMAKE_CXX_VERBOSE_FLAG=-v
-CMAKE_CXX_XCODE_CURRENT_ARCH=
 CMAKE_C_ABI_COMPILED=TRUE
 CMAKE_C_ARCHIVE_APPEND=<CMAKE_AR> q  <TARGET> <LINK_FLAGS> <OBJECTS>
 CMAKE_C_ARCHIVE_APPEND_IPO="/usr/bin/gcc-ar-7" r <TARGET> <LINK_FLAGS> <OBJECTS>
@@ -543,270 +273,12 @@ CMAKE_C_COMPILER=/usr/bin/cc
 CMAKE_C_COMPILER_ABI=ELF
 CMAKE_C_COMPILER_AR=/usr/bin/gcc-ar-7
 CMAKE_C_COMPILER_AR=/usr/bin/gcc-ar-7
-CMAKE_C_COMPILER_ARCHITECTURE_ID=
 CMAKE_C_COMPILER_ARG1=
 CMAKE_C_COMPILER_ENV_VAR=CC
 CMAKE_C_COMPILER_ID=GNU
-CMAKE_C_COMPILER_ID_PLATFORM_CONTENT=#define STRINGIFY_HELPER(X) #X
-#define STRINGIFY(X) STRINGIFY_HELPER(X)
-
-/* Identify known platforms by name.  */
-#if defined(__linux) || defined(__linux__) || defined(linux)
-# define PLATFORM_ID "Linux"
-
-#elif defined(__CYGWIN__)
-# define PLATFORM_ID "Cygwin"
-
-#elif defined(__MINGW32__)
-# define PLATFORM_ID "MinGW"
-
-#elif defined(__APPLE__)
-# define PLATFORM_ID "Darwin"
-
-#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-# define PLATFORM_ID "Windows"
-
-#elif defined(__FreeBSD__) || defined(__FreeBSD)
-# define PLATFORM_ID "FreeBSD"
-
-#elif defined(__NetBSD__) || defined(__NetBSD)
-# define PLATFORM_ID "NetBSD"
-
-#elif defined(__OpenBSD__) || defined(__OPENBSD)
-# define PLATFORM_ID "OpenBSD"
-
-#elif defined(__sun) || defined(sun)
-# define PLATFORM_ID "SunOS"
-
-#elif defined(_AIX) || defined(__AIX) || defined(__AIX__) || defined(__aix) || defined(__aix__)
-# define PLATFORM_ID "AIX"
-
-#elif defined(__sgi) || defined(__sgi__) || defined(_SGI)
-# define PLATFORM_ID "IRIX"
-
-#elif defined(__hpux) || defined(__hpux__)
-# define PLATFORM_ID "HP-UX"
-
-#elif defined(__HAIKU__)
-# define PLATFORM_ID "Haiku"
-
-#elif defined(__BeOS) || defined(__BEOS__) || defined(_BEOS)
-# define PLATFORM_ID "BeOS"
-
-#elif defined(__QNX__) || defined(__QNXNTO__)
-# define PLATFORM_ID "QNX"
-
-#elif defined(__tru64) || defined(_tru64) || defined(__TRU64__)
-# define PLATFORM_ID "Tru64"
-
-#elif defined(__riscos) || defined(__riscos__)
-# define PLATFORM_ID "RISCos"
-
-#elif defined(__sinix) || defined(__sinix__) || defined(__SINIX__)
-# define PLATFORM_ID "SINIX"
-
-#elif defined(__UNIX_SV__)
-# define PLATFORM_ID "UNIX_SV"
-
-#elif defined(__bsdos__)
-# define PLATFORM_ID "BSDOS"
-
-#elif defined(_MPRAS) || defined(MPRAS)
-# define PLATFORM_ID "MP-RAS"
-
-#elif defined(__osf) || defined(__osf__)
-# define PLATFORM_ID "OSF1"
-
-#elif defined(_SCO_SV) || defined(SCO_SV) || defined(sco_sv)
-# define PLATFORM_ID "SCO_SV"
-
-#elif defined(__ultrix) || defined(__ultrix__) || defined(_ULTRIX)
-# define PLATFORM_ID "ULTRIX"
-
-#elif defined(__XENIX__) || defined(_XENIX) || defined(XENIX)
-# define PLATFORM_ID "Xenix"
-
-#elif defined(__WATCOMC__)
-# if defined(__LINUX__)
-#  define PLATFORM_ID "Linux"
-
-# elif defined(__DOS__)
-#  define PLATFORM_ID "DOS"
-
-# elif defined(__OS2__)
-#  define PLATFORM_ID "OS2"
-
-# elif defined(__WINDOWS__)
-#  define PLATFORM_ID "Windows3x"
-
-# else /* unknown platform */
-#  define PLATFORM_ID
-# endif
-
-#else /* unknown platform */
-# define PLATFORM_ID
-
-#endif
-
-/* For windows compilers MSVC and Intel we can determine
-   the architecture of the compiler being used.  This is because
-   the compilers do not have flags that can change the architecture,
-   but rather depend on which compiler is being used
-*/
-#if defined(_WIN32) && defined(_MSC_VER)
-# if defined(_M_IA64)
-#  define ARCHITECTURE_ID "IA64"
-
-# elif defined(_M_X64) || defined(_M_AMD64)
-#  define ARCHITECTURE_ID "x64"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# elif defined(_M_ARM64)
-#  define ARCHITECTURE_ID "ARM64"
-
-# elif defined(_M_ARM)
-#  if _M_ARM == 4
-#   define ARCHITECTURE_ID "ARMV4I"
-#  elif _M_ARM == 5
-#   define ARCHITECTURE_ID "ARMV5I"
-#  else
-#   define ARCHITECTURE_ID "ARMV" STRINGIFY(_M_ARM)
-#  endif
-
-# elif defined(_M_MIPS)
-#  define ARCHITECTURE_ID "MIPS"
-
-# elif defined(_M_SH)
-#  define ARCHITECTURE_ID "SHx"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__WATCOMC__)
-# if defined(_M_I86)
-#  define ARCHITECTURE_ID "I86"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__IAR_SYSTEMS_ICC__) || defined(__IAR_SYSTEMS_ICC)
-# if defined(__ICCARM__)
-#  define ARCHITECTURE_ID "ARM"
-
-# elif defined(__ICCAVR__)
-#  define ARCHITECTURE_ID "AVR"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-#else
-#  define ARCHITECTURE_ID
-#endif
-
-/* Convert integer to decimal digit literals.  */
-#define DEC(n)                   \
-  ('0' + (((n) / 10000000)%10)), \
-  ('0' + (((n) / 1000000)%10)),  \
-  ('0' + (((n) / 100000)%10)),   \
-  ('0' + (((n) / 10000)%10)),    \
-  ('0' + (((n) / 1000)%10)),     \
-  ('0' + (((n) / 100)%10)),      \
-  ('0' + (((n) / 10)%10)),       \
-  ('0' +  ((n) % 10))
-
-/* Convert integer to hex digit literals.  */
-#define HEX(n)             \
-  ('0' + ((n)>>28 & 0xF)), \
-  ('0' + ((n)>>24 & 0xF)), \
-  ('0' + ((n)>>20 & 0xF)), \
-  ('0' + ((n)>>16 & 0xF)), \
-  ('0' + ((n)>>12 & 0xF)), \
-  ('0' + ((n)>>8  & 0xF)), \
-  ('0' + ((n)>>4  & 0xF)), \
-  ('0' + ((n)     & 0xF))
-
-/* Construct a string literal encoding the version number components. */
-#ifdef COMPILER_VERSION_MAJOR
-char const info_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
-  COMPILER_VERSION_MAJOR,
-# ifdef COMPILER_VERSION_MINOR
-  '.', COMPILER_VERSION_MINOR,
-#  ifdef COMPILER_VERSION_PATCH
-   '.', COMPILER_VERSION_PATCH,
-#   ifdef COMPILER_VERSION_TWEAK
-    '.', COMPILER_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct a string literal encoding the internal version number. */
-#ifdef COMPILER_VERSION_INTERNAL
-char const info_version_internal[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','_',
-  'i','n','t','e','r','n','a','l','[',
-  COMPILER_VERSION_INTERNAL,']','\0'};
-#endif
-
-/* Construct a string literal encoding the version number components. */
-#ifdef SIMULATE_VERSION_MAJOR
-char const info_simulate_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  's','i','m','u','l','a','t','e','_','v','e','r','s','i','o','n','[',
-  SIMULATE_VERSION_MAJOR,
-# ifdef SIMULATE_VERSION_MINOR
-  '.', SIMULATE_VERSION_MINOR,
-#  ifdef SIMULATE_VERSION_PATCH
-   '.', SIMULATE_VERSION_PATCH,
-#   ifdef SIMULATE_VERSION_TWEAK
-    '.', SIMULATE_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct the string literal in pieces to prevent the source from
-   getting matched.  Store it in a pointer rather than an array
-   because some compilers will just produce instructions to fill the
-   array rather than assigning a pointer to a static array.  */
-char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
-char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
-
-
 CMAKE_C_COMPILER_ID_RUN=1
-CMAKE_C_COMPILER_ID_TEST_FLAGS=-c;-Aa;-D__CLASSIC_C__
-CMAKE_C_COMPILER_ID_TOOL_MATCH_INDEX=2
-CMAKE_C_COMPILER_ID_TOOL_MATCH_REGEX=
-Ld[^
-]*(
-[ 	]+[^
-]*)*
-[ 	]+([^ 	
-]+)[^
-]*-o[^
-]*CompilerIdC/(\./)?(CompilerIdC.xctest/)?CompilerIdC[ 	
-\"]
-CMAKE_C_COMPILER_ID_VENDORS=IAR
-CMAKE_C_COMPILER_ID_VENDOR_REGEX_IAR=IAR .+ Compiler
-CMAKE_C_COMPILER_INIT=NOTFOUND
-CMAKE_C_COMPILER_LIST=cc;gcc;cl;bcc;xlc;clang
 CMAKE_C_COMPILER_LOADED=1
-CMAKE_C_COMPILER_NAMES=cc
 CMAKE_C_COMPILER_PREDEFINES_COMMAND=/usr/bin/cc;-dM;-E;-c;/usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-CMAKE_C_COMPILER_PRODUCED_FILES=a.out
-CMAKE_C_COMPILER_PRODUCED_OUTPUT=
 CMAKE_C_COMPILER_RANLIB=/usr/bin/gcc-ranlib-7
 CMAKE_C_COMPILER_RANLIB=/usr/bin/gcc-ranlib-7
 CMAKE_C_COMPILER_VERSION=7.4.0
@@ -855,10 +327,10 @@ CMAKE_C_SOURCE_FILE_EXTENSIONS=c;m
 CMAKE_C_STANDARD_COMPUTED_DEFAULT=11
 CMAKE_C_STANDARD_DEFAULT=11
 CMAKE_C_VERBOSE_FLAG=-v
-CMAKE_C_XCODE_CURRENT_ARCH=
 CMAKE_DEPFILE_FLAGS_C=-MD -MT <OBJECT> -MF <DEPFILE>
 CMAKE_DEPFILE_FLAGS_CXX=-MD -MT <OBJECT> -MF <DEPFILE>
 CMAKE_DL_LIBS=dl
+CMAKE_EDIT_COMMAND=/usr/bin/cmake-gui
 CMAKE_EXECUTABLE_FORMAT=ELF
 CMAKE_EXECUTABLE_RPATH_LINK_CXX_FLAG=-Wl,-rpath-link,
 CMAKE_EXECUTABLE_RPATH_LINK_C_FLAG=-Wl,-rpath-link,
@@ -979,6 +451,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE_INIT=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO_INIT=
 CMAKE_NM=/usr/bin/nm
+CMAKE_NUMBER_OF_MAKEFILES=153
 CMAKE_OBJCOPY=/usr/bin/objcopy
 CMAKE_OBJDUMP=/usr/bin/objdump
 CMAKE_PARENT_LIST_FILE=/home/borg/404/scripts_robotica/OpenCV/CMakeLists.txt
@@ -1036,7 +509,6 @@ CMAKE_SHARED_MODULE_LINK_STATIC_C_FLAGS=-Wl,-Bstatic
 CMAKE_SHARED_MODULE_PREFIX=lib
 CMAKE_SHARED_MODULE_SUFFIX=.so
 CMAKE_SIZEOF_UNSIGNED_SHORT=2
-CMAKE_SIZEOF_UNSIGNED_SHORT_CODE=#define CMAKE_SIZEOF_UNSIGNED_SHORT 2
 CMAKE_SIZEOF_VOID_P=8
 CMAKE_SKIP_INSTALL_RPATH=NO
 CMAKE_SKIP_RPATH=NO
@@ -1066,8 +538,6 @@ CMAKE_SYSTEM_SPECIFIC_INFORMATION_LOADED=1
 CMAKE_SYSTEM_SPECIFIC_INITIALIZE_LOADED=1
 CMAKE_SYSTEM_VERSION=5.3.0-28-generic
 CMAKE_TESTING_ENABLED=1
-CMAKE_TEST_ENDIANESS_STRINGS_BE=
-CMAKE_TEST_ENDIANESS_STRINGS_LE=THIS IS LITTLE ENDIAN.
 CMAKE_THREAD_LIBS_INIT=
 CMAKE_TRY_COMPILE_CONFIGURATION=Release
 CMAKE_TWEAK_VERSION=0
@@ -1155,11 +625,11 @@ CPACK_INSTALLED_DIRECTORIES=/home/borg/404/scripts_robotica/OpenCV;/
 CPACK_INSTALL_CMAKE_PROJECTS=
 CPACK_INSTALL_PREFIX=/usr/local
 CPACK_MODULE_PATH=
-CPACK_NSIS_DISPLAY_NAME=OpenCV 0ba4298-dirty
+CPACK_NSIS_DISPLAY_NAME=OpenCV 46f2325b-dirty
 CPACK_NSIS_INSTALLER_ICON_CODE=
 CPACK_NSIS_INSTALLER_MUI_ICON_CODE=
 CPACK_NSIS_INSTALL_ROOT=$PROGRAMFILES
-CPACK_NSIS_PACKAGE_NAME=OpenCV 0ba4298-dirty
+CPACK_NSIS_PACKAGE_NAME=OpenCV 46f2325b-dirty
 CPACK_OUTPUT_CONFIG_FILE=/home/borg/404/scripts_robotica/OpenCV/build/CPackConfig.cmake
 CPACK_PACKAGE_CONTACT=admin@opencv.org
 CPACK_PACKAGE_DEFAULT_LOCATION=/
@@ -1170,13 +640,13 @@ machine perception in the commercial products. Being a BSD-licensed product,
 OpenCV makes it easy for businesses to utilize and modify the code.
 CPACK_PACKAGE_DESCRIPTION_FILE=/usr/share/cmake-3.10/Templates/CPack.GenericDescription.txt
 CPACK_PACKAGE_DESCRIPTION_SUMMARY=Open Computer Vision Library
-CPACK_PACKAGE_FILE_NAME=OpenCV-0ba4298-dirty-x86_64
-CPACK_PACKAGE_INSTALL_DIRECTORY=OpenCV 0ba4298-dirty
-CPACK_PACKAGE_INSTALL_REGISTRY_KEY=OpenCV 0ba4298-dirty
+CPACK_PACKAGE_FILE_NAME=OpenCV-46f2325b-dirty-x86_64
+CPACK_PACKAGE_INSTALL_DIRECTORY=OpenCV 46f2325b-dirty
+CPACK_PACKAGE_INSTALL_REGISTRY_KEY=OpenCV 46f2325b-dirty
 CPACK_PACKAGE_NAME=OpenCV
 CPACK_PACKAGE_RELOCATABLE=true
 CPACK_PACKAGE_VENDOR=OpenCV Foundation
-CPACK_PACKAGE_VERSION=0ba4298-dirty
+CPACK_PACKAGE_VERSION=46f2325b-dirty
 CPACK_PACKAGE_VERSION_MAJOR=4
 CPACK_PACKAGE_VERSION_MINOR=1
 CPACK_PACKAGE_VERSION_PATCH=1
@@ -1201,7 +671,7 @@ CPACK_SOURCE_GENERATOR=TBZ2;TGZ;TXZ;TZ
 CPACK_SOURCE_IGNORE_FILES=/CVS/;/\\.svn/;/\\.bzr/;/\\.hg/;/\\.git/;\\.swp\$;\\.#;/#
 CPACK_SOURCE_INSTALLED_DIRECTORIES=/home/borg/404/scripts_robotica/OpenCV;/
 CPACK_SOURCE_OUTPUT_CONFIG_FILE=/home/borg/404/scripts_robotica/OpenCV/build/CPackSourceConfig.cmake
-CPACK_SOURCE_PACKAGE_FILE_NAME=OpenCV-0ba4298-dirty-x86_64
+CPACK_SOURCE_PACKAGE_FILE_NAME=OpenCV-46f2325b-dirty-x86_64
 CPACK_SOURCE_RPM=OFF
 CPACK_SOURCE_TBZ2=ON
 CPACK_SOURCE_TGZ=ON
@@ -1381,8 +851,6 @@ CV_ENABLE_INTRINSICS=ON
 CV_ENABLE_UNROLLED=1
 CV_GCC=1
 CV_TRACE=ON
-CXX_TEST_WAS_RUN=1
-C_TEST_WAS_RUN=1
 Caffe_INCLUDE_DIR=Caffe_INCLUDE_DIR-NOTFOUND
 Caffe_LIBS=Caffe_LIBS-NOTFOUND
 Ceres_DIR=Ceres_DIR-NOTFOUND
@@ -1453,7 +921,7 @@ ENABLE_PROFILING=OFF
 ENABLE_PYLINT=OFF
 ENABLE_SOLUTION_FOLDERS=OFF
 EXECUTABLE_OUTPUT_PATH=/home/borg/404/scripts_robotica/OpenCV/build/bin
-EXTRA_MODULES_VCSVERSION=0ba4298-dirty
+EXTRA_MODULES_VCSVERSION=46f2325b-dirty
 Eigen3_CONFIG=/usr/lib/cmake/eigen3/Eigen3Config.cmake
 Eigen3_CONSIDERED_CONFIGS=/usr/lib/cmake/eigen3/Eigen3Config.cmake
 Eigen3_CONSIDERED_VERSIONS=3.3.4
@@ -1503,26 +971,36 @@ FFMPEG_libavformat_INCLUDEDIR=/usr/include/x86_64-linux-gnu
 FFMPEG_libavformat_LIBDIR=/usr/lib/x86_64-linux-gnu
 FFMPEG_libavformat_PREFIX=/usr
 FFMPEG_libavformat_VERSION=57.83.100
-FFMPEG_libavresample_CFLAGS=
+FFMPEG_libavresample_CFLAGS=-I/usr/include/x86_64-linux-gnu
 FFMPEG_libavresample_CFLAGS_I=
 FFMPEG_libavresample_CFLAGS_OTHER=
-FFMPEG_libavresample_FOUND=
-FFMPEG_libavresample_INCLUDEDIR=
-FFMPEG_libavresample_LIBDIR=
+FFMPEG_libavresample_FOUND=1
+FFMPEG_libavresample_INCLUDEDIR=/usr/include/x86_64-linux-gnu
+FFMPEG_libavresample_INCLUDE_DIRS=/usr/include/x86_64-linux-gnu
+FFMPEG_libavresample_LDFLAGS=-lavresample
+FFMPEG_libavresample_LDFLAGS_OTHER=
+FFMPEG_libavresample_LIBDIR=/usr/lib/x86_64-linux-gnu
+FFMPEG_libavresample_LIBRARIES=/usr/lib/x86_64-linux-gnu/libavresample.so
+FFMPEG_libavresample_LIBRARY_DIRS=
 FFMPEG_libavresample_LIBS=
 FFMPEG_libavresample_LIBS_L=
 FFMPEG_libavresample_LIBS_OTHER=
 FFMPEG_libavresample_LIBS_PATHS=
-FFMPEG_libavresample_PREFIX=
-FFMPEG_libavresample_STATIC_CFLAGS=
+FFMPEG_libavresample_PREFIX=/usr
+FFMPEG_libavresample_STATIC_CFLAGS=-I/usr/include/x86_64-linux-gnu
 FFMPEG_libavresample_STATIC_CFLAGS_I=
 FFMPEG_libavresample_STATIC_CFLAGS_OTHER=
+FFMPEG_libavresample_STATIC_INCLUDE_DIRS=/usr/include/x86_64-linux-gnu
+FFMPEG_libavresample_STATIC_LDFLAGS=-lavresample;-lm;-lavutil;-ldrm;-lm
+FFMPEG_libavresample_STATIC_LDFLAGS_OTHER=
 FFMPEG_libavresample_STATIC_LIBDIR=
+FFMPEG_libavresample_STATIC_LIBRARIES=avresample;m;avutil;drm;m
+FFMPEG_libavresample_STATIC_LIBRARY_DIRS=
 FFMPEG_libavresample_STATIC_LIBS=
 FFMPEG_libavresample_STATIC_LIBS_L=
 FFMPEG_libavresample_STATIC_LIBS_OTHER=
 FFMPEG_libavresample_STATIC_LIBS_PATHS=
-FFMPEG_libavresample_VERSION=
+FFMPEG_libavresample_VERSION=3.7.0
 FFMPEG_libavresample_libavresample_INCLUDEDIR=
 FFMPEG_libavresample_libavresample_LIBDIR=
 FFMPEG_libavresample_libavresample_PREFIX=
@@ -2138,7 +1616,6 @@ LIBRARY_PATHS=/usr/lib;/usr/local/lib;/sw/lib;/opt/local/lib;/OpenEXR/lib/static
 LM=-lm
 LOOKED_FOR=Atlas_CBLAS_INCLUDE_DIR;Atlas_CLAPACK_INCLUDE_DIR;Atlas_CBLAS_LIBRARY;Atlas_BLAS_LIBRARY;Atlas_LAPACK_LIBRARY
 Lept_LIBRARY=Lept_LIBRARY-NOTFOUND
-MACRO_CHECK_FUNCTION_DEFINITIONS=-DCHECK_FUNCTION_EXISTS=cheev_ 
 MIN_VER_CMAKE=3.5.1
 MIN_VER_CUDA=6.5
 MIN_VER_CUDNN=6
@@ -2151,8 +1628,6 @@ MKL_LAPACKE_INCLUDE_DIR=MKL_LAPACKE_INCLUDE_DIR-NOTFOUND
 MKL_ROOT_DIR=MKL_ROOT_DIR-NOTFOUND
 MKL_WITH_OPENMP=OFF
 MKL_WITH_TBB=OFF
-MSVC_CXX_ARCHITECTURE_ID=
-MSVC_C_ARCHITECTURE_ID=
 NATIVE_JPEG_INCLUDE_PATH=/usr/include
 NATIVE_JPEG_LIB_PATH=/usr/lib/x86_64-linux-gnu
 OCV_COMPILER_FAIL_REGEX=command line option .* is valid for .* but not for C\+\+;command line option .* is valid for .* but not for C;unrecognized .*option;unknown .*option;ignoring unknown option;warning D9002;option .*not supported;[Uu]nknown option;[Ww]arning: [Oo]ption;command option .* is not recognized;not supported in this configuration, ignored;File with unknown suffix passed to linker;WARNING: unknown flag:
@@ -2692,7 +2167,7 @@ OPENCV_DOWNLOAD_WITH_CURL=/home/borg/404/scripts_robotica/OpenCV/build/download_
 OPENCV_DOWNLOAD_WITH_WGET=/home/borg/404/scripts_robotica/OpenCV/build/download_with_wget.sh
 OPENCV_DUMP_HOOKS_FLOW=OFF
 OPENCV_ENABLE_MEMORY_SANITIZER=OFF
-OPENCV_ENABLE_NONFREE=OFF
+OPENCV_ENABLE_NONFREE=ON
 OPENCV_EXTRA_CXX_FLAGS= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden
 OPENCV_EXTRA_C_FLAGS= -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden
 OPENCV_EXTRA_EXE_LINKER_FLAGS= -Wl,--gc-sections
@@ -3168,7 +2643,7 @@ OPENCV_MODULE_opencv_imgcodecs_DESCRIPTION=Image I/O
 OPENCV_MODULE_opencv_imgcodecs_HEADERS=/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs.hpp;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs.hpp;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs_c.h;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/ios.h;/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/include/opencv2/imgcodecs/legacy/constants_c.h
 OPENCV_MODULE_opencv_imgcodecs_IS_PART_OF_WORLD=ON
 OPENCV_MODULE_opencv_imgcodecs_LABEL=Main;opencv_imgcodecs
-OPENCV_MODULE_opencv_imgcodecs_LINK_DEPS=;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libwebp.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libtiff.so;libjasper;IlmImf;/usr/lib/libgdal.so
+OPENCV_MODULE_opencv_imgcodecs_LINK_DEPS=;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libwebp.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/x86_64-linux-gnu/libtiff.so;libjasper;/usr/lib/x86_64-linux-gnu/libImath.so;/usr/lib/x86_64-linux-gnu/libIlmImf.so;/usr/lib/x86_64-linux-gnu/libIex.so;/usr/lib/x86_64-linux-gnu/libHalf.so;/usr/lib/x86_64-linux-gnu/libIlmThread.so;/usr/lib/libgdal.so
 OPENCV_MODULE_opencv_imgcodecs_LOCATION=/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs
 OPENCV_MODULE_opencv_imgcodecs_OPT_DEPS=
 OPENCV_MODULE_opencv_imgcodecs_PRIVATE_OPT_DEPS=
@@ -3801,7 +3276,7 @@ OPENCV_TEST_DATA_INSTALL_PATH=share/opencv4/testdata
 OPENCV_TEST_INSTALL_PATH=bin
 OPENCV_TIMESTAMP=2020-02-03T18:51:47Z
 OPENCV_TRACE=1
-OPENCV_VCSVERSION=0ba4298-dirty
+OPENCV_VCSVERSION=46f2325b-dirty
 OPENCV_VERIFICATIONS=WITH_1394;WITH_AVFOUNDATION;WITH_CAP_IOS;WITH_CPUFEATURES;WITH_VTK;WITH_CUDA;WITH_CUFFT;WITH_CUBLAS;WITH_CUDNN;WITH_NVCUVID;WITH_EIGEN;WITH_FFMPEG;WITH_GSTREAMER;WITH_GTK;WITH_GTK_2_X;WITH_IPP;WITH_HALIDE;WITH_VULKAN;WITH_INF_ENGINE;WITH_JASPER;WITH_JPEG;WITH_WEBP;WITH_OPENEXR;WITH_OPENGL;WITH_OPENVX;WITH_OPENNI;WITH_OPENNI2;WITH_PNG;WITH_GDCM;WITH_PVAPI;WITH_ARAVIS;WITH_QT;WITH_WIN32UI;WITH_TBB;WITH_HPX;WITH_OPENMP;WITH_PTHREADS_PF;WITH_TIFF;WITH_V4L;WITH_DSHOW;WITH_MSMF;WITH_MSMF_DXVA;WITH_XIMEA;WITH_XINE;WITH_CLP;WITH_OPENCL;WITH_OPENCL_SVM;WITH_OPENCLAMDFFT;WITH_OPENCLAMDBLAS;WITH_DIRECTX;WITH_OPENCL_D3D11_NV;WITH_LIBREALSENSE;WITH_VA;WITH_VA_INTEL;WITH_MFX;WITH_GDAL;WITH_GPHOTO2;WITH_LAPACK;WITH_ITT;WITH_PROTOBUF;WITH_IMGCODEC_HDR;WITH_IMGCODEC_SUNRASTER;WITH_IMGCODEC_PXM;WITH_IMGCODEC_PFM;WITH_QUIRC;WITH_ANDROID_MEDIANDK
 OPENCV_VERIFY_WITH_1394=HAVE_DC1394_2
 OPENCV_VERIFY_WITH_ANDROID_MEDIANDK=HAVE_ANDROID_MEDIANDK
@@ -3885,16 +3360,19 @@ OPENCV_VS_VER_PRODUCTVERSION_QUAD=4,1,1,0
 OPENCV_VS_VER_PRODUCTVERSION_STR=4.1.1
 OPENCV_WARNINGS_ARE_ERRORS=OFF
 OPENCV_WORLD_MODULES=
-OPENEXR_HALF_LIBRARY=OPENEXR_HALF_LIBRARY-NOTFOUND
-OPENEXR_IEX_LIBRARY=OPENEXR_IEX_LIBRARY-NOTFOUND
-OPENEXR_ILMTHREAD_LIBRARY=OPENEXR_ILMTHREAD_LIBRARY-NOTFOUND
-OPENEXR_IMATH_LIBRARY=OPENEXR_IMATH_LIBRARY-NOTFOUND
-OPENEXR_INCLUDE_PATH=OPENEXR_INCLUDE_PATH-NOTFOUND
-OPENEXR_INCLUDE_PATHS=/home/borg/404/scripts_robotica/OpenCV/3rdparty/openexr/Half;/home/borg/404/scripts_robotica/OpenCV/3rdparty/openexr/Iex;/home/borg/404/scripts_robotica/OpenCV/3rdparty/openexr/IlmThread;/home/borg/404/scripts_robotica/OpenCV/3rdparty/openexr/Imath;/home/borg/404/scripts_robotica/OpenCV/3rdparty/openexr/IlmImf;/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/openexr
-OPENEXR_LIBRARIES=IlmImf
+OPENEXR_FOUND=TRUE
+OPENEXR_HALF_LIBRARY=/usr/lib/x86_64-linux-gnu/libHalf.so
+OPENEXR_IEX_LIBRARY=/usr/lib/x86_64-linux-gnu/libIex.so
+OPENEXR_ILMIMF_LIBRARY=/usr/lib/x86_64-linux-gnu/libIlmImf.so
+OPENEXR_ILMTHREAD_LIBRARY=/usr/lib/x86_64-linux-gnu/libIlmThread.so
+OPENEXR_IMATH_LIBRARY=/usr/lib/x86_64-linux-gnu/libImath.so
+OPENEXR_INCLUDE_PATH=/usr/include/OpenEXR
+OPENEXR_INCLUDE_PATHS=/usr/include/OpenEXR
+OPENEXR_LIBRARIES=/usr/lib/x86_64-linux-gnu/libImath.so;/usr/lib/x86_64-linux-gnu/libIlmImf.so;/usr/lib/x86_64-linux-gnu/libIex.so;/usr/lib/x86_64-linux-gnu/libHalf.so;/usr/lib/x86_64-linux-gnu/libIlmThread.so
 OPENEXR_LIBSEARCH_SUFFIXES=
+OPENEXR_LIB_PATH=/usr/lib/x86_64-linux-gnu
 OPENEXR_ROOT=
-OPENEXR_VERSION=2.3.0
+OPENEXR_VERSION=2.2.0
 OPENGL_EGL_INCLUDE_DIR=/usr/include
 OPENGL_EGL_INCLUDE_DIRS=/usr/include
 OPENGL_FOUND=TRUE
@@ -3915,11 +3393,11 @@ OPT=
 OPT2=
 OUTPUT=Change Dir: /home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_79eb6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_79eb6.dir/build.make CMakeFiles/cmTC_79eb6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3a5b8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3a5b8.dir/build.make CMakeFiles/cmTC_3a5b8.dir/build
 make[1]: Entering directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_79eb6.dir/vtk_test.cpp.o
-/usr/bin/c++   -I/usr/include/vtk-6.3 -I/usr/include/x86_64-linux-gnu -I/usr/include/freetype2  -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -fPIE   -std=c++11 -o CMakeFiles/cmTC_79eb6.dir/vtk_test.cpp.o -c /home/borg/404/scripts_robotica/OpenCV/cmake/checks/vtk_test.cpp
+Building CXX object CMakeFiles/cmTC_3a5b8.dir/vtk_test.cpp.o
+/usr/bin/c++   -I/usr/include/vtk-6.3 -I/usr/include/x86_64-linux-gnu -I/usr/include/freetype2  -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -fPIE   -std=c++11 -o CMakeFiles/cmTC_3a5b8.dir/vtk_test.cpp.o -c /home/borg/404/scripts_robotica/OpenCV/cmake/checks/vtk_test.cpp
 In file included from /usr/include/vtk-6.3/vtkObject.h:43:0,
                  from /usr/include/vtk-6.3/vtkAbstractTransform.h:40,
                  from /usr/include/vtk-6.3/vtkHomogeneousTransform.h:28,
@@ -4274,12 +3752,11 @@ In file included from /home/borg/404/scripts_robotica/OpenCV/cmake/checks/vtk_te
 /usr/include/vtk-6.3/vtkMath.h:77:8: warning: ‘virtual void vtkMath::PrintSelf(std::ostream&, vtkIndent)’ can be marked override [-Wsuggest-override]
    void PrintSelf(ostream& os, vtkIndent indent);
         ^~~~~~~~~
-Linking CXX executable cmTC_79eb6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79eb6.dir/link.txt --verbose=1
-/usr/bin/c++     -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG    -Wl,--gc-sections  CMakeFiles/cmTC_79eb6.dir/vtk_test.cpp.o  -o cmTC_79eb6 /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/x86_64-linux-gnu/libpng.so /usr/lib/x86_64-linux-gnu/libtiff.so /usr/lib/x86_64-linux-gnu/libvtkInteractionStyle-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingLOD-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersModeling-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOPLY-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOGeometry-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersTexture-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/x86_64-linux-gnu/libvtkIOExport-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingAnnotation-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingColor-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingGL2PS-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingContextOpenGL-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libgl2ps.so /usr/lib/x86_64-linux-gnu/libvtkRenderingLabel-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingOpenGL-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingHybrid-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOImage-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkDICOMParser-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkmetaio-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libSM.so /usr/lib/x86_64-linux-gnu/libICE.so /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so /usr/lib/x86_64-linux-gnu/libXt.so /usr/lib/x86_64-linux-gnu/libvtkRenderingContext2D-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingFreeType-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonColor-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersExtraction-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersStatistics-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingFourier-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkalglib-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersGeometry-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersSources-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersGeneral-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonExecutionModel-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonComputationalGeometry-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonDataModel-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonMisc-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonTransforms-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonMath-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonSystem-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtksys-6.3.so.6.3.0 -ldl /usr/lib/x86_64-linux-gnu/libvtkftgl-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/x86_64-linux-gnu/libGL.so 
+Linking CXX executable cmTC_3a5b8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a5b8.dir/link.txt --verbose=1
+/usr/bin/c++     -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG    -Wl,--gc-sections  CMakeFiles/cmTC_3a5b8.dir/vtk_test.cpp.o  -o cmTC_3a5b8 /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/x86_64-linux-gnu/libpng.so /usr/lib/x86_64-linux-gnu/libtiff.so /usr/lib/x86_64-linux-gnu/libvtkInteractionStyle-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingLOD-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersModeling-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOPLY-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOGeometry-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersTexture-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/x86_64-linux-gnu/libvtkIOExport-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingAnnotation-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingColor-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingGL2PS-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingContextOpenGL-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libgl2ps.so /usr/lib/x86_64-linux-gnu/libvtkRenderingLabel-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingOpenGL-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingHybrid-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOImage-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkDICOMParser-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkIOCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkmetaio-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libSM.so /usr/lib/x86_64-linux-gnu/libICE.so /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so /usr/lib/x86_64-linux-gnu/libXt.so /usr/lib/x86_64-linux-gnu/libvtkRenderingContext2D-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingFreeType-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkRenderingCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonColor-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersExtraction-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersStatistics-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingFourier-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkImagingCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkalglib-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersGeometry-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersSources-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersGeneral-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkFiltersCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonExecutionModel-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonComputationalGeometry-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonDataModel-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonMisc-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonTransforms-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonMath-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonSystem-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libvtksys-6.3.so.6.3.0 -ldl /usr/lib/x86_64-linux-gnu/libvtkftgl-6.3.so.6.3.0 /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/x86_64-linux-gnu/libGL.so 
 make[1]: Leaving directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
 
-OUTPUT_LINES=Change Dir: /home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp;;Run Build Command:"/usr/bin/make" "cmTC_e56a2/fast";/usr/bin/make -f CMakeFiles/cmTC_e56a2.dir/build.make CMakeFiles/cmTC_e56a2.dir/build;make[1]: Entering directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp';Building C object CMakeFiles/cmTC_e56a2.dir/src.c.o;/usr/bin/cc   -O3 -DNDEBUG -fPIE   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/cmTC_e56a2.dir/src.c.o   -c /home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp/src.c;cc1: warning: command line option ‘-fvisibility-inlines-hidden’ is valid for C++/ObjC++ but not for C;/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]; #pragma; ;Linking C executable cmTC_e56a2;/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e56a2.dir/link.txt --verbose=1;/usr/bin/cc   -O3 -DNDEBUG    CMakeFiles/cmTC_e56a2.dir/src.c.o  -o cmTC_e56a2 ;make[1]: Leaving directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp';
 OpenBLAS=
 OpenBLAS_FOUND=OFF
 OpenBLAS_INCLUDE_DIR=OpenBLAS_INCLUDE_DIR-NOTFOUND
@@ -4310,6 +3787,7 @@ PCHSupport_FOUND=TRUE
 PKGCONFIG_FOUND=TRUE
 PKG_CONFIG_EXECUTABLE=/usr/bin/pkg-config
 PKG_CONFIG_FOUND=TRUE
+PKG_CONFIG_PROCESS=0
 PKG_CONFIG_VERSION=1
 PKG_CONFIG_VERSION_STRING=0.29.1
 PNG_FOUND=TRUE
@@ -4327,7 +3805,6 @@ PNG_PNG_INCLUDE_DIR=/usr/include
 PNG_VERSION=1.6.34
 PNG_VERSION_LINES=#define PNG_LIBPNG_VER_MAJOR   1;#define PNG_LIBPNG_VER_MINOR   6;#define PNG_LIBPNG_VER_RELEASE 34
 PNG_VERSION_STRING=1.6.34
-PRESET_CMAKE_SYSTEM_NAME=FALSE
 PROJECT_BINARY_DIR=/home/borg/404/scripts_robotica/OpenCV/build
 PROJECT_NAME=OpenCV
 PROJECT_SOURCE_DIR=/home/borg/404/scripts_robotica/OpenCV
@@ -4524,30 +4001,6 @@ TBB_INTERFACE_VERSION=9107
 TBB_VERSION_MAJOR=2017
 TBB_VERSION_MINOR=0
 TBB_VER_FILE=/usr/include/tbb/tbb_stddef.h
-TEST_ENDIANESS_FILE_CONTENT=/* A 16 bit integer is required. */
-typedef unsigned short cmakeint16;
-
-/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
-   On a big endian machine the characters will be exchanged pairwise. */
-const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
-
-/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
-   On a little endian machine the characters will be exchanged pairwise. */
-const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
-
-#ifdef __CLASSIC_C__
-int main(argc, argv) int argc; char *argv[];
-#else
-int main(int argc, char *argv[])
-#endif
-{
-  int require = 0;
-  require += info_little[argc];
-  require += info_big[argc];
-  (void)argv;
-  return require;
-}
-
 THREADS_FOUND=TRUE
 TIFF_BIGTIFF_VERSION=
 TIFF_FOUND=TRUE
@@ -4565,19 +4018,19 @@ TIFF_VERSION_LINES=#define TIFF_VERSION_CLASSIC 42;#define TIFF_VERSION_BIG 43
 TIFF_VERSION_STRING=4.0.9
 TRY_OUT=Change Dir: /home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6001c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6001c.dir/build.make CMakeFiles/cmTC_6001c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_66c44/fast"
+/usr/bin/make -f CMakeFiles/cmTC_66c44.dir/build.make CMakeFiles/cmTC_66c44.dir/build
 make[1]: Entering directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6001c.dir/opencl.cpp.o
-/usr/bin/c++   -I/home/borg/404/scripts_robotica/OpenCV/3rdparty/include/opencl/1.2  -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -fPIE   -std=c++11 -o CMakeFiles/cmTC_6001c.dir/opencl.cpp.o -c /home/borg/404/scripts_robotica/OpenCV/cmake/checks/opencl.cpp
+Building CXX object CMakeFiles/cmTC_66c44.dir/opencl.cpp.o
+/usr/bin/c++   -I/home/borg/404/scripts_robotica/OpenCV/3rdparty/include/opencl/1.2  -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG -fPIE   -std=c++11 -o CMakeFiles/cmTC_66c44.dir/opencl.cpp.o -c /home/borg/404/scripts_robotica/OpenCV/cmake/checks/opencl.cpp
 /home/borg/404/scripts_robotica/OpenCV/cmake/checks/opencl.cpp:6:2: error: #error OpenCL is valid
  #error OpenCL is valid
   ^~~~~
-CMakeFiles/cmTC_6001c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_6001c.dir/opencl.cpp.o' failed
-make[1]: *** [CMakeFiles/cmTC_6001c.dir/opencl.cpp.o] Error 1
+CMakeFiles/cmTC_66c44.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_66c44.dir/opencl.cpp.o' failed
+make[1]: *** [CMakeFiles/cmTC_66c44.dir/opencl.cpp.o] Error 1
 make[1]: Leaving directory '/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_6001c/fast' failed
-make: *** [cmTC_6001c/fast] Error 2
+Makefile:126: recipe for target 'cmTC_66c44/fast' failed
+make: *** [cmTC_66c44/fast] Error 2
 
 Tesseract_CFLAGS=
 Tesseract_CFLAGS_I=
@@ -4635,7 +4088,7 @@ VTK_LIBRARY_DIRS=
 VTK_MAJOR_VERSION=6
 VTK_MINOR_VERSION=3
 VTK_MODULES_DIR=/usr/lib/cmake/vtk-6.3/Modules
-VTK_MODULES_ENABLED=vtkChartsCore;vtkCommonColor;vtkCommonComputationalGeometry;vtkCommonCore;vtkCommonDataModel;vtkCommonExecutionModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkDICOMParser;vtkDomainsChemistry;vtkFiltersAMR;vtkFiltersCore;vtkFiltersExtraction;vtkFiltersFlowPaths;vtkFiltersGeneral;vtkFiltersGeneric;vtkFiltersGeometry;vtkFiltersHybrid;vtkFiltersHyperTree;vtkFiltersImaging;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelFlowPaths;vtkFiltersParallelGeometry;vtkFiltersParallelImaging;vtkFiltersParallelMPI;vtkFiltersParallelStatistics;vtkFiltersProgrammable;vtkFiltersPython;vtkFiltersReebGraph;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersSources;vtkFiltersStatistics;vtkFiltersTexture;vtkFiltersVerdict;vtkGeovisCore;vtkIOAMR;vtkIOCore;vtkIOEnSight;vtkIOExodus;vtkIOExport;vtkIOFFMPEG;vtkIOGDAL;vtkIOGeoJSON;vtkIOGeometry;vtkIOImage;vtkIOImport;vtkIOInfovis;vtkIOLSDyna;vtkIOLegacy;vtkIOMINC;vtkIOMPIImage;vtkIOMPIParallel;vtkIOMovie;vtkIOMySQL;vtkIONetCDF;vtkIOODBC;vtkIOPLY;vtkIOParallel;vtkIOParallelExodus;vtkIOParallelLSDyna;vtkIOParallelNetCDF;vtkIOParallelXML;vtkIOPostgreSQL;vtkIOSQL;vtkIOVPIC;vtkIOVideo;vtkIOXML;vtkIOXMLParser;vtkIOXdmf2;vtkImagingColor;vtkImagingCore;vtkImagingFourier;vtkImagingGeneral;vtkImagingHybrid;vtkImagingMath;vtkImagingMorphological;vtkImagingSources;vtkImagingStatistics;vtkImagingStencil;vtkInfovisBoost;vtkInfovisBoostGraphAlgorithms;vtkInfovisCore;vtkInfovisLayout;vtkInteractionImage;vtkInteractionStyle;vtkInteractionWidgets;vtkLocalExample;vtkMetaIO;vtkParallelCore;vtkParallelMPI;vtkParallelMPI4Py;vtkParseOGLExt;vtkPython;vtkPythonInterpreter;vtkRenderingAnnotation;vtkRenderingContext2D;vtkRenderingContextOpenGL;vtkRenderingCore;vtkRenderingExternal;vtkRenderingFreeType;vtkRenderingFreeTypeFontConfig;vtkRenderingGL2PS;vtkRenderingImage;vtkRenderingLIC;vtkRenderingLOD;vtkRenderingLabel;vtkRenderingMatplotlib;vtkRenderingOpenGL;vtkRenderingParallel;vtkRenderingParallelLIC;vtkRenderingTk;vtkRenderingVolume;vtkRenderingVolumeAMR;vtkRenderingVolumeOpenGL;vtkTclTk;vtkTestingCore;vtkTestingGenericBridge;vtkTestingIOSQL;vtkTestingRendering;vtkUtilitiesEncodeString;vtkUtilitiesHashSource;vtkVPIC;vtkViewsContext2D;vtkViewsCore;vtkViewsGeovis;vtkViewsInfovis;vtkWrappingJava;vtkWrappingPythonCore;vtkWrappingTcl;vtkWrappingTools;vtkalglib;vtkexodusII;vtkexpat;vtkfreetype;vtkftgl;vtkgl2ps;vtkglew;vtkhdf5;vtkjpeg;vtkjsoncpp;vtklibproj4;vtklibxml2;vtknetcdf;vtkoggtheora;vtkpng;vtksqlite;vtksys;vtktiff;vtkverdict;vtkxdmf2;vtkzlib
+VTK_MODULES_ENABLED=vtkChartsCore;vtkCommonColor;vtkCommonComputationalGeometry;vtkCommonCore;vtkCommonDataModel;vtkCommonExecutionModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkDICOMParser;vtkDomainsChemistry;vtkFiltersAMR;vtkFiltersCore;vtkFiltersExtraction;vtkFiltersFlowPaths;vtkFiltersGeneral;vtkFiltersGeneric;vtkFiltersGeometry;vtkFiltersHybrid;vtkFiltersHyperTree;vtkFiltersImaging;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelFlowPaths;vtkFiltersParallelGeometry;vtkFiltersParallelImaging;vtkFiltersParallelMPI;vtkFiltersParallelStatistics;vtkFiltersProgrammable;vtkFiltersPython;vtkFiltersReebGraph;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersSources;vtkFiltersStatistics;vtkFiltersTexture;vtkFiltersVerdict;vtkGUISupportQt;vtkGUISupportQtOpenGL;vtkGUISupportQtSQL;vtkGUISupportQtWebkit;vtkGeovisCore;vtkIOAMR;vtkIOCore;vtkIOEnSight;vtkIOExodus;vtkIOExport;vtkIOFFMPEG;vtkIOGDAL;vtkIOGeoJSON;vtkIOGeometry;vtkIOImage;vtkIOImport;vtkIOInfovis;vtkIOLSDyna;vtkIOLegacy;vtkIOMINC;vtkIOMPIImage;vtkIOMPIParallel;vtkIOMovie;vtkIOMySQL;vtkIONetCDF;vtkIOODBC;vtkIOPLY;vtkIOParallel;vtkIOParallelExodus;vtkIOParallelLSDyna;vtkIOParallelNetCDF;vtkIOParallelXML;vtkIOPostgreSQL;vtkIOSQL;vtkIOVPIC;vtkIOVideo;vtkIOXML;vtkIOXMLParser;vtkIOXdmf2;vtkImagingColor;vtkImagingCore;vtkImagingFourier;vtkImagingGeneral;vtkImagingHybrid;vtkImagingMath;vtkImagingMorphological;vtkImagingSources;vtkImagingStatistics;vtkImagingStencil;vtkInfovisBoost;vtkInfovisBoostGraphAlgorithms;vtkInfovisCore;vtkInfovisLayout;vtkInteractionImage;vtkInteractionStyle;vtkInteractionWidgets;vtkLocalExample;vtkMetaIO;vtkParallelCore;vtkParallelMPI;vtkParallelMPI4Py;vtkParseOGLExt;vtkPython;vtkPythonInterpreter;vtkRenderingAnnotation;vtkRenderingContext2D;vtkRenderingContextOpenGL;vtkRenderingCore;vtkRenderingExternal;vtkRenderingFreeType;vtkRenderingFreeTypeFontConfig;vtkRenderingGL2PS;vtkRenderingImage;vtkRenderingLIC;vtkRenderingLOD;vtkRenderingLabel;vtkRenderingMatplotlib;vtkRenderingOpenGL;vtkRenderingParallel;vtkRenderingParallelLIC;vtkRenderingQt;vtkRenderingTk;vtkRenderingVolume;vtkRenderingVolumeAMR;vtkRenderingVolumeOpenGL;vtkTclTk;vtkTestingCore;vtkTestingGenericBridge;vtkTestingIOSQL;vtkTestingRendering;vtkUtilitiesEncodeString;vtkUtilitiesHashSource;vtkVPIC;vtkViewsContext2D;vtkViewsCore;vtkViewsGeovis;vtkViewsInfovis;vtkViewsQt;vtkWrappingJava;vtkWrappingPythonCore;vtkWrappingTcl;vtkWrappingTools;vtkalglib;vtkexodusII;vtkexpat;vtkfreetype;vtkftgl;vtkgl2ps;vtkglew;vtkhdf5;vtkjpeg;vtkjsoncpp;vtklibproj4;vtklibxml2;vtknetcdf;vtkoggtheora;vtkpng;vtksqlite;vtksys;vtktiff;vtkverdict;vtkxdmf2;vtkzlib
 VTK_MODULES_REQUESTED=vtkRenderingOpenGL;vtkInteractionStyle;vtkRenderingLOD;vtkIOPLY;vtkFiltersTexture;vtkRenderingFreeType;vtkIOExport;vtkIOGeometry
 VTK_QT_VERSION=5
 VTK_RENDERING_BACKEND=OpenGL
@@ -4770,7 +4223,7 @@ ZLIB_VERSION_MINOR=2
 ZLIB_VERSION_PATCH=11
 ZLIB_VERSION_STRING=1.2.11
 ZLIB_VERSION_TWEAK=
-_BLAS_LIBRARIES=/usr/lib/x86_64-linux-gnu/libblas.so
+_BLAS_LIBRARIES=/usr/lib/x86_64-linux-gnu/libf77blas.so;/usr/lib/x86_64-linux-gnu/libatlas.so
 _BUILD=0
 _CMAKE_CXX_IPO_MAY_BE_SUPPORTED_BY_COMPILER=YES
 _CMAKE_CXX_IPO_SUPPORTED_BY_CMAKE=YES
@@ -4778,7 +4231,6 @@ _CMAKE_C_IPO_MAY_BE_SUPPORTED_BY_COMPILER=YES
 _CMAKE_C_IPO_SUPPORTED_BY_CMAKE=YES
 _CMAKE_INSTALL_DIR=/usr
 _CMAKE_PUSH_CHECK_STATE_COUNTER=0
-_CMAKE_TOOLCHAIN_LOCATION=/usr/bin
 _CPACK_OTHER_VARIABLES_=
 SET(CPACK_BINARY_7Z "")
 SET(CPACK_BINARY_BUNDLE "")
@@ -4859,11 +4311,11 @@ SET(CPACK_INSTALLED_DIRECTORIES "/home/borg/404/scripts_robotica/OpenCV;/")
 SET(CPACK_INSTALL_CMAKE_PROJECTS "")
 SET(CPACK_INSTALL_PREFIX "/usr/local")
 SET(CPACK_MODULE_PATH "")
-SET(CPACK_NSIS_DISPLAY_NAME "OpenCV 0ba4298-dirty")
+SET(CPACK_NSIS_DISPLAY_NAME "OpenCV 46f2325b-dirty")
 SET(CPACK_NSIS_INSTALLER_ICON_CODE "")
 SET(CPACK_NSIS_INSTALLER_MUI_ICON_CODE "")
 SET(CPACK_NSIS_INSTALL_ROOT "$PROGRAMFILES")
-SET(CPACK_NSIS_PACKAGE_NAME "OpenCV 0ba4298-dirty")
+SET(CPACK_NSIS_PACKAGE_NAME "OpenCV 46f2325b-dirty")
 SET(CPACK_OUTPUT_CONFIG_FILE "/home/borg/404/scripts_robotica/OpenCV/build/CPackConfig.cmake")
 SET(CPACK_PACKAGE_CONTACT "admin@opencv.org")
 SET(CPACK_PACKAGE_DEFAULT_LOCATION "/")
@@ -4874,13 +4326,13 @@ machine perception in the commercial products. Being a BSD-licensed product,
 OpenCV makes it easy for businesses to utilize and modify the code.")
 SET(CPACK_PACKAGE_DESCRIPTION_FILE "/usr/share/cmake-3.10/Templates/CPack.GenericDescription.txt")
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Open Computer Vision Library")
-SET(CPACK_PACKAGE_FILE_NAME "OpenCV-0ba4298-dirty-x86_64")
-SET(CPACK_PACKAGE_INSTALL_DIRECTORY "OpenCV 0ba4298-dirty")
-SET(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "OpenCV 0ba4298-dirty")
+SET(CPACK_PACKAGE_FILE_NAME "OpenCV-46f2325b-dirty-x86_64")
+SET(CPACK_PACKAGE_INSTALL_DIRECTORY "OpenCV 46f2325b-dirty")
+SET(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "OpenCV 46f2325b-dirty")
 SET(CPACK_PACKAGE_NAME "OpenCV")
 SET(CPACK_PACKAGE_RELOCATABLE "true")
 SET(CPACK_PACKAGE_VENDOR "OpenCV Foundation")
-SET(CPACK_PACKAGE_VERSION "0ba4298-dirty")
+SET(CPACK_PACKAGE_VERSION "46f2325b-dirty")
 SET(CPACK_PACKAGE_VERSION_MAJOR "4")
 SET(CPACK_PACKAGE_VERSION_MINOR "1")
 SET(CPACK_PACKAGE_VERSION_PATCH "1")
@@ -4905,7 +4357,7 @@ SET(CPACK_SOURCE_GENERATOR "TBZ2;TGZ;TXZ;TZ")
 SET(CPACK_SOURCE_IGNORE_FILES "/CVS/;/\\.svn/;/\\.bzr/;/\\.hg/;/\\.git/;\\.swp\$;\\.#;/#")
 SET(CPACK_SOURCE_INSTALLED_DIRECTORIES "/home/borg/404/scripts_robotica/OpenCV;/")
 SET(CPACK_SOURCE_OUTPUT_CONFIG_FILE "/home/borg/404/scripts_robotica/OpenCV/build/CPackSourceConfig.cmake")
-SET(CPACK_SOURCE_PACKAGE_FILE_NAME "OpenCV-0ba4298-dirty-x86_64")
+SET(CPACK_SOURCE_PACKAGE_FILE_NAME "OpenCV-46f2325b-dirty-x86_64")
 SET(CPACK_SOURCE_RPM "OFF")
 SET(CPACK_SOURCE_TBZ2 "ON")
 SET(CPACK_SOURCE_TGZ "ON")
@@ -4924,7 +4376,6 @@ _INCLUDED_FILE=/usr/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake
 _INCLUDED_SYSTEM_INFO_FILE=/usr/share/cmake-3.10/Modules/Platform/Linux.cmake
 _IN_TC=0
 _JAVA_HOME=
-_LIBDIR_DEFAULT=lib
 _LIBRARIES=LAPACK_LIBRARIES
 _MAJOR=2019
 _MINOR=0
@@ -4971,8 +4422,6 @@ _Qt5Widgets_PRIVATE_DIR=
 _Qt5Widgets_PRIVATE_DIRS_EXIST=FALSE
 _Qt5_COMPONENT_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/..
 _Qt5_FIND_PARTS_QUIET=QUIET
-_SET_CMAKE_CXX_COMPILER_ARCHITECTURE_ID=
-_SET_CMAKE_C_COMPILER_ARCHITECTURE_ID=
 _VERSION_STR=2019.0.0 Gold
 _VTK_MISSING=
 _ZLIB_SEARCHES=_ZLIB_SEARCH_NORMAL
@@ -4987,7 +4436,7 @@ _config=
 _dir=
 _expectedTarget=
 _file=
-_fname=/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp/src.c
+_fname=
 _found=/usr/lib/cmake/vtk-6.3/Modules/vtkRenderingLabel.cmake
 _gdal_dashL=-L/usr/lib
 _gdal_dashl=-lgdal
@@ -4995,14 +4444,13 @@ _gdal_lib=gdal
 _gdal_libpath=/usr/lib
 _java_libarch=amd64;i386
 _lang=C
-_language=C
 _lapack_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES=.so;.a
 _lib=
 _libarch=
 _libdir=ENV;LD_LIBRARY_PATH
 _libraries_work=1
 _library=
-_line=
+_list=SSE4_1;SSE4_2;AVX;FP16;AVX2;AVX512_SKX
 _module=vtkzlib
 _module_dep=
 _newpath=/usr/lib/jvm/java-6-openjdk-i386/include
@@ -5017,10 +4465,7 @@ _qt5_install_prefix=/usr/lib/x86_64-linux-gnu/cmake
 _qt5_module_location_template=/usr/lib/x86_64-linux-gnu/cmake/Qt5@module@/Qt5@module@Config.cmake
 _qt5_module_paths=/usr/lib/x86_64-linux-gnu/cmake
 _qt5_root_dir=/usr/lib/x86_64-linux-gnu/cmake
-_regex=
 _rev_deps=opencv_xphoto;opencv_photo;opencv_imgproc;opencv_core
-_test_file=/home/borg/404/scripts_robotica/OpenCV/build/CMakeFiles/CMakeTmp/TestEndianess.c
-_test_language=C
 _type=INTERFACE_LIBRARY
 _var=
 _varname=HAVE_C_FVISIBILITY_INLINES_HIDDEN
@@ -5034,7 +4479,7 @@ arg=
 c=
 compatible_MESSAGE_NEVER=MESSAGE_NEVER
 component=
-config_files=vtkChartsCore-Headers.cmake;vtkChartsCore.cmake;vtkCommonColor-Headers.cmake;vtkCommonColor.cmake;vtkCommonComputationalGeometry-Headers.cmake;vtkCommonComputationalGeometry.cmake;vtkCommonCore-Headers.cmake;vtkCommonCore.cmake;vtkCommonDataModel-Headers.cmake;vtkCommonDataModel.cmake;vtkCommonExecutionModel-Headers.cmake;vtkCommonExecutionModel.cmake;vtkCommonMath-Headers.cmake;vtkCommonMath.cmake;vtkCommonMisc-Headers.cmake;vtkCommonMisc.cmake;vtkCommonSystem-Headers.cmake;vtkCommonSystem.cmake;vtkCommonTransforms-Headers.cmake;vtkCommonTransforms.cmake;vtkDICOMParser.cmake;vtkDomainsChemistry-Headers.cmake;vtkDomainsChemistry.cmake;vtkFiltersAMR-Headers.cmake;vtkFiltersAMR.cmake;vtkFiltersCore-Headers.cmake;vtkFiltersCore.cmake;vtkFiltersExtraction-Headers.cmake;vtkFiltersExtraction.cmake;vtkFiltersFlowPaths-Headers.cmake;vtkFiltersFlowPaths.cmake;vtkFiltersGeneral-Headers.cmake;vtkFiltersGeneral.cmake;vtkFiltersGeneric-Headers.cmake;vtkFiltersGeneric.cmake;vtkFiltersGeometry-Headers.cmake;vtkFiltersGeometry.cmake;vtkFiltersHybrid-Headers.cmake;vtkFiltersHybrid.cmake;vtkFiltersHyperTree-Headers.cmake;vtkFiltersHyperTree.cmake;vtkFiltersImaging-Headers.cmake;vtkFiltersImaging.cmake;vtkFiltersModeling-Headers.cmake;vtkFiltersModeling.cmake;vtkFiltersParallel-Headers.cmake;vtkFiltersParallel.cmake;vtkFiltersParallelFlowPaths-Headers.cmake;vtkFiltersParallelFlowPaths.cmake;vtkFiltersParallelGeometry-Headers.cmake;vtkFiltersParallelGeometry.cmake;vtkFiltersParallelImaging-Headers.cmake;vtkFiltersParallelImaging.cmake;vtkFiltersParallelMPI-Headers.cmake;vtkFiltersParallelMPI.cmake;vtkFiltersParallelStatistics-Headers.cmake;vtkFiltersParallelStatistics.cmake;vtkFiltersProgrammable-Headers.cmake;vtkFiltersProgrammable.cmake;vtkFiltersPython-Headers.cmake;vtkFiltersPython.cmake;vtkFiltersReebGraph-Headers.cmake;vtkFiltersReebGraph.cmake;vtkFiltersSMP-Headers.cmake;vtkFiltersSMP.cmake;vtkFiltersSelection-Headers.cmake;vtkFiltersSelection.cmake;vtkFiltersSources-Headers.cmake;vtkFiltersSources.cmake;vtkFiltersStatistics-Headers.cmake;vtkFiltersStatistics.cmake;vtkFiltersTexture-Headers.cmake;vtkFiltersTexture.cmake;vtkFiltersVerdict-Headers.cmake;vtkFiltersVerdict.cmake;vtkGeovisCore-Headers.cmake;vtkGeovisCore.cmake;vtkIOAMR-Headers.cmake;vtkIOAMR.cmake;vtkIOCore-Headers.cmake;vtkIOCore.cmake;vtkIOEnSight-Headers.cmake;vtkIOEnSight.cmake;vtkIOExodus-Headers.cmake;vtkIOExodus.cmake;vtkIOExport-Headers.cmake;vtkIOExport.cmake;vtkIOFFMPEG-Headers.cmake;vtkIOFFMPEG.cmake;vtkIOGDAL-Headers.cmake;vtkIOGDAL.cmake;vtkIOGeoJSON-Headers.cmake;vtkIOGeoJSON.cmake;vtkIOGeometry-Headers.cmake;vtkIOGeometry.cmake;vtkIOImage-Headers.cmake;vtkIOImage.cmake;vtkIOImport-Headers.cmake;vtkIOImport.cmake;vtkIOInfovis-Headers.cmake;vtkIOInfovis.cmake;vtkIOLSDyna-Headers.cmake;vtkIOLSDyna.cmake;vtkIOLegacy-Headers.cmake;vtkIOLegacy.cmake;vtkIOMINC-Headers.cmake;vtkIOMINC.cmake;vtkIOMPIImage-Headers.cmake;vtkIOMPIImage.cmake;vtkIOMPIParallel-Headers.cmake;vtkIOMPIParallel.cmake;vtkIOMovie-Headers.cmake;vtkIOMovie.cmake;vtkIOMySQL-Headers.cmake;vtkIOMySQL.cmake;vtkIONetCDF-Headers.cmake;vtkIONetCDF.cmake;vtkIOODBC-Headers.cmake;vtkIOODBC.cmake;vtkIOPLY-Headers.cmake;vtkIOPLY.cmake;vtkIOParallel-Headers.cmake;vtkIOParallel.cmake;vtkIOParallelExodus-Headers.cmake;vtkIOParallelExodus.cmake;vtkIOParallelLSDyna-Headers.cmake;vtkIOParallelLSDyna.cmake;vtkIOParallelNetCDF-Headers.cmake;vtkIOParallelNetCDF.cmake;vtkIOParallelXML-Headers.cmake;vtkIOParallelXML.cmake;vtkIOPostgreSQL-Headers.cmake;vtkIOPostgreSQL.cmake;vtkIOSQL-Headers.cmake;vtkIOSQL.cmake;vtkIOVPIC-Headers.cmake;vtkIOVPIC.cmake;vtkIOVideo-Headers.cmake;vtkIOVideo.cmake;vtkIOXML-Headers.cmake;vtkIOXML.cmake;vtkIOXMLParser-Headers.cmake;vtkIOXMLParser.cmake;vtkIOXdmf2-Headers.cmake;vtkIOXdmf2.cmake;vtkImagingColor-Headers.cmake;vtkImagingColor.cmake;vtkImagingCore-Headers.cmake;vtkImagingCore.cmake;vtkImagingFourier-Headers.cmake;vtkImagingFourier.cmake;vtkImagingGeneral-Headers.cmake;vtkImagingGeneral.cmake;vtkImagingHybrid-Headers.cmake;vtkImagingHybrid.cmake;vtkImagingMath-Headers.cmake;vtkImagingMath.cmake;vtkImagingMorphological-Headers.cmake;vtkImagingMorphological.cmake;vtkImagingSources-Headers.cmake;vtkImagingSources.cmake;vtkImagingStatistics-Headers.cmake;vtkImagingStatistics.cmake;vtkImagingStencil-Headers.cmake;vtkImagingStencil.cmake;vtkInfovisBoost.cmake;vtkInfovisBoostGraphAlgorithms-Headers.cmake;vtkInfovisBoostGraphAlgorithms.cmake;vtkInfovisCore-Headers.cmake;vtkInfovisCore.cmake;vtkInfovisLayout-Headers.cmake;vtkInfovisLayout.cmake;vtkInteractionImage-Headers.cmake;vtkInteractionImage.cmake;vtkInteractionStyle-Headers.cmake;vtkInteractionStyle.cmake;vtkInteractionWidgets-Headers.cmake;vtkInteractionWidgets.cmake;vtkLocalExample-Headers.cmake;vtkLocalExample.cmake;vtkMetaIO.cmake;vtkParallelCore-Headers.cmake;vtkParallelCore.cmake;vtkParallelMPI-Headers.cmake;vtkParallelMPI.cmake;vtkParallelMPI4Py-Headers.cmake;vtkParallelMPI4Py.cmake;vtkParseOGLExt.cmake;vtkPython.cmake;vtkPythonInterpreter-Headers.cmake;vtkPythonInterpreter.cmake;vtkRenderingAnnotation-Headers.cmake;vtkRenderingAnnotation.cmake;vtkRenderingContext2D-Headers.cmake;vtkRenderingContext2D.cmake;vtkRenderingContextOpenGL-Headers.cmake;vtkRenderingContextOpenGL.cmake;vtkRenderingCore-Headers.cmake;vtkRenderingCore.cmake;vtkRenderingExternal-Headers.cmake;vtkRenderingExternal.cmake;vtkRenderingFreeType-Headers.cmake;vtkRenderingFreeType.cmake;vtkRenderingFreeTypeFontConfig-Headers.cmake;vtkRenderingFreeTypeFontConfig.cmake;vtkRenderingGL2PS-Headers.cmake;vtkRenderingGL2PS.cmake;vtkRenderingImage-Headers.cmake;vtkRenderingImage.cmake;vtkRenderingLIC-Headers.cmake;vtkRenderingLIC.cmake;vtkRenderingLOD-Headers.cmake;vtkRenderingLOD.cmake;vtkRenderingLabel-Headers.cmake;vtkRenderingLabel.cmake;vtkRenderingMatplotlib-Headers.cmake;vtkRenderingMatplotlib.cmake;vtkRenderingOpenGL-Headers.cmake;vtkRenderingOpenGL.cmake;vtkRenderingParallel-Headers.cmake;vtkRenderingParallel.cmake;vtkRenderingParallelLIC-Headers.cmake;vtkRenderingParallelLIC.cmake;vtkRenderingTk.cmake;vtkRenderingVolume-Headers.cmake;vtkRenderingVolume.cmake;vtkRenderingVolumeAMR-Headers.cmake;vtkRenderingVolumeAMR.cmake;vtkRenderingVolumeOpenGL-Headers.cmake;vtkRenderingVolumeOpenGL.cmake;vtkTclTk.cmake;vtkTestingCore.cmake;vtkTestingGenericBridge-Headers.cmake;vtkTestingGenericBridge.cmake;vtkTestingIOSQL-Headers.cmake;vtkTestingIOSQL.cmake;vtkTestingRendering-Headers.cmake;vtkTestingRendering.cmake;vtkUtilitiesEncodeString.cmake;vtkUtilitiesHashSource.cmake;vtkVPIC.cmake;vtkViewsContext2D-Headers.cmake;vtkViewsContext2D.cmake;vtkViewsCore-Headers.cmake;vtkViewsCore.cmake;vtkViewsGeovis-Headers.cmake;vtkViewsGeovis.cmake;vtkViewsInfovis-Headers.cmake;vtkViewsInfovis.cmake;vtkWrappingJava-Headers.cmake;vtkWrappingJava.cmake;vtkWrappingPythonCore-Headers.cmake;vtkWrappingPythonCore.cmake;vtkWrappingTcl.cmake;vtkWrappingTools.cmake;vtkalglib.cmake;vtkexodusII.cmake;vtkexpat.cmake;vtkfreetype.cmake;vtkftgl.cmake;vtkgl2ps.cmake;vtkglew.cmake;vtkhdf5.cmake;vtkjpeg.cmake;vtkjsoncpp.cmake;vtklibproj4.cmake;vtklibxml2.cmake;vtknetcdf.cmake;vtkoggtheora.cmake;vtkpng.cmake;vtksqlite.cmake;vtksys.cmake;vtktiff.cmake;vtkverdict.cmake;vtkxdmf2.cmake;vtkzlib.cmake
+config_files=vtkChartsCore-Headers.cmake;vtkChartsCore.cmake;vtkCommonColor-Headers.cmake;vtkCommonColor.cmake;vtkCommonComputationalGeometry-Headers.cmake;vtkCommonComputationalGeometry.cmake;vtkCommonCore-Headers.cmake;vtkCommonCore.cmake;vtkCommonDataModel-Headers.cmake;vtkCommonDataModel.cmake;vtkCommonExecutionModel-Headers.cmake;vtkCommonExecutionModel.cmake;vtkCommonMath-Headers.cmake;vtkCommonMath.cmake;vtkCommonMisc-Headers.cmake;vtkCommonMisc.cmake;vtkCommonSystem-Headers.cmake;vtkCommonSystem.cmake;vtkCommonTransforms-Headers.cmake;vtkCommonTransforms.cmake;vtkDICOMParser.cmake;vtkDomainsChemistry-Headers.cmake;vtkDomainsChemistry.cmake;vtkFiltersAMR-Headers.cmake;vtkFiltersAMR.cmake;vtkFiltersCore-Headers.cmake;vtkFiltersCore.cmake;vtkFiltersExtraction-Headers.cmake;vtkFiltersExtraction.cmake;vtkFiltersFlowPaths-Headers.cmake;vtkFiltersFlowPaths.cmake;vtkFiltersGeneral-Headers.cmake;vtkFiltersGeneral.cmake;vtkFiltersGeneric-Headers.cmake;vtkFiltersGeneric.cmake;vtkFiltersGeometry-Headers.cmake;vtkFiltersGeometry.cmake;vtkFiltersHybrid-Headers.cmake;vtkFiltersHybrid.cmake;vtkFiltersHyperTree-Headers.cmake;vtkFiltersHyperTree.cmake;vtkFiltersImaging-Headers.cmake;vtkFiltersImaging.cmake;vtkFiltersModeling-Headers.cmake;vtkFiltersModeling.cmake;vtkFiltersParallel-Headers.cmake;vtkFiltersParallel.cmake;vtkFiltersParallelFlowPaths-Headers.cmake;vtkFiltersParallelFlowPaths.cmake;vtkFiltersParallelGeometry-Headers.cmake;vtkFiltersParallelGeometry.cmake;vtkFiltersParallelImaging-Headers.cmake;vtkFiltersParallelImaging.cmake;vtkFiltersParallelMPI-Headers.cmake;vtkFiltersParallelMPI.cmake;vtkFiltersParallelStatistics-Headers.cmake;vtkFiltersParallelStatistics.cmake;vtkFiltersProgrammable-Headers.cmake;vtkFiltersProgrammable.cmake;vtkFiltersPython-Headers.cmake;vtkFiltersPython.cmake;vtkFiltersReebGraph-Headers.cmake;vtkFiltersReebGraph.cmake;vtkFiltersSMP-Headers.cmake;vtkFiltersSMP.cmake;vtkFiltersSelection-Headers.cmake;vtkFiltersSelection.cmake;vtkFiltersSources-Headers.cmake;vtkFiltersSources.cmake;vtkFiltersStatistics-Headers.cmake;vtkFiltersStatistics.cmake;vtkFiltersTexture-Headers.cmake;vtkFiltersTexture.cmake;vtkFiltersVerdict-Headers.cmake;vtkFiltersVerdict.cmake;vtkGUISupportQt.cmake;vtkGUISupportQtOpenGL.cmake;vtkGUISupportQtSQL.cmake;vtkGUISupportQtWebkit.cmake;vtkGeovisCore-Headers.cmake;vtkGeovisCore.cmake;vtkIOAMR-Headers.cmake;vtkIOAMR.cmake;vtkIOCore-Headers.cmake;vtkIOCore.cmake;vtkIOEnSight-Headers.cmake;vtkIOEnSight.cmake;vtkIOExodus-Headers.cmake;vtkIOExodus.cmake;vtkIOExport-Headers.cmake;vtkIOExport.cmake;vtkIOFFMPEG-Headers.cmake;vtkIOFFMPEG.cmake;vtkIOGDAL-Headers.cmake;vtkIOGDAL.cmake;vtkIOGeoJSON-Headers.cmake;vtkIOGeoJSON.cmake;vtkIOGeometry-Headers.cmake;vtkIOGeometry.cmake;vtkIOImage-Headers.cmake;vtkIOImage.cmake;vtkIOImport-Headers.cmake;vtkIOImport.cmake;vtkIOInfovis-Headers.cmake;vtkIOInfovis.cmake;vtkIOLSDyna-Headers.cmake;vtkIOLSDyna.cmake;vtkIOLegacy-Headers.cmake;vtkIOLegacy.cmake;vtkIOMINC-Headers.cmake;vtkIOMINC.cmake;vtkIOMPIImage-Headers.cmake;vtkIOMPIImage.cmake;vtkIOMPIParallel-Headers.cmake;vtkIOMPIParallel.cmake;vtkIOMovie-Headers.cmake;vtkIOMovie.cmake;vtkIOMySQL-Headers.cmake;vtkIOMySQL.cmake;vtkIONetCDF-Headers.cmake;vtkIONetCDF.cmake;vtkIOODBC-Headers.cmake;vtkIOODBC.cmake;vtkIOPLY-Headers.cmake;vtkIOPLY.cmake;vtkIOParallel-Headers.cmake;vtkIOParallel.cmake;vtkIOParallelExodus-Headers.cmake;vtkIOParallelExodus.cmake;vtkIOParallelLSDyna-Headers.cmake;vtkIOParallelLSDyna.cmake;vtkIOParallelNetCDF-Headers.cmake;vtkIOParallelNetCDF.cmake;vtkIOParallelXML-Headers.cmake;vtkIOParallelXML.cmake;vtkIOPostgreSQL-Headers.cmake;vtkIOPostgreSQL.cmake;vtkIOSQL-Headers.cmake;vtkIOSQL.cmake;vtkIOVPIC-Headers.cmake;vtkIOVPIC.cmake;vtkIOVideo-Headers.cmake;vtkIOVideo.cmake;vtkIOXML-Headers.cmake;vtkIOXML.cmake;vtkIOXMLParser-Headers.cmake;vtkIOXMLParser.cmake;vtkIOXdmf2-Headers.cmake;vtkIOXdmf2.cmake;vtkImagingColor-Headers.cmake;vtkImagingColor.cmake;vtkImagingCore-Headers.cmake;vtkImagingCore.cmake;vtkImagingFourier-Headers.cmake;vtkImagingFourier.cmake;vtkImagingGeneral-Headers.cmake;vtkImagingGeneral.cmake;vtkImagingHybrid-Headers.cmake;vtkImagingHybrid.cmake;vtkImagingMath-Headers.cmake;vtkImagingMath.cmake;vtkImagingMorphological-Headers.cmake;vtkImagingMorphological.cmake;vtkImagingSources-Headers.cmake;vtkImagingSources.cmake;vtkImagingStatistics-Headers.cmake;vtkImagingStatistics.cmake;vtkImagingStencil-Headers.cmake;vtkImagingStencil.cmake;vtkInfovisBoost.cmake;vtkInfovisBoostGraphAlgorithms-Headers.cmake;vtkInfovisBoostGraphAlgorithms.cmake;vtkInfovisCore-Headers.cmake;vtkInfovisCore.cmake;vtkInfovisLayout-Headers.cmake;vtkInfovisLayout.cmake;vtkInteractionImage-Headers.cmake;vtkInteractionImage.cmake;vtkInteractionStyle-Headers.cmake;vtkInteractionStyle.cmake;vtkInteractionWidgets-Headers.cmake;vtkInteractionWidgets.cmake;vtkLocalExample-Headers.cmake;vtkLocalExample.cmake;vtkMetaIO.cmake;vtkParallelCore-Headers.cmake;vtkParallelCore.cmake;vtkParallelMPI-Headers.cmake;vtkParallelMPI.cmake;vtkParallelMPI4Py-Headers.cmake;vtkParallelMPI4Py.cmake;vtkParseOGLExt.cmake;vtkPython.cmake;vtkPythonInterpreter-Headers.cmake;vtkPythonInterpreter.cmake;vtkRenderingAnnotation-Headers.cmake;vtkRenderingAnnotation.cmake;vtkRenderingContext2D-Headers.cmake;vtkRenderingContext2D.cmake;vtkRenderingContextOpenGL-Headers.cmake;vtkRenderingContextOpenGL.cmake;vtkRenderingCore-Headers.cmake;vtkRenderingCore.cmake;vtkRenderingExternal-Headers.cmake;vtkRenderingExternal.cmake;vtkRenderingFreeType-Headers.cmake;vtkRenderingFreeType.cmake;vtkRenderingFreeTypeFontConfig-Headers.cmake;vtkRenderingFreeTypeFontConfig.cmake;vtkRenderingGL2PS-Headers.cmake;vtkRenderingGL2PS.cmake;vtkRenderingImage-Headers.cmake;vtkRenderingImage.cmake;vtkRenderingLIC-Headers.cmake;vtkRenderingLIC.cmake;vtkRenderingLOD-Headers.cmake;vtkRenderingLOD.cmake;vtkRenderingLabel-Headers.cmake;vtkRenderingLabel.cmake;vtkRenderingMatplotlib-Headers.cmake;vtkRenderingMatplotlib.cmake;vtkRenderingOpenGL-Headers.cmake;vtkRenderingOpenGL.cmake;vtkRenderingParallel-Headers.cmake;vtkRenderingParallel.cmake;vtkRenderingParallelLIC-Headers.cmake;vtkRenderingParallelLIC.cmake;vtkRenderingQt.cmake;vtkRenderingTk.cmake;vtkRenderingVolume-Headers.cmake;vtkRenderingVolume.cmake;vtkRenderingVolumeAMR-Headers.cmake;vtkRenderingVolumeAMR.cmake;vtkRenderingVolumeOpenGL-Headers.cmake;vtkRenderingVolumeOpenGL.cmake;vtkTclTk.cmake;vtkTestingCore.cmake;vtkTestingGenericBridge-Headers.cmake;vtkTestingGenericBridge.cmake;vtkTestingIOSQL-Headers.cmake;vtkTestingIOSQL.cmake;vtkTestingRendering-Headers.cmake;vtkTestingRendering.cmake;vtkUtilitiesEncodeString.cmake;vtkUtilitiesHashSource.cmake;vtkVPIC.cmake;vtkViewsContext2D-Headers.cmake;vtkViewsContext2D.cmake;vtkViewsCore-Headers.cmake;vtkViewsCore.cmake;vtkViewsGeovis-Headers.cmake;vtkViewsGeovis.cmake;vtkViewsInfovis-Headers.cmake;vtkViewsInfovis.cmake;vtkViewsQt.cmake;vtkWrappingJava-Headers.cmake;vtkWrappingJava.cmake;vtkWrappingPythonCore-Headers.cmake;vtkWrappingPythonCore.cmake;vtkWrappingTcl.cmake;vtkWrappingTools.cmake;vtkalglib.cmake;vtkexodusII.cmake;vtkexpat.cmake;vtkfreetype.cmake;vtkftgl.cmake;vtkgl2ps.cmake;vtkglew.cmake;vtkhdf5.cmake;vtkjpeg.cmake;vtkjsoncpp.cmake;vtklibproj4.cmake;vtklibxml2.cmake;vtknetcdf.cmake;vtkoggtheora.cmake;vtkpng.cmake;vtksqlite.cmake;vtksys.cmake;vtktiff.cmake;vtkverdict.cmake;vtkxdmf2.cmake;vtkzlib.cmake
 cpack_input_file=/usr/share/cmake-3.10/Templates/CPackConfig.cmake.in
 cpack_source_input_file=/usr/share/cmake-3.10/Templates/CPackConfig.cmake.in
 dep=
@@ -5059,7 +4504,6 @@ ittnotify_LIB_DEPENDS=general;dl;
 ittnotify_SOURCE_DIR=/home/borg/404/scripts_robotica/OpenCV/3rdparty/ittnotify
 java_install_version=registry
 jpath=
-l=
 libjasper_BINARY_DIR=/home/borg/404/scripts_robotica/OpenCV/build/3rdparty/libjasper
 libjasper_LIB_DEPENDS=
 libjasper_SOURCE_DIR=/home/borg/404/scripts_robotica/OpenCV/3rdparty/libjasper
@@ -5068,7 +4512,7 @@ libprotobuf_LIB_DEPENDS=
 libprotobuf_SOURCE_DIR=/home/borg/404/scripts_robotica/OpenCV/3rdparty/protobuf
 lst=
 m=
-mkl_root_paths=
+mkl_root_paths=MKL_ROOT_DIR-NOTFOUND
 mod=
 module=
 name=
@@ -5141,7 +4585,7 @@ opencv_img_hash_BINARY_DIR=/home/borg/404/scripts_robotica/OpenCV/build/modules/
 opencv_img_hash_LIB_DEPENDS=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;pthread;general;rt;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;ippiw;general;ippicv;
 opencv_img_hash_SOURCE_DIR=/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/img_hash
 opencv_imgcodecs_BINARY_DIR=/home/borg/404/scripts_robotica/OpenCV/build/modules/imgcodecs
-opencv_imgcodecs_LIB_DEPENDS=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;pthread;general;rt;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;ippiw;general;ippicv;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libjpeg.so;general;/usr/lib/x86_64-linux-gnu/libwebp.so;general;/usr/lib/x86_64-linux-gnu/libpng.so;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libtiff.so;general;libjasper;general;IlmImf;general;/usr/lib/libgdal.so;
+opencv_imgcodecs_LIB_DEPENDS=general;opencv_core;general;opencv_imgproc;general;dl;general;m;general;pthread;general;rt;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;ippiw;general;ippicv;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libjpeg.so;general;/usr/lib/x86_64-linux-gnu/libwebp.so;general;/usr/lib/x86_64-linux-gnu/libpng.so;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libtiff.so;general;libjasper;general;/usr/lib/x86_64-linux-gnu/libImath.so;general;/usr/lib/x86_64-linux-gnu/libIlmImf.so;general;/usr/lib/x86_64-linux-gnu/libIex.so;general;/usr/lib/x86_64-linux-gnu/libHalf.so;general;/usr/lib/x86_64-linux-gnu/libIlmThread.so;general;/usr/lib/libgdal.so;
 opencv_imgcodecs_SOURCE_DIR=/home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs
 opencv_imgproc_BINARY_DIR=/home/borg/404/scripts_robotica/OpenCV/build/modules/imgproc
 opencv_imgproc_LIB_DEPENDS=general;opencv_core;general;dl;general;m;general;pthread;general;rt;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;ippiw;general;ippicv;
@@ -5265,6 +4709,7 @@ pkgcfg_lib_DC1394_2_dc1394=/usr/lib/x86_64-linux-gnu/libdc1394.so
 pkgcfg_lib_FFMPEG_avcodec=/usr/lib/x86_64-linux-gnu/libavcodec.so
 pkgcfg_lib_FFMPEG_avformat=/usr/lib/x86_64-linux-gnu/libavformat.so
 pkgcfg_lib_FFMPEG_avutil=/usr/lib/x86_64-linux-gnu/libavutil.so
+pkgcfg_lib_FFMPEG_libavresample_avresample=/usr/lib/x86_64-linux-gnu/libavresample.so
 pkgcfg_lib_FFMPEG_swscale=/usr/lib/x86_64-linux-gnu/libswscale.so
 pkgcfg_lib_FREETYPE_freetype=/usr/lib/x86_64-linux-gnu/libfreetype.so
 pkgcfg_lib_GSTREAMER_app_glib-2.0=/usr/lib/x86_64-linux-gnu/libglib-2.0.so
@@ -5303,7 +4748,6 @@ trace_status=with Intel ITT
 type=
 v=
 v4l_status=linux/videodev2.h
-val=0
 var=
 vars_regex=PNG_LIBPNG_VER_MAJOR|PNG_LIBPNG_VER_MINOR|PNG_LIBPNG_VER_RELEASE
 vtkCommonColor_DEPENDS=vtkCommonDataModel

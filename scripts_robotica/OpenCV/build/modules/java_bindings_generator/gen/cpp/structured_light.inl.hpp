@@ -11,9 +11,9 @@
 
 #include "opencv2/structured_light.hpp"
 
-#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/structured_light/include/opencv2/structured_light/structured_light.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/structured_light/include/opencv2/structured_light/sinusoidalpattern.hpp"
 #include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/structured_light/include/opencv2/structured_light/graycodepattern.hpp"
+#include "/home/borg/404/scripts_robotica/OpenCV/opencv_contrib/modules/structured_light/include/opencv2/structured_light/structured_light.hpp"
 
 #define LOG_TAG "org.opencv.structured_light"
 #include "common.h"

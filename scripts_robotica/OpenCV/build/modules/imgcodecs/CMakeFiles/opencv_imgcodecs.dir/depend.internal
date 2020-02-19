@@ -820,65 +820,6 @@ modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_bmp.cpp.o
  cvconfig.h
  opencv2/opencv_modules.hpp
 modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_exr.cpp.o
- ../3rdparty/openexr/Half/half.h
- ../3rdparty/openexr/Half/halfExport.h
- ../3rdparty/openexr/Iex/IexBaseExc.h
- ../3rdparty/openexr/Iex/IexExport.h
- ../3rdparty/openexr/Iex/IexMathExc.h
- ../3rdparty/openexr/Iex/IexNamespace.h
- ../3rdparty/openexr/IlmImf/ImfAttribute.h
- ../3rdparty/openexr/IlmImf/ImfBoxAttribute.h
- ../3rdparty/openexr/IlmImf/ImfChannelList.h
- ../3rdparty/openexr/IlmImf/ImfChromaticities.h
- ../3rdparty/openexr/IlmImf/ImfChromaticitiesAttribute.h
- ../3rdparty/openexr/IlmImf/ImfCompression.h
- ../3rdparty/openexr/IlmImf/ImfDeepImageState.h
- ../3rdparty/openexr/IlmImf/ImfDeepImageStateAttribute.h
- ../3rdparty/openexr/IlmImf/ImfEnvmap.h
- ../3rdparty/openexr/IlmImf/ImfEnvmapAttribute.h
- ../3rdparty/openexr/IlmImf/ImfExport.h
- ../3rdparty/openexr/IlmImf/ImfFloatAttribute.h
- ../3rdparty/openexr/IlmImf/ImfForward.h
- ../3rdparty/openexr/IlmImf/ImfFrameBuffer.h
- ../3rdparty/openexr/IlmImf/ImfGenericInputFile.h
- ../3rdparty/openexr/IlmImf/ImfGenericOutputFile.h
- ../3rdparty/openexr/IlmImf/ImfHeader.h
- ../3rdparty/openexr/IlmImf/ImfIO.h
- ../3rdparty/openexr/IlmImf/ImfInputFile.h
- ../3rdparty/openexr/IlmImf/ImfInt64.h
- ../3rdparty/openexr/IlmImf/ImfKeyCode.h
- ../3rdparty/openexr/IlmImf/ImfKeyCodeAttribute.h
- ../3rdparty/openexr/IlmImf/ImfLineOrder.h
- ../3rdparty/openexr/IlmImf/ImfMatrixAttribute.h
- ../3rdparty/openexr/IlmImf/ImfName.h
- ../3rdparty/openexr/IlmImf/ImfNamespace.h
- ../3rdparty/openexr/IlmImf/ImfOutputFile.h
- ../3rdparty/openexr/IlmImf/ImfPixelType.h
- ../3rdparty/openexr/IlmImf/ImfRational.h
- ../3rdparty/openexr/IlmImf/ImfRationalAttribute.h
- ../3rdparty/openexr/IlmImf/ImfStandardAttributes.h
- ../3rdparty/openexr/IlmImf/ImfStringAttribute.h
- ../3rdparty/openexr/IlmImf/ImfStringVectorAttribute.h
- ../3rdparty/openexr/IlmImf/ImfThreading.h
- ../3rdparty/openexr/IlmImf/ImfTileDescription.h
- ../3rdparty/openexr/IlmImf/ImfTiledOutputFile.h
- ../3rdparty/openexr/IlmImf/ImfTimeCode.h
- ../3rdparty/openexr/IlmImf/ImfTimeCodeAttribute.h
- ../3rdparty/openexr/IlmImf/ImfVecAttribute.h
- ../3rdparty/openexr/IlmImf/ImfVersion.h
- ../3rdparty/openexr/IlmImf/ImfXdr.h
- ../3rdparty/openexr/Imath/ImathBox.h
- ../3rdparty/openexr/Imath/ImathExc.h
- ../3rdparty/openexr/Imath/ImathExport.h
- ../3rdparty/openexr/Imath/ImathFun.h
- ../3rdparty/openexr/Imath/ImathInt64.h
- ../3rdparty/openexr/Imath/ImathLimits.h
- ../3rdparty/openexr/Imath/ImathMath.h
- ../3rdparty/openexr/Imath/ImathMatrix.h
- ../3rdparty/openexr/Imath/ImathNamespace.h
- ../3rdparty/openexr/Imath/ImathPlatform.h
- ../3rdparty/openexr/Imath/ImathShear.h
- ../3rdparty/openexr/Imath/ImathVec.h
  ../modules/core/include/opencv2/core.hpp
  ../modules/core/include/opencv2/core/base.hpp
  ../modules/core/include/opencv2/core/bufferpool.hpp
@@ -917,6 +858,67 @@ modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_exr.cpp.o
  /home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/src/grfmt_exr.hpp
  /home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/src/precomp.hpp
  /home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/src/utils.hpp
+ /usr/include/OpenEXR/IexBaseExc.h
+ /usr/include/OpenEXR/IexExport.h
+ /usr/include/OpenEXR/IexMathExc.h
+ /usr/include/OpenEXR/IexNamespace.h
+ /usr/include/OpenEXR/IlmBaseConfig.h
+ /usr/include/OpenEXR/ImathBox.h
+ /usr/include/OpenEXR/ImathExc.h
+ /usr/include/OpenEXR/ImathExport.h
+ /usr/include/OpenEXR/ImathFun.h
+ /usr/include/OpenEXR/ImathInt64.h
+ /usr/include/OpenEXR/ImathLimits.h
+ /usr/include/OpenEXR/ImathMath.h
+ /usr/include/OpenEXR/ImathMatrix.h
+ /usr/include/OpenEXR/ImathNamespace.h
+ /usr/include/OpenEXR/ImathPlatform.h
+ /usr/include/OpenEXR/ImathShear.h
+ /usr/include/OpenEXR/ImathVec.h
+ /usr/include/OpenEXR/ImfAttribute.h
+ /usr/include/OpenEXR/ImfBoxAttribute.h
+ /usr/include/OpenEXR/ImfChannelList.h
+ /usr/include/OpenEXR/ImfChromaticities.h
+ /usr/include/OpenEXR/ImfChromaticitiesAttribute.h
+ /usr/include/OpenEXR/ImfCompression.h
+ /usr/include/OpenEXR/ImfDeepImageState.h
+ /usr/include/OpenEXR/ImfDeepImageStateAttribute.h
+ /usr/include/OpenEXR/ImfEnvmap.h
+ /usr/include/OpenEXR/ImfEnvmapAttribute.h
+ /usr/include/OpenEXR/ImfExport.h
+ /usr/include/OpenEXR/ImfFloatAttribute.h
+ /usr/include/OpenEXR/ImfForward.h
+ /usr/include/OpenEXR/ImfFrameBuffer.h
+ /usr/include/OpenEXR/ImfGenericInputFile.h
+ /usr/include/OpenEXR/ImfGenericOutputFile.h
+ /usr/include/OpenEXR/ImfHeader.h
+ /usr/include/OpenEXR/ImfIO.h
+ /usr/include/OpenEXR/ImfInputFile.h
+ /usr/include/OpenEXR/ImfInt64.h
+ /usr/include/OpenEXR/ImfKeyCode.h
+ /usr/include/OpenEXR/ImfKeyCodeAttribute.h
+ /usr/include/OpenEXR/ImfLineOrder.h
+ /usr/include/OpenEXR/ImfMatrixAttribute.h
+ /usr/include/OpenEXR/ImfName.h
+ /usr/include/OpenEXR/ImfNamespace.h
+ /usr/include/OpenEXR/ImfOutputFile.h
+ /usr/include/OpenEXR/ImfPixelType.h
+ /usr/include/OpenEXR/ImfRational.h
+ /usr/include/OpenEXR/ImfRationalAttribute.h
+ /usr/include/OpenEXR/ImfStandardAttributes.h
+ /usr/include/OpenEXR/ImfStringAttribute.h
+ /usr/include/OpenEXR/ImfStringVectorAttribute.h
+ /usr/include/OpenEXR/ImfThreading.h
+ /usr/include/OpenEXR/ImfTileDescription.h
+ /usr/include/OpenEXR/ImfTiledOutputFile.h
+ /usr/include/OpenEXR/ImfTimeCode.h
+ /usr/include/OpenEXR/ImfTimeCodeAttribute.h
+ /usr/include/OpenEXR/ImfVecAttribute.h
+ /usr/include/OpenEXR/ImfVersion.h
+ /usr/include/OpenEXR/ImfXdr.h
+ /usr/include/OpenEXR/OpenEXRConfig.h
+ /usr/include/OpenEXR/half.h
+ /usr/include/OpenEXR/halfExport.h
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/src/Core/Array.h
  /usr/include/eigen3/Eigen/src/Core/ArrayBase.h
@@ -1081,8 +1083,6 @@ modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_exr.cpp.o
  3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image_transform.h
  3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_ll.h
  3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_version.h
- 3rdparty/openexr/IlmBaseConfig.h
- 3rdparty/openexr/OpenEXRConfig.h
  cv_cpu_config.h
  cvconfig.h
  opencv2/opencv_modules.hpp
@@ -3658,45 +3658,6 @@ modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_webp.cpp.o
  cvconfig.h
  opencv2/opencv_modules.hpp
 modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/loadsave.cpp.o
- ../3rdparty/openexr/Half/half.h
- ../3rdparty/openexr/Half/halfExport.h
- ../3rdparty/openexr/Iex/IexBaseExc.h
- ../3rdparty/openexr/Iex/IexExport.h
- ../3rdparty/openexr/Iex/IexMathExc.h
- ../3rdparty/openexr/Iex/IexNamespace.h
- ../3rdparty/openexr/IlmImf/ImfChannelList.h
- ../3rdparty/openexr/IlmImf/ImfChromaticities.h
- ../3rdparty/openexr/IlmImf/ImfCompression.h
- ../3rdparty/openexr/IlmImf/ImfExport.h
- ../3rdparty/openexr/IlmImf/ImfForward.h
- ../3rdparty/openexr/IlmImf/ImfFrameBuffer.h
- ../3rdparty/openexr/IlmImf/ImfGenericInputFile.h
- ../3rdparty/openexr/IlmImf/ImfGenericOutputFile.h
- ../3rdparty/openexr/IlmImf/ImfHeader.h
- ../3rdparty/openexr/IlmImf/ImfIO.h
- ../3rdparty/openexr/IlmImf/ImfInputFile.h
- ../3rdparty/openexr/IlmImf/ImfInt64.h
- ../3rdparty/openexr/IlmImf/ImfLineOrder.h
- ../3rdparty/openexr/IlmImf/ImfName.h
- ../3rdparty/openexr/IlmImf/ImfNamespace.h
- ../3rdparty/openexr/IlmImf/ImfPixelType.h
- ../3rdparty/openexr/IlmImf/ImfThreading.h
- ../3rdparty/openexr/IlmImf/ImfTileDescription.h
- ../3rdparty/openexr/IlmImf/ImfTiledOutputFile.h
- ../3rdparty/openexr/IlmImf/ImfVersion.h
- ../3rdparty/openexr/IlmImf/ImfXdr.h
- ../3rdparty/openexr/Imath/ImathBox.h
- ../3rdparty/openexr/Imath/ImathExc.h
- ../3rdparty/openexr/Imath/ImathExport.h
- ../3rdparty/openexr/Imath/ImathFun.h
- ../3rdparty/openexr/Imath/ImathInt64.h
- ../3rdparty/openexr/Imath/ImathLimits.h
- ../3rdparty/openexr/Imath/ImathMath.h
- ../3rdparty/openexr/Imath/ImathMatrix.h
- ../3rdparty/openexr/Imath/ImathNamespace.h
- ../3rdparty/openexr/Imath/ImathPlatform.h
- ../3rdparty/openexr/Imath/ImathShear.h
- ../3rdparty/openexr/Imath/ImathVec.h
  ../modules/core/include/opencv2/core.hpp
  ../modules/core/include/opencv2/core/base.hpp
  ../modules/core/include/opencv2/core/bufferpool.hpp
@@ -3751,6 +3712,47 @@ modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/loadsave.cpp.o
  /home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/src/loadsave.cpp
  /home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/src/precomp.hpp
  /home/borg/404/scripts_robotica/OpenCV/modules/imgcodecs/src/utils.hpp
+ /usr/include/OpenEXR/IexBaseExc.h
+ /usr/include/OpenEXR/IexExport.h
+ /usr/include/OpenEXR/IexMathExc.h
+ /usr/include/OpenEXR/IexNamespace.h
+ /usr/include/OpenEXR/IlmBaseConfig.h
+ /usr/include/OpenEXR/ImathBox.h
+ /usr/include/OpenEXR/ImathExc.h
+ /usr/include/OpenEXR/ImathExport.h
+ /usr/include/OpenEXR/ImathFun.h
+ /usr/include/OpenEXR/ImathInt64.h
+ /usr/include/OpenEXR/ImathLimits.h
+ /usr/include/OpenEXR/ImathMath.h
+ /usr/include/OpenEXR/ImathMatrix.h
+ /usr/include/OpenEXR/ImathNamespace.h
+ /usr/include/OpenEXR/ImathPlatform.h
+ /usr/include/OpenEXR/ImathShear.h
+ /usr/include/OpenEXR/ImathVec.h
+ /usr/include/OpenEXR/ImfChannelList.h
+ /usr/include/OpenEXR/ImfChromaticities.h
+ /usr/include/OpenEXR/ImfCompression.h
+ /usr/include/OpenEXR/ImfExport.h
+ /usr/include/OpenEXR/ImfForward.h
+ /usr/include/OpenEXR/ImfFrameBuffer.h
+ /usr/include/OpenEXR/ImfGenericInputFile.h
+ /usr/include/OpenEXR/ImfGenericOutputFile.h
+ /usr/include/OpenEXR/ImfHeader.h
+ /usr/include/OpenEXR/ImfIO.h
+ /usr/include/OpenEXR/ImfInputFile.h
+ /usr/include/OpenEXR/ImfInt64.h
+ /usr/include/OpenEXR/ImfLineOrder.h
+ /usr/include/OpenEXR/ImfName.h
+ /usr/include/OpenEXR/ImfNamespace.h
+ /usr/include/OpenEXR/ImfPixelType.h
+ /usr/include/OpenEXR/ImfThreading.h
+ /usr/include/OpenEXR/ImfTileDescription.h
+ /usr/include/OpenEXR/ImfTiledOutputFile.h
+ /usr/include/OpenEXR/ImfVersion.h
+ /usr/include/OpenEXR/ImfXdr.h
+ /usr/include/OpenEXR/OpenEXRConfig.h
+ /usr/include/OpenEXR/half.h
+ /usr/include/OpenEXR/halfExport.h
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/src/Core/Array.h
  /usr/include/eigen3/Eigen/src/Core/ArrayBase.h
@@ -3960,8 +3962,6 @@ modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/loadsave.cpp.o
  3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image_transform.h
  3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_ll.h
  3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_version.h
- 3rdparty/openexr/IlmBaseConfig.h
- 3rdparty/openexr/OpenEXRConfig.h
  cv_cpu_config.h
  cvconfig.h
  opencv2/opencv_modules.hpp
