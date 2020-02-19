@@ -11,5 +11,5 @@ sudo ldconfig
 
 
 echo $ELAPSED="Elapsed: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
-#!/bin/bash
+
 
