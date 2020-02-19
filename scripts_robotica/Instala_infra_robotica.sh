@@ -9,6 +9,14 @@
 path=$(pwd)
 echo $path
 
+# 0. INSTALL GIT AND GIT LFS
+
+sudo apt intall git
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+git lfs install
+
+
 # 1. SETUP YOUR SOURCES.LIST AND CONFIGURE THE KEYS
 
 
@@ -140,5 +148,10 @@ sudo mv /home/borg/404/scripts_robotica/raspicam.launch /opt/ros/melodic/share/g
 #9. INITIALIZING ROSDEP
 sudo rosdep init
 rosdep update
+
+#10. OTHER
+pip install --upgrade imutils
+pip3 install --upgrade imutils
+
 echo "-------------------FINISH INSTALL ---------------------"
 
