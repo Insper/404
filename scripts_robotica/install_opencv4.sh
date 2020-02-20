@@ -121,7 +121,6 @@ fi
 if [ $RASPBERRY = 'NO' ]; then
 NUM_JOBS=$(nproc)
 time make -j$NUM_JOBS
-make -j4
 sudo make install
 sudo ldconfig
 fi
