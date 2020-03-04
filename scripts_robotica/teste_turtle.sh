@@ -20,7 +20,7 @@ gnome-terminal -- bash -c "rostopic echo bumper";
 sleep 2
 gnome-terminal -- bash -c "rostopic echo scan";
 sleep 2
-gnome-terminal -- bash -c "rostopic echo odon";
+gnome-terminal -- bash -c "rostopic echo odom";
 sleep 2
 gnome-terminal -- bash -c "roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch";
 sleep 2
