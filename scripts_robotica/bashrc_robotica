@@ -1,5 +1,5 @@
 # Path to your oh-my-bash installation.
-export OSH=/home/borg/.oh-my-bash
+export OSH=~/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -134,7 +134,7 @@ export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
 export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_SIMULATOR=modelsim
-export QSYS_ROOTDIR="/home/borg/intelFPGA/17.1/quartus/sopc_builder/bin"
+export QSYS_ROOTDIR="~/intelFPGA/17.1/quartus/sopc_builder/bin"
 export GOOGLE_APPLICATION_CREDENTIALS=~/.local/share/elementos/elementos.json
 
 
