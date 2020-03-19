@@ -19,6 +19,16 @@ Codigos desenvolvidos para otimizar setups diversos
 
 Para instalar a infra de robotica execute os scripts na seguencia baixo:
 
+Antes de clonar este repositório, certifique-se de ter instalado o git e git-lfs. 
+
+Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular esta etapa:
+> sudo apt install -y git
+> sudo apt install -y curl
+> curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+> sudo apt-get -y  install git-lfs
+> git lfs install
+
+
 [instala o opencv 4.1.1](./install_opencv4.sh)
 
 [instala o ROS Melodic](./install_opencv4.sh)
