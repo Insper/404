@@ -63,7 +63,7 @@ sudo apt-get install -y python-gi python3-gi \
                     gstreamer1.0-libav
                     
                     
-sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 
 
 # Parallelism and linear algebra libraries:
