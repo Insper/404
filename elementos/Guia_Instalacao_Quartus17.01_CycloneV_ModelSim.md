@@ -74,7 +74,7 @@ $ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA/17.1/modelsim_ase/l
 Adicione ao final do  `bashrc` a seguinte linha:
 
 ```diff
-+export LD_LIBRARY_PATH=$HOME/intelFPGA/17.1/modelsim_ase/lib32
+export LD_LIBRARY_PATH=$HOME/intelFPGA/17.1/modelsim_ase/lib32
 ```
 
 ## Configurando o USB Blaster
