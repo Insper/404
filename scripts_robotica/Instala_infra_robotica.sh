@@ -154,6 +154,8 @@ sudo apt-get install -y python-pip
 sudo apt-get install -y python3-pip
 pip install --upgrade imutils
 pip3 install --upgrade imutils
+sudo -H pip install jupyter
+sudo -H pip3 install jupyter
 
 echo "-------------------FINISH INSTALL ---------------------"
 
