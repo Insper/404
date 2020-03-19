@@ -149,6 +149,8 @@ sudo rosdep init
 rosdep update
 
 #10. OTHER
+sudo apt-get install -y python-pip
+sudo apt-get install -y python3-pip
 pip install --upgrade imutils
 pip3 install --upgrade imutils
 
