@@ -16,3 +16,9 @@ Codigos desenvolvidos para otimizar setups diversos
 
 
 [Script que instala o opencv 3.4.2 ou o 4.1.1 no Computador ou na Raspberry pi3 ou 4](./install_opencv4.sh)
+
+Para instalar a infra de robotica execute os scripts na seguencia baixo:
+
+[instala o opencv 4.1.1](./install_opencv4.sh)
+
+[instala o ROS Melodic](./install_opencv4.sh)
