@@ -125,6 +125,8 @@ export LC_NUMERIC="en_US.UTF-8"
 
 export PYTHONPATH=/usr/local/python:/usr/lib/python:$PYTHONPATH:
 
+# PATH Gazebo
+export GAZEBO_MODEL_PATH=~/catkin_ws/src/my_simulation/models:${GAZEBO_MODEL_PATH}
 
 # configuração Quartus elementos
 export ALTERAPATH=$HOME/intelFPGA/17.1
