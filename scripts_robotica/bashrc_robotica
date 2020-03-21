@@ -100,10 +100,25 @@ source $OSH/oh-my-bash.sh
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
 
+##########################
+# 3.o Semestre Comp.     #
+##########################
 
+#############
+# Elementos #
+#############
+export ALTERAPATH=$HOME/intelFPGA/17.1
+export PATH=$PATH:${ALTERAPATH}/quartus/bin
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
+export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
+export VUNIT_SIMULATOR=modelsim
+export QSYS_ROOTDIR="$HOME/intelFPGA/17.1/quartus/sopc_builder/bin"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
 
-
-# 3.o Semestre Comp.
+#############
+# Robotica  #
+#############
 
 export IPBerry=192.168.50.250
 # CANCELE  com # as linhas ROS_MASTER_URI  e ROS_IP se estiver usando com Gazebo, Sphinx ou Bebop
@@ -121,25 +136,11 @@ source $HOME/catkin_ws/devel/setup.bash
 export LC_NUMERIC="en_US.UTF-8"
 
 # PATH usado para o drone
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/:${ALTERAPATH}/modelsim_ase/lib32
-
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/
 export PYTHONPATH=/usr/local/python:/usr/lib/python:$PYTHONPATH:
 
 # PATH Gazebo
 export GAZEBO_MODEL_PATH=~/catkin_ws/src/my_simulation/models:${GAZEBO_MODEL_PATH}
-
-# configuração Quartus elementos
-export ALTERAPATH=$HOME/intelFPGA/17.1
-export PATH=$PATH:${ALTERAPATH}/quartus/bin
-export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
-export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
-export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
-export VUNIT_SIMULATOR=modelsim
-export QSYS_ROOTDIR="$HOME/intelFPGA/17.1/quartus/sopc_builder/bin"
-export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.local/share/elementos/elementos.json
-
-
-
 
 #Garra
 alias abre_garra="rostopic pub -1 servo_garra/command std_msgs/String "abre""
