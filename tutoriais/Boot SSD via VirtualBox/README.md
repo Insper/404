@@ -10,9 +10,15 @@ Conecte o SSD (HD Externo) na USB do PC, neste momento deverá aparecer uma mens
 
 Agora, abra o *Painel de Controle*, procure por *Ferramentas Administrativas* e em seguida *Gerenciamento do Computador* (Cuidado para não confundir com Gerenciador de Dispositivos!).
 
+![referencia](img/win_vm_1.png)
+
 Agora no menu lateral, procure por **Gerenciamento de Discos**, na parte central, você deve ser capaz de ver o seu HD interno e o SSD conectado, caso contrário, verifique a conexão USB e certifique-se que clicou no botão Ignorar ao conecta-lo.
 
+![referencia](img/win_vm_2.png)
+
 Procure pelo número do Disco referente ao SSD, geralmente fica na parte inferior em baixo do nome, no gráfico de barras. Deve haver algo como *Disco 2* ou *Disco 1*.
+
+![referencia](img/win_vm_3.png)
 
 Agora, abra o Comand **cmd** como *Administrador* (botão direito, e executar como Administrador).
 Navegue até a pasta do VirtualBox em:
@@ -23,7 +29,7 @@ Execute o comando abaixo, substituindo o *N* no final do comando *\PhysicalDrive
     
     VBoxManage internalcommands createrawvmdk -filename VMInsper.vmdk -rawdisk \\.\PhysicalDriveN
 
-Se tudo ocorrer bem, deve aparecer a mensagem *RAW host disk access VMDK file Elementos.vmdk created successfully*. Caso sim, continue, caso contrário, verifique o comando digitado.
+Se tudo ocorrer bem, deve aparecer a mensagem *RAW host disk access VMDK file VMInsper.vmdk created successfully*. Caso sim, continue, caso contrário, verifique o comando digitado.
  
  
  ## ETAPA 2
@@ -32,12 +38,14 @@ Se tudo ocorrer bem, deve aparecer a mensagem *RAW host disk access VMDK file El
  
  **SSD COM NUMERAÇÃO DO TIPO *B*, OU SEJA, 0*B*x... SÃO SSD's com formato *GPT*, siga as instruções da ETAPA 2 abaixo**
  
-Abra o Windowns PowerShell. Dica, precione a tecla Win e digite *Powershell*:
+Abra o Windowns PowerShell. Dica, precione a tecla win e digite *Powershell*:
 
 Execute o comando:
     
     diskpart
     list disk 
+
+![referencia](img/win_vm_4.png)
 
 Verifique o numero do disco, *Disco 2* ou *Disco 1*, e digite o comando substituindo o **N** no final do comando pelo número de disco corresponde:
 
@@ -46,6 +54,7 @@ Verifique o numero do disco, *Disco 2* ou *Disco 1*, e digite o comando substitu
 
 Se tudo ocorreu corretamente, irá aparecer no terminal a mensagem *O DiskPart colocou o disco selecionado offline com êxito*. Feche o PowerShell e siga para a proxima etapa.
 
+![referencia](img/win_vm_5.png)
 
 ## ETAPA 3
 
