@@ -60,7 +60,9 @@ Se tudo ocorreu corretamente, irá aparecer no terminal a mensagem *O DiskPart c
 
   1. Abra o VirtualBox como *administrador* no Windows (clique com botão direito e Executar como Administrador).
 
- 2. Clique para criar uma nova máquina virtual, clique em seguida no modo Expert, de um nome apropriado a máquina virtual, na pasta da máquina virtual, sugiro que mude o caminho para C:\Users\SEU_USUARIO\VirtualBox VMs (crie caso não exista). Ele irá utilizar esta pasta apenas para arquivos de configuração. Troque o Tipo para Linux e Versão para Ubuntu (64-bits). É recomendável que aloque pelo menos 4GB (4096 MB) para o sistema. Na opção de Disco Rígido, escolha a opção **Utilizar um disco virtual existente**, e selecione o arquivo VMInsper.vmdk criado na ETAPA 2. Clique em Criar.
+ 2. Clique para criar uma nova máquina virtual (Crtl+N), clique em seguida no modo Expert, de um nome apropriado a máquina virtual, na pasta da máquina virtual, sugiro que mude o caminho para C:\Users\SEU_USUARIO\VirtualBox VMs (crie caso não exista). Ele irá utilizar esta pasta apenas para arquivos de configuração. Troque o Tipo para Linux e Versão para Ubuntu (64-bits). É recomendável que aloque pelo menos 4GB (4096 MB) para o sistema. Na opção de Disco Rígido, escolha a opção **Utilizar um disco virtual existente**, e selecione o arquivo VMInsper.vmdk criado na ETAPA 2. Clique em Criar.
+ 
+![referencia](img/win_vm_6.png)
 
 3. Clique para executar a máquina virtual criada, se tudo ocorrer bem, você deve ver o boot do Ubuntu iniciando, não esqueça depois de ligar, de verificar a resolução da tela e se a aceleração de vídeo está habilitada.
 
