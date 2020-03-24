@@ -157,3 +157,9 @@ alias stop_braco="rostopic pub -1 servo_braco/command std_msgs/String "stop""
 alias sobe_camera="rostopic pub -1 servo_camera/command std_msgs/String "sobe""
 alias desce_camera="rostopic pub -1 servo_camera/command std_msgs/String "desce""
 alias stop_camera="rostopic pub -1 servo_camera/command std_msgs/String "stop""
+
+
+
+export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/my_simulation/models:
+export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/my_simulation/models:$HOME/catkin_ws/src/my_simulation/models:
+source /opt/ros/melodic/setup.bash
