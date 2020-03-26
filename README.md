@@ -1,6 +1,5 @@
-# 404
-Infraestrutura para suporte as materias de Engenharia da Computação 
 
+Infraestrutura para suporte as materias de Engenharia da Computação 
 
 # Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 18.04
 
