@@ -4,7 +4,7 @@ Infraestrutura para suporte as materias de Engenharia da Computação
 
 # Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 18.04
 
-Antes de clonar este repositório, certifique-se de ter instalado o git e git-lfs. 
+Antes de clonar este repositório, certifique-se de ter instalado o git e git-lfs e o oh-my-bash. 
 
 Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular esta etapa:
 
@@ -15,6 +15,7 @@ Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
     sudo apt-get -y  install git-lfs
     git lfs install
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 2.Agora vamos clonar este repositório na **home** do usuario.
   
@@ -50,9 +51,9 @@ No python 2:
      cv2.__version__
 
 
-> Resultado esperado é uma msg no terminal informando a versão *'4.1.0'*.
+> Resultado esperado é uma msg no terminal informando a versão *'4.1.0'*, para sair do terminal do python **Ctrl+D**.
 
-Com o OpenCV4 instalado e funcionando, podemos seguir e instalar o ROS + Gazebo + RViz + pacotes do Turtlebot3 e etc... todos pacotes referentes a infra de robotica.
+4.Com o OpenCV4 instalado e funcionando, podemos seguir e instalar o ROS + Gazebo + RViz + pacotes do Turtlebot3 e etc... todos pacotes referentes a infra de robotica.
 
 Vamos rodar o [Script 2:instala o ROS Melodic](./scripts_robotica/Instala_infra_robotica.sh)
 
@@ -66,4 +67,15 @@ Abra um novo terminal Ctrl+Alt+T e digite:
 
 Finalizada a instalação, temos que realizar alguns ajustes de sistema antes de executar o ROS. 
 
-Atualiização do arquivo .bashrc
+5.Atualiização do arquivo .bashrc
+
+Abra um novo terminal Ctrl+Alt+T e digite:
+
+    cp ~/.bashrc ~/.bashrc.original
+    cp ~/404/scripts_robotica/bashrc_robotica ~/.bashrc
+    source ~/.bashrc
+
+Agora vamos abrir o .bashrc e vericar se está correntamente confirgura para rodar com o simulador gazebo. As *linhas 125 e 126* devem estar comentadas, ou seja, com um **#** no inicio da linha. Se não estiver, comente e salve o .bashrc.
+
+    #export ROS_MASTER_URI="http://"$IPBerry":11311" 
+    #export ROS_IP=`hostname -I`
