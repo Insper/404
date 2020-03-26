@@ -2,7 +2,7 @@
 Infraestrutura para suporte as materias de Engenharia da Computação 
 
 
-# Quero instalar a infra de robotica e elementos no meu linux ubuntu 18.04
+# Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 18.04
 
 Vamos começar instalando e configurando o ambiente para as aulas de robotica.
 
