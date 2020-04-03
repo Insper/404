@@ -14,5 +14,5 @@ gnome-terminal -e  "rosrun topic_tools relay /raspicam/image_raw/compressed /kam
 sleep 2
 gnome-terminal -e "rosrun exemplos_python cor.py"
 sleep 1
-gnome-terminal -e "rosrun rqt_reconfigure rqt_reconfigure"
+#gnome-terminal -e "rosrun rqt_reconfigure rqt_reconfigure"
 echo 0
