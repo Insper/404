@@ -20,7 +20,11 @@ gnome-terminal -- bash -c "rostopic echo bumper";
 sleep 2
 gnome-terminal -- bash -c "rostopic echo scan";
 sleep 2
+<<<<<<< HEAD
 gnome-terminal -- bash -c "rostopic echo odon";
+=======
+gnome-terminal -- bash -c "rostopic echo odom";
+>>>>>>> a632146a1fb521ea830342aaba58b9285ec9e1a0
 sleep 2
 gnome-terminal -- bash -c "roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch";
 sleep 2
@@ -28,4 +32,8 @@ gnome-terminal -- bash -c "rostopic pub -1 servo_camera/command std_msgs/String 
 sleep 2
 
 
+<<<<<<< HEAD
 echo 0
+=======
+echo 0
+>>>>>>> a632146a1fb521ea830342aaba58b9285ec9e1a0

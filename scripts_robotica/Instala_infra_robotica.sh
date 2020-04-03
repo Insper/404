@@ -9,10 +9,18 @@
 path=$(pwd)
 echo $path
 
+# 0. INSTALL GIT AND GIT LFS
+
+sudo apt install -y git
+sudo apt install -y curl
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get -y  install git-lfs
+git lfs install
+
+
 # 1. SETUP YOUR SOURCES.LIST AND CONFIGURE THE KEYS
 
-
-sudo apt-key adv --keyserver keys.gnupg.net --recv-key 6F3EFCDE
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE #key RealSense
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 #Key Ros
 
 
@@ -134,11 +142,20 @@ git clone https://github.com/intel-ros/realsense.git
 cd ~/catkin_ws/
 catkin_create_pkg gscam raspicam.launch  rospy roscpp
 catkin_make
-sudo mv /home/borg/404/scripts_robotica/raspicam.launch /opt/ros/melodic/share/gscam
+sudo mv $path/raspicam.launch /opt/ros/melodic/share/gscam
 
 
 #9. INITIALIZING ROSDEP
 sudo rosdep init
 rosdep update
+
+#10. OTHER
+sudo apt-get install -y python-pip
+sudo apt-get install -y python3-pip
+pip install --upgrade imutils
+pip3 install --upgrade imutils
+sudo -H pip install jupyter
+sudo -H pip3 install jupyter
+
 echo "-------------------FINISH INSTALL ---------------------"
 

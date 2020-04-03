@@ -21,7 +21,7 @@ $ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
 >    Build and install:
 
 ```bash
-$ cd /tmp/libpng-1.2.59
+$ cd $HOME/Downloads/libpng-1.2.59
 $ ./configure --prefix=/usr/local
 $ make
 $ sudo make install
@@ -54,10 +54,10 @@ $ ./QuartusLiteSetup-17.1.0.590-linux.run
 
 1. Editar vco
 
-Vamos editar o arquivo `vco` que está na pasta do modelsim (exe: `/home/borg/intelFPGA/17.1/modelsim_ase/vco`):
+Vamos editar o arquivo `vco` que está na pasta do modelsim (exe: `$HOME/intelFPGA/17.1/modelsim_ase/vco`):
 
 ```bash
-$ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' /home/borg/intelFPGA/17.1/modelsim_ase/vco
+$ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' $HOME/intelFPGA/17.1/modelsim_ase/vco
 ```
 
 2. Libfreetype 6.10.1 (versão 2.6)
@@ -67,14 +67,14 @@ Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [
 ```bash
 $ cd ~/Downloads
 $ wget https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz
-$ mkdir /home/borg/intelFPGA/17.1/modelsim_ase/lib32
-$ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C /home/borg/intelFPGA/17.1/modelsim_ase/lib32
+$ mkdir $HOME/intelFPGA/17.1/modelsim_ase/lib32
+$ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA/17.1/modelsim_ase/lib32
 ```
 
 Adicione ao final do  `bashrc` a seguinte linha:
 
 ```diff
-+export LD_LIBRARY_PATH=/home/borg/intelFPGA/17.1/modelsim_ase/lib32
+export LD_LIBRARY_PATH=$HOME/intelFPGA/17.1/modelsim_ase/lib32
 ```
 
 ## Configurando o USB Blaster
@@ -97,11 +97,11 @@ $ sudo gedit /etc/udev/rules.d/51-altera-usb-blaster.rules
 Adicione as seguintes linhas a esse arquivo criado e salve:
 
 ```diff
-+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6001", MODE="0666"
-+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6002", MODE="0666"
-+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6003", MODE="0666"
-+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6010", MODE="0666"
-+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6810", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6001", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6002", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6003", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6010", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6810", MODE="0666"
 ```
 
 Recarrege o as permissões via o comando a seguir:
@@ -115,12 +115,12 @@ $ sudo service udev restart
 Adicione ao final do `bashrc` as seguintes linhas:
 
 ```diff
-+export ALTERAPATH=~/intelFPGA_lite/17.1
-+export PATH=$PATH:${ALTERAPATH}/quartus/bin
-+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
-+export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
-+export VUNIT_SIMULATOR=modelsim
-+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/:${ALTERAPATH}/modelsim_ase/lib32
+export ALTERAPATH=$HOME/intelFPGA_lite/17.1
+export PATH=$PATH:${ALTERAPATH}/quartus/bin
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
+export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
+export VUNIT_SIMULATOR=modelsim
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/:${ALTERAPATH}/modelsim_ase/lib32
 ```
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.

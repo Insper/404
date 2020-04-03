@@ -63,7 +63,7 @@ sudo apt-get install -y python-gi python3-gi \
                     gstreamer1.0-libav
                     
                     
-sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 
 
 # Parallelism and linear algebra libraries:
@@ -103,6 +103,7 @@ fi
 if [ $OPENCV_CONTRIB = 'YES' ]; then
 cmake -DWITH_QT=ON -DWITH_OPENGL=ON -DFORCE_VTK=ON -DWITH_TBB=ON -DWITH_GDAL=ON -DWITH_GSTREAMER=ON\
       -DWITH_XINE=ON -DENABLE_PRECOMPILED_HEADERS=OFF \
+      -DOPENCV_ENABLE_NONFREE:BOOL=ON \
       -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ..
 fi
 
@@ -118,7 +119,8 @@ sudo ldconfig
 fi
 
 if [ $RASPBERRY = 'NO' ]; then
-make -j4
+NUM_JOBS=$(nproc)
+time make -j$NUM_JOBS
 sudo make install
 sudo ldconfig
 fi
