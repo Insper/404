@@ -50,7 +50,7 @@ Clique em *resize*, **seta alaranjada**.
 ![referencia](img/gparted5.png)
 
 
-Com o resize concluído, precisamos agora aplicar a alteração feita.Clique *aplly, ***check verde**.
+Com o resize concluído, precisamos agora aplicar a alteração feita.Clique *aplly*,**check verde**.
 
 ![referencia](img/gparted6.png)
 ![referencia](img/gparted7.png)
