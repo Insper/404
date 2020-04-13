@@ -1,1 +1,0 @@
-Imagens anexadas aos tutoriais
