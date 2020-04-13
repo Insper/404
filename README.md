@@ -1,6 +1,6 @@
 
 Infraestrutura para suporte as materias de Engenharia da Computação 
-> Guias e tutorias de infra estão em tutoriais. 
+> Guias e tutorias de infra estão em [tutoriais](./tutoriais). 
 
 
 # Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 18.04
