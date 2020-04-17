@@ -120,7 +120,6 @@ cd ~/catkin_ws
 # 7. BUILDING OPENCV4 DEPENDECES
 echo "teste opencv4"
 cd ~/catkin_ws/src
-
 git clone https://github.com/ros-perception/image_pipeline.git
 git clone https://github.com/ros-perception/image_transport_plugins.git
 git clone https://github.com/ros-perception/vision_opencv.git
@@ -139,8 +138,8 @@ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git  
 git clone https://github.com/Insper/robot19.git 
 git clone https://github.com/intel-ros/realsense.git
-cd ~/catkin_ws/
 catkin_create_pkg gscam raspicam.launch  rospy roscpp
+cd ~/catkin_ws/
 catkin_make
 sudo mv $path/raspicam.launch /opt/ros/melodic/share/gscam
 
