@@ -85,14 +85,15 @@ sudo apt-get install -y ros-melodic-eigen-stl-containers
 sudo apt-get install -y ros-melodic-rgbd-launch  
 
 # Build Turtlebot3 tools:
-sudo apt-get install -y ros-melodic-parrot-arsdk 
+sudo apt-get install -y ros-melodic-parrot-arsdk
+#sudo apt-get install -y ros-melodic-turtlebot3-* 
 sudo apt-get install -y ros-melodic-turtlebot3-applications-msgs
 sudo apt-get install -y ros-melodic-turtlebot3-fake 
 sudo apt-get install -y ros-melodic-turtlebot3-fake-dbgsym 
 sudo apt-get install -y ros-melodic-turtlebot3-gazebo 
 sudo apt-get install -y ros-melodic-turtlebot3-gazebo-dbgsym 
 sudo apt-get install -y ros-melodic-turtlebot3-msgs
-sudo apt-get install -y  ros-melodic-turtlebot3-simulations
+sudo apt-get install -y ros-melodic-turtlebot3-simulations
 sudo apt-get install -y ros-melodic-turtlebot3-msgs 
 sudo apt install ros-melodic-ddynamic-reconfigure
 
@@ -136,7 +137,8 @@ cd ~/catkin_ws/src
 git clone https://github.com/ros-teleop/teleop_twist_keyboard.git    
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git  
-git clone https://github.com/Insper/robot19.git 
+#git clone https://github.com/Insper/robot19.git 
+git clone https://github.com/Insper/robot20.git
 git clone https://github.com/intel-ros/realsense.git
 catkin_create_pkg gscam raspicam.launch  rospy roscpp
 cd ~/catkin_ws/
@@ -155,6 +157,8 @@ pip install --upgrade imutils
 pip3 install --upgrade imutils
 sudo -H pip install jupyter
 sudo -H pip3 install jupyter
+python -m pip install -U matplotlib
+python3 -m pip install -U matplotlib
 
 echo "-------------------FINISH INSTALL ---------------------"
 

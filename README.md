@@ -97,7 +97,7 @@ Execute no terminal os comandos a seguir, o Quartus necessita de dependências d
 ``` bash
  sudo dpkg --add-architecture i386
  sudo apt-get update
- sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
+ sudo apt-get install -y gcc make libxft2:i386 libxext6:i386 \
  libncurses5:i386 libstdc++6:i386 libpng-dev \
  libpng16-16:i386 libpng16-16 python-gobject libnotify-bin 
 ```
@@ -110,8 +110,11 @@ Execute no terminal os comandos a seguir, o Quartus necessita de dependências d
 >    Unpack the tar archive to /tmp
 >    Build and install:
 
-```bash
- cd $HOME/Downloads/libpng-1.2.59
+```bash 
+ cd $HOME/Downloads/
+ tar -xvf libpng-*
+ mv libpng-* /tmp
+ cd /tmp/libpng-*
  ./configure --prefix=/usr/local
  make
  sudo make install
@@ -119,7 +122,7 @@ Execute no terminal os comandos a seguir, o Quartus necessita de dependências d
 ```
 Instalando  
 
-Faça o download dos arquivos a seguir (salve na mesma todos os arquivos):
+Faça o download dos arquivos a seguir (salve na mesma pasta todos os arquivos):
 
 - Quartus Lite : [http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusLiteSetup-17.1.0.590-linux.run](http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/QuartusLiteSetup-17.1.0.590-linux.run)
 
@@ -130,13 +133,14 @@ Faça o download dos arquivos a seguir (salve na mesma todos os arquivos):
 Abra o terminal na pasta que os arquivos foram salvos e execute os dois comandos a seguir:
 
 ``` bash
+ cd $HOME/Downloads/
  chmod +x QuartusLiteSetup-17.1.0.590-linux.run
  ./QuartusLiteSetup-17.1.0.590-linux.run
 ```
 
 >  Grave o caminho na qual o **Quartus** foi instalado, ele será utilizado na próxima etapa.
 
-> Se o Quartus falhar na instalação, mova o modelsim dessa pasta e instale novamente. Depois será necessário instalar o modelsim a parte.
+> Se o Quartus falhar na instalação, mova o modelsim dessa pasta e tente instalar novamente. Depois será necessário instalar o modelsim a parte.
 
 ## Modelsim
 
