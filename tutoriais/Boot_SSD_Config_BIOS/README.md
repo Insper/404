@@ -16,7 +16,7 @@ O Bitlocker deve estar desabilitado, como aparece na imagem abaixo. Se o BitLock
 
 ![referencia](img/bitlocker1.png)
     
- # ETAPA 1
+ # ETAPA 2
 
 ## Acessando a BIOS
 
