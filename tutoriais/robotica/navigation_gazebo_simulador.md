@@ -97,7 +97,7 @@ Clique em 2D nav goal para definir aonde o turtlebot deve chegar
 
 
 
-# Rerência
+# Referência
 
 http://emanual.robotis.com/docs/en/platform/turtlebot3/slam/
 
