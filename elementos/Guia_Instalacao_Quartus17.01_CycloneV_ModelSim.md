@@ -1,6 +1,6 @@
 - Ubuntu 18.04
 
-# Quartus Prime e ModelSim
+# Quartus Lite 17.1 e ModelSim 17.1
 
 Execute no terminal os comandos a seguir, o Quartus necessita de dependências da arquitetura i384.
 
@@ -54,10 +54,10 @@ $ ./QuartusLiteSetup-17.1.0.590-linux.run
 
 1. Editar vco
 
-Vamos editar o arquivo `vco` que está na pasta do modelsim (exe: `$HOME/intelFPGA/17.1/modelsim_ase/vco`):
+Vamos editar o arquivo `vco` que está na pasta do modelsim (exe: `$HOME/intelFPGA_lite/17.1/modelsim_ase/vco`):
 
 ```bash
-$ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' $HOME/intelFPGA/17.1/modelsim_ase/vco
+$ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' $HOME/intelFPGA_lite/17.1/modelsim_ase/vco
 ```
 
 2. Libfreetype 6.10.1 (versão 2.6)
@@ -67,14 +67,14 @@ Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [
 ```bash
 $ cd ~/Downloads
 $ wget https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz
-$ mkdir $HOME/intelFPGA/17.1/modelsim_ase/lib32
+$ mkdir $HOME/intelFPGA_lite/17.1/modelsim_ase/lib32
 $ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA/17.1/modelsim_ase/lib32
 ```
 
 Adicione ao final do  `bashrc` a seguinte linha:
 
 ```diff
-export LD_LIBRARY_PATH=$HOME/intelFPGA/17.1/modelsim_ase/lib32
+export LD_LIBRARY_PATH=$HOME/intelFPGA_lite/17.1/modelsim_ase/lib32
 ```
 
 ## Configurando o USB Blaster
@@ -115,7 +115,7 @@ $ sudo service udev restart
 Adicione ao final do `bashrc` as seguintes linhas:
 
 ```diff
-export ALTERAPATH=$HOME/intelFPGA/17.1
+export ALTERAPATH=$HOME/intelFPGA_lite/17.1
 export PATH=$PATH:${ALTERAPATH}/quartus/bin
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
