@@ -68,7 +68,7 @@ Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [
 $ cd ~/Downloads
 $ wget https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz
 $ mkdir $HOME/intelFPGA_lite/17.1/modelsim_ase/lib32
-$ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA/17.1/modelsim_ase/lib32
+$ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA_lite/17.1/modelsim_ase/lib32
 ```
 
 Adicione ao final do  `bashrc` a seguinte linha:
