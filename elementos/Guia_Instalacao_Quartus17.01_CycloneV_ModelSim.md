@@ -115,7 +115,7 @@ $ sudo service udev restart
 Adicione ao final do `bashrc` as seguintes linhas:
 
 ```diff
-export ALTERAPATH=$HOME/intelFPGA_lite/17.1
+export ALTERAPATH=$HOME/intelFPGA/17.1
 export PATH=$PATH:${ALTERAPATH}/quartus/bin
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
