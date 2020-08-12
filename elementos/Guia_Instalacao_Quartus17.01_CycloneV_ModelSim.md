@@ -115,12 +115,14 @@ $ sudo service udev restart
 Adicione ao final do `bashrc` as seguintes linhas:
 
 ```diff
-export ALTERAPATH=$HOME/intelFPGA_lite/17.1
+export ALTERAPATH=$HOME/intelFPGA/17.1
 export PATH=$PATH:${ALTERAPATH}/quartus/bin
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
 export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_SIMULATOR=modelsim
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/:${ALTERAPATH}/modelsim_ase/lib32
+export QSYS_ROOTDIR="$HOME/intelFPGA/17.1/quartus/sopc_builder/bin"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
 ```
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.
