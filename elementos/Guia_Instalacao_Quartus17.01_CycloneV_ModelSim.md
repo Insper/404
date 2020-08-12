@@ -132,5 +132,5 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 
 1. **Quartus:** Escreva `quartus` no terminal, o mesmo deve abrir a janela do Quartus
 1. **Programador:** Com a FPGA plugada no pc, digite `jtagconfig` ele deve aparecer o device.
-1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim
+1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModelSim
 
