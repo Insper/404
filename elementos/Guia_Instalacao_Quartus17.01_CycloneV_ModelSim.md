@@ -21,6 +21,8 @@ $ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
 >    Build and install:
 
 ```bash
+$ sudo apt-get install xz-utils
+$ sudo tar -xvf $HOME/Downloads/libpng-1.2.59.tar.xz
 $ cd $HOME/Downloads/libpng-1.2.59
 $ ./configure --prefix=/usr/local
 $ make
