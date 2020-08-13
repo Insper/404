@@ -20,7 +20,7 @@ $ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
 >    Unpack the tar archive to /tmp
 >    Build and install:
 
-Descompacte o arquivo **libpng-1.2.59.tar.xz** na pasta **Downloads** antes executar os comandos abaixo no terminal:
+Descompacte o arquivo **libpng-1.2.59.tar.xz** na pasta **Downloads** antes executar os comandos abaixo:
 
 ```bash
 $ cd $HOME/Downloads/libpng-1.2.59
