@@ -124,7 +124,7 @@ export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
 export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_SIMULATOR=modelsim
-export QSYS_ROOTDIR="$HOME/intelFPGA/17.1/quartus/sopc_builder/bin"
+export QSYS_ROOTDIR="$HOME/intelFPGA_lite/17.1/quartus/sopc_builder/bin"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
 ```
 
