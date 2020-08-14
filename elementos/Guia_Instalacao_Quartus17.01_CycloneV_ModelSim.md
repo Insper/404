@@ -44,7 +44,6 @@ Faça o download dos arquivos a seguir (salve na mesma todos os arquivos):
 Abra o terminal na pasta que os arquivos foram salvos e execute os dois comandos a seguir:
 
 ``` bash
-$ sudo apt-get install libcanberra-gtk-module:i386
 $ chmod +x QuartusLiteSetup-17.1.0.590-linux.run
 $ ./QuartusLiteSetup-17.1.0.590-linux.run
 ```
