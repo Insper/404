@@ -5,24 +5,24 @@
 #   - Reinstala anydesk para gerar novo id
 #   - instala google chrome (proctorio)
 
-cd ~/Downloads/
+cd tmp/
 
 #############################################
 ##            anydesk                      ##
 #############################################
 echo "purge anydesk"
-rm -rf ~/.anydesk
-echo fl1pfl0p | sudo -S apt purge -f anydesk
+echo fl1pfl0p | sudo -S killall anydesk
+sudo rm /etc/anydesk/service.conf
+sudo rm -rf ~/.anydesk
+sudo apt purge -y anydesk
 
 echo "install anydesk"
-wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
-sudo echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
-sudo apt update
-sudo apt install anydesk
+wget https://download.anydesk.com/linux/anydesk_6.0.1-1_amd64.deb -P /tmp/
+sudo apt install -y /tmp/anydesk_6.0.1-1_amd64.deb
 
 #############################################
 ##            chrome                      ##
 #############################################
 echo "install google chrome"
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp/
+sudo apt install -y /tmp/google-chrome-stable_current_amd64.deb
