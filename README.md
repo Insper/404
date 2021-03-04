@@ -53,7 +53,7 @@ $ sudo ldconfig
 
 ## Instalando  
 
-Faça o download dos arquivos a seguir (salve na mesma todos os arquivos):
+Faça o download dos arquivos a seguir (salve na mesma pasta todos os arquivos):
 
 - Quartus Lite 20.01 : http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/QuartusLiteSetup-20.1.0.711-linux.run
 
@@ -84,7 +84,7 @@ $ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' $HOME/intelFP
 
 2. Libfreetype 6.10.1 (versão 2.6)
 
-Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [nesse roteiro](https://gist.github.com/PrieureDeSion/e2c0945cc78006b00d4206846bdb7657#stage-2) ou fazer o download de uma versão [pré compilada por mim](https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz)
+Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [nesse roteiro](https://gist.github.com/PrieureDeSion/e2c0945cc78006b00d4206846bdb7657#stage-2) ou fazer o download de uma versão [pré compilada pelo Corsi](https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz)
 
 ```bash
 $ cd ~/Downloads
@@ -103,7 +103,7 @@ export LD_LIBRARY_PATH=$HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
 
 #### [libudev1:i386](https://forums.intel.com/s/question/0D50P00003yySE5SAM/newbie-usb-blaster-on-ubuntu-linux-xenial-1604-wont-probe-chain?language=en_US)
 
-Para o gravador Jtag blaster funcionar no Ubuntu 18 LTS
+Para o gravador Jtag blaster funcionar
 
 ``` bash
 $ sudo apt-get install libudev1:i386
