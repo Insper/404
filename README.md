@@ -134,7 +134,14 @@ $ sudo service udev restart
 
 ## Configurando variáveis de ambiente
 
+Abra o seu `bashrc`
+
+``` bash
+code ~/.bashrc
+``` 
+
 Adicione ao final do `bashrc` as seguintes linhas:
+
 
 ```diff
 export ALTERAPATH=$HOME/intelFPGA_lite/20.1
@@ -163,12 +170,17 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 
 ## Instalação infra de Robótica
 
-Antes de mais nada, configure o seu bashrc
+Antes de mais nada, configure seu ambiente
+
+# Configurando variáveis de ambiente
+
+Abra o seu `bashrc`
 
 ``` bash
 code ~/.bashrc
-```
-Adicione essas linhas ao final do seu bashrc:
+``` 
+
+Adicione ao final do `bashrc` as seguintes linhas:
 
 ``` bash
 ##########################
@@ -260,6 +272,13 @@ catkin_make
 A resposta deve ser algo parecido com isso:
 
 ![](https://github.com/Insper/404/blob/master/tutoriais/robotica/img/catkin.png)
+
+
+Caso tenha algum problema, entre em contato com a gente!
+
+Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
+
+Arnaldo Junior Email: arnaldoavj@insper.edu.br Teams: arnaldo.junior2
 
 
 
