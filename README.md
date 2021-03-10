@@ -27,9 +27,9 @@ Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular
 Execute no terminal os comandos a seguir, o Quartus necessita de dependências da arquitetura i384.
 
 ``` bash
-$ sudo dpkg --add-architecture i386
-$ sudo apt-get update
-$ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
   libncurses5:i386 libstdc++6:i386 libpng-dev \
   libpng16-16:i386 libpng16-16 python-gobject libnotify-bin 
 ```
