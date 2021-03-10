@@ -43,11 +43,11 @@ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
 >    Build and install:
 
 ```bash
-$ cd $HOME/Downloads/libpng-1.2.59
-$ ./configure --prefix=/usr/local
-$ make
-$ sudo make install
-$ sudo ldconfig
+cd $HOME/Downloads/libpng-1.2.59
+./configure --prefix=/usr/local
+make
+sudo make install
+sudo ldconfig
 ```
 
 
@@ -64,8 +64,8 @@ Faça o download dos arquivos a seguir (salve na mesma pasta todos os arquivos):
 Abra o terminal na pasta que os arquivos foram salvos e execute os dois comandos a seguir:
 
 ``` bash
-$ chmod +x QuartusLiteSetup-20.1.0.771-linux.run
-$ ./QuartusLiteSetup-20.1.0.771-linux.run
+chmod +x QuartusLiteSetup-20.1.0.771-linux.run
+./QuartusLiteSetup-20.1.0.771-linux.run
 ```
 
 >  Grave o caminho na qual o **Quartus** foi instalado, ele será utilizado na próxima etapa.
