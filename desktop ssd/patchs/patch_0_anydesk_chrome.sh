@@ -3,13 +3,11 @@
 # Rafael Corsi
 # path para o SSD Eng Comp 2020-2
 #   - Reinstala anydesk para gerar novo id
-
-
-cd /tmp/
-
 #############################################
 ##            anydesk                      ##
 #############################################
+
+cd /tmp/
 echo "purge anydesk"
 echo fl1pfl0p | sudo -S killall anydesk
 sudo rm /etc/anydesk/service.conf
