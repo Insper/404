@@ -5,7 +5,7 @@
 #   - Reinstala anydesk para gerar novo id
 
 
-cd tmp/
+cd /tmp/
 
 #############################################
 ##            anydesk                      ##
