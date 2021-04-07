@@ -220,14 +220,55 @@ make
 sudo make install
 ```
 
-### teste o vsim novamente, se o erro persistir, entre em contato com um dos técnicos da equipe
+Mova os arquivos que ja foram configuradas do modelsim, pra não ter que fazer novamente
+
+
+```bash
+mv $HOME/intelFPGA_lite/20.1/modelsim_ase/vco $HOME/intelFPGA_lite/20.1/
+mv $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32 $HOME/intelFPGA_lite/20.1/
+
+```
+
+Desintale o modelsim
+
+```bash
+exec $HOME/intelFPGA_lite/20.1/uninstall/modelsim_ase-20.1.0.711-linux-uninstall.run
+rm  -rf $HOME/intelFPGA_lite/20.1/modelsim_ase/
+```
+Reinicie o computador
+
+```bash
+sudo reboot
+
+```
+Instale o Modelsim novamente
+
+
+```bash
+exec $HOME/Downloads/ModelSimSetup-20.1.0.711-linux.run
+
+```
+Devolva os arquivos configurados pro lugar
+
+```bash
+mv $HOME/intelFPGA_lite/20.1/vco $HOME/intelFPGA_lite/20.1/modelsim_ase
+mv $HOME/intelFPGA_lite/20.1/lib32 $HOME/intelFPGA_lite/20.1/modelsim_ase
+
+```
+
+Em um novo terminal, teste o Modelsim novamente
+
+```bash
+
+vsim
+```
+
+
+Caso ainda tenha problemas, entre em contato com a gente!
 
 Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
 
 Arnaldo Junior Email: arnaldoavj@insper.edu.br Teams: arnaldo.junior2
-
-
-
 
 
 
@@ -345,10 +386,20 @@ Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
 Arnaldo Junior Email: arnaldoavj@insper.edu.br Teams: arnaldo.junior2
 
 
+**Referências:**
+https://j-marjanovic.io/new-ubuntu-old-problems-with-modelsim.html 
 
+http://wiki.ros.org/noetic/Installation/Ubuntu
 
+http://milq.github.io/install-opencv-ubuntu-debian
 
+https://forums.intel.com/s/question/0D50P00003yySE5SAM/newbie-usb-blaster-on-ubuntu-linux-xenial-1604-wont-probe-chain?language=en_US
 
+https://gist.github.com/PrieureDeSion/e2c0945cc78006b00d4206846bdb7657#stage-2
+
+https://github.com/Insper/404/blob/master/scripts_robotica/Instala_infra_robotica.sh
+
+https://github.com/Insper/404/blob/master/scripts_robotica/install_opencv4.sh
 
 
 
