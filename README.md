@@ -167,7 +167,9 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 1. **Programador:** Com a FPGA plugada no pc, digite `jtagconfig` ele deve aparecer o device.
 1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim
 
-## Para a mensagem de erro "error message it is clear that libfontconfig.so tries to use function called FT_Done_MM_Var and is unable to find it."
+
+
+**Para a mensagem de erro "error message it is clear that libfontconfig.so tries to use function called FT_Done_MM_Var and is unable to find it."**
 
 Primeiro instale esses pacotes:
 
@@ -231,7 +233,7 @@ mv $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32 $HOME/intelFPGA_lite/20.1/
 
 ```
 
-Desintale o modelsim
+Desinstale o modelsim
 
 ```bash
 exec $HOME/intelFPGA_lite/20.1/uninstall/modelsim_ase-20.1.0.711-linux-uninstall.run
