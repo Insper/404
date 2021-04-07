@@ -165,6 +165,70 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 1. **Programador:** Com a FPGA plugada no pc, digite `jtagconfig` ele deve aparecer o device.
 1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim
 
+# Para a mensagem de erro "error message it is clear that libfontconfig.so tries to use function called FT_Done_MM_Var and is unable to find it."
+
+Primeiro instale esses pacotes:
+
+``` bash
+sudo apt install -y automake
+sudo apt install -y libxml2-dev:i386 uuid-dev:i386
+sudo apt install -y libtool
+sudo apt install -y gperf 
+sudo apt install -y gettext
+sudo apt install -y itstool
+sudo apt install -y libfreetype6-dev
+sudo apt install -y uuid
+sudo apt install -y uuid-dev
+
+``` 
+
+Clone o seguinte repositório na sua pasta de Downloads:
+
+``` bash
+cd ~/Downloads
+git clone https://gitlab.freedesktop.org/fontconfig/fontconfig.git
+
+``` 
+Troque para a seguinte branch
+
+``` bash
+cd ~/Downloads/fontconfig
+git checkout -b 2.12.92 2.12.92
+
+``` 
+Configure o autogen para rodar com o python3
+
+``` bash
+sed -i 's/PYTHON=${PYTHON-python}/PYTHON=${PYTHON-python3}/g' $HOME/Downloads/fontconfig/autogen.sh
+
+```
+Rode o autogen.sh 
+
+
+``` bash
+./autogen.sh 
+
+```
+
+Quando aparecer a mensagem *Press Return to acknowledge the previous two paragraphs.*, pressione Enter no terminal
+
+Quando aparecer a mensagem *Now type 'make' to compile Fontconfig.*
+
+
+```bash
+make
+sudo make install
+```
+
+#Teste o vsim novamente, se o erro persistir, entre em contato com um dos técnicos da equipe
+
+Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
+
+Arnaldo Junior Email: arnaldoavj@insper.edu.br Teams: arnaldo.junior2
+
+
+
+
 
 
 
