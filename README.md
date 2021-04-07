@@ -3,7 +3,9 @@ Infraestrutura para suporte as materias de Engenharia da Computação
 > Guias e tutorias de infra estão em [tutoriais](./tutoriais). 
 
 
-# Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 20.04
+## Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 20.04
+
+**É importante que você tenha os drivers da sua placa de vídeo devidamente instalados e configurados.**
 
 Antes de clonar este repositório, certifique-se de ter instalado o git e git-lfs e o oh-my-bash. 
 
