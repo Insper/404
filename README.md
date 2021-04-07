@@ -24,7 +24,7 @@ Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular
 
 - Ubuntu 20.04.1 LTS (Focal Fossa)
 
-# Quartus Prime e ModelSim
+## Quartus Prime e ModelSim
 
 Execute no terminal os comandos a seguir, o Quartus necessita de dependências da arquitetura i384.
 
