@@ -165,7 +165,7 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 1. **Programador:** Com a FPGA plugada no pc, digite `jtagconfig` ele deve aparecer o device.
 1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim
 
-# Para a mensagem de erro "error message it is clear that libfontconfig.so tries to use function called FT_Done_MM_Var and is unable to find it."
+## Para a mensagem de erro "error message it is clear that libfontconfig.so tries to use function called FT_Done_MM_Var and is unable to find it."
 
 Primeiro instale esses pacotes:
 
@@ -220,7 +220,7 @@ make
 sudo make install
 ```
 
-#Teste o vsim novamente, se o erro persistir, entre em contato com um dos técnicos da equipe
+### teste o vsim novamente, se o erro persistir, entre em contato com um dos técnicos da equipe
 
 Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
 
