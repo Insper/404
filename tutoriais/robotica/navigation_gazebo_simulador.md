@@ -37,7 +37,7 @@ Abra o gazebo
 
 
 ```
-roslaunch turtlebot3_gazebo turtlebot3_world.launch
+roslaunch my_simulation turtlebot3_world.launch
 
 ```
 
