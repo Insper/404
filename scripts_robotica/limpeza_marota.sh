@@ -12,7 +12,9 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 sudo apt install -y bleachbit
 history -c
 bleachbit --clean firefox.*
-bleachbit --clean chrome.*
+rm -rf ~/.config/google-chrome/Default/
+rm -rf ~/.cache/google-chrome
+rm -rf ~/.cache/mozilla
 sudo rm -rf /etc/NetworkManager/system-connections/*
 git config --global --unset credential.helper
 
