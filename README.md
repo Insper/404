@@ -36,6 +36,11 @@ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
   libpng16-16:i386 libpng16-16 python-gobject libnotify-bin 
 ```
 
+Instale o canberra-gtk-module:
+``` {.sourceCode .bash}
+$ sudo apt-get install libcanberra-gtk-module
+```
+
 ### [Libpng12](http://www.bitsnbites.eu/installing-intelaltera-quartus-in-ubuntu-17-10/)
 
 > The simplest way is to build and install libpng12 from source (requires build-essential).
