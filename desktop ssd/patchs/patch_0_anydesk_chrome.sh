@@ -16,6 +16,6 @@ sudo apt purge -y anydesk
 
 echo "install anydesk"
 wget https://download.anydesk.com/linux/deb/anydesk_6.0.1-1_amd64.deb
-sudo apt install -y anydesk_6.0.1-1_amd64.deb
+sudo dpkg -i anydesk_6.0.1-1_amd64.deb
 rm -rf anydesk_6.0.1-1_amd64.deb
 
