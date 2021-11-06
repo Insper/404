@@ -76,3 +76,9 @@ O que rodar:
 
 [https://github.com/decoejz/robotica_p3](https://github.com/decoejz/robotica_p3)
 
+
+## Video demonstração de como instaçar e rodar. 
+
+Se tiver dificuldades para instalar, assista ao video:
+
+[https://www.youtube.com/watch?v=Rhgq3ELu9cI](https://www.youtube.com/watch?v=Rhgq3ELu9cI)
