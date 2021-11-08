@@ -19,7 +19,7 @@ sudo apt install libusb-dev python3-osrf-pycommon libspnav-dev libbluetooth-dev 
 sudo apt install ros-noetic-mavros ros-noetic-octomap-ros 
 
 git clone https://github.com/ethz-asl/mav_comm
-git clone -b noetic https://github.com/simonernst/iROS_drone
+git clone -b noetic https://github.com/liciascl/iROS_drone
 git clone https://github.com/ros-drivers/joystick_drivers
 
 cd ..
