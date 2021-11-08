@@ -12,6 +12,7 @@ Este guia foi adaptado do link: https://github.com/simonernst/iROS_drone
 1. Primeiramente vamos criar um novo workspace ROS, instalar alguns pacotes clonar alguns repositórios, abra um novo terminal e digite:
 
 ```bash
+cd ~
 mkdir -p bebop_ws/src && cd bebop_ws/src
 
 sudo apt install build-essential python3-rosdep python3-catkin-tools
