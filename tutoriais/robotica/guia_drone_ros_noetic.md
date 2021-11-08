@@ -50,7 +50,7 @@ roslaunch rotors_gazebo mav_velocity_control_with_fake_driver.launch
 5. ***takeoff*** e ***land*** Abra um novo terminal e digite:
 
 ```bash
-takeoff (decolar) - rostopic pub --once /bebop/takeoff std_msgs/Empt
+takeoff (decolar) - rostopic pub --once /bebop/takeoff std_msgs/Empty
 land (pousar) -  rostopic pub --once /bebop/land std_msgs/Empty 
 ```        
 
