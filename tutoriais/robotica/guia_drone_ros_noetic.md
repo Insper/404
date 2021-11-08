@@ -50,8 +50,8 @@ roslaunch rotors_gazebo mav_velocity_control_with_fake_driver.launch
 5. ***takeoff*** e ***land*** Abra um novo terminal e digite:
 
 ```bash
-takeoff (decolar) - rostopic pub --once /takeoff std_msgs/Empt
-land (pousar) -  rostopic pub --once /land std_msgs/Empty 
+takeoff (decolar) - rostopic pub --once /bebop/takeoff std_msgs/Empt
+land (pousar) -  rostopic pub --once /bebop/land std_msgs/Empty 
 ```        
 
 9. Para teleoperar o drone atraves do teclado, rode em um novo terminal: 
