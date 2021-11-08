@@ -44,7 +44,7 @@ Feche o terminal e abra uma novo terminal para recarregar o .bashrc.
 4. Rode o mapa do simulador ***Gazebo*** através do comando:
    
 ```bash
-roslaunch rotors_gazebo drone.launch
+roslaunch rotors_gazebo mav_velocity_control_with_fake_driver.launch
 ```
 
 5. ***takeoff*** e ***land*** Abra um novo terminal e digite:
