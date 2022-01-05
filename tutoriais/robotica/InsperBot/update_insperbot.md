@@ -1,18 +1,9 @@
 # Update Insperbot
 
-📌
-
-**Login ID: ubuntu** 
-
-**PASSWORD:turtlebot**
-
 <aside>
-⚠️ **NOTE:** Recomendo que utilize um SSD com a infra dos alunos para realizar o update/testes do InsperBot
-
-</aside>
-
-<aside>
-⚠️ **NOTE:** É muito importante que o computador esteja logado na rede **Robotica** com **login e senha de aluno**
+⚠️ Recomendo que utilize um SSD com a infra dos alunos para realizar o update/testes do InsperBot
+ 
+ É muito importante que o computador esteja logado na rede *Robotica* com *login e senha de aluno*
 
 </aside>
 
@@ -24,6 +15,7 @@
 - Tela
 - Computador com um SSD dos alunos
 - Login/Senha de aluno
+
 
 ## Clone do SDCard
 
@@ -142,12 +134,12 @@ Salve e de reboot no sistema:
 ## Hora de testar!
 
 <aside>
-⚠️ **NOTE:** O InsperBot canta uma musiquinha quando o boot é bem sucedido
+⚠️  O InsperBot canta uma musiquinha quando o boot é bem sucedido
 
 </aside>
 
 <aside>
-⚠️ **NOTE:** É muito importante que o computador esteja logado na rede **Robotica** com **login e senha de aluno**
+⚠️ É muito importante que o computador esteja logado na rede **Robotica** com **login e senha de aluno**
 
 </aside>
 
