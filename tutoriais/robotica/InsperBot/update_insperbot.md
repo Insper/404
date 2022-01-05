@@ -89,7 +89,8 @@ Não esqueça do dungle do mouse/teclado:
 
 Ligue o robô usando a chavinha:
 
-[WhatsApp Video 2022-01-05 at 11.02.15.mp4](Update%20Insperbot%201d15e50b2b8345ea8e367be0d62ecf19/WhatsApp_Video_2022-01-05_at_11.02.15.mp4)
+![chavinha.gif](Update%20Insperbot%201d15e50b2b8345ea8e367be0d62ecf19/chavinha.gif)
+
 
 Espere o boot terminar, use os dados a seguir para fazer o login:
 
@@ -266,4 +267,4 @@ rostopic echo scan
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
-[WhatsApp Video 2022-01-05 at 12.11.09.mp4](Update%20Insperbot%201d15e50b2b8345ea8e367be0d62ecf19/WhatsApp_Video_2022-01-05_at_12.11.09.mp4)
+![teleop.gif](Update%20Insperbot%201d15e50b2b8345ea8e367be0d62ecf19/teleop.gif)
