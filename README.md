@@ -349,14 +349,17 @@ source $HOME/catkin_ws/devel/setup.bash
 
 # Instalando e Compilando Opencv 4.5
 
-Faça o Download deste [script](https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/opencv_4_5_Ubuntu_20_04.sh) com o comando abaixo:
+Use o pip para instalar com o comando abaixo
 
 ``` bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/opencv_4_5_Ubuntu_20_04.sh)"
-
+pip3 install opencv-contrib-python==4.5.5.62
 ```
 
-Para validar a instalação do Opencv digite no terminal:
+``` bash
+pip3 install opencv-python==4.5.5.62
+```
+
+pip3 install opencv-contrib-python==4.5.5.62Para validar a instalação do Opencv digite no terminal:
 
 ``` bash
 python3
