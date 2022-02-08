@@ -1,15 +1,11 @@
-##########################
-# 3.o Semestre Comp.     #
-##########################
-
 #############
 # Robotica  #
 #############
 
-export IPBerry=192.168.50.250
+export IPBerry=10.102.4.81
 # CANCELE  com # as linhas ROS_MASTER_URI  e ROS_IP se estiver usando com Gazebo, Sphinx ou Bebop
-#export ROS_MASTER_URI="http://"$IPBerry":11311" 
-#export ROS_IP=`hostname -I`
+export ROS_MASTER_URI="http://"$IPBerry":11311" 
+export ROS_IP=`hostname -I |awk '{print $1}'`
 
 #escolha qual o modelo robo sera usado no simulador
 export TURTLEBOT3_MODEL=burger 
