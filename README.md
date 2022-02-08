@@ -38,7 +38,7 @@ sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
 
 Instale o canberra-gtk-module:
 ``` {.sourceCode .bash}
-$ sudo apt-get install libcanberra-gtk-module
+ sudo apt-get install libcanberra-gtk-module
 ```
 
 ### [Libpng12](http://www.bitsnbites.eu/installing-intelaltera-quartus-in-ubuntu-17-10/)
@@ -94,10 +94,10 @@ $ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' $HOME/intelFP
 Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [nesse roteiro](https://gist.github.com/PrieureDeSion/e2c0945cc78006b00d4206846bdb7657#stage-2) ou fazer o download de uma versão [pré compilada pelo Corsi](https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz)
 
 ```bash
-$ cd ~/Downloads
-$ wget https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz
-$ mkdir $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
-$ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
+ cd ~/Downloads
+ wget https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz
+ mkdir $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
+ tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
 ```
 
 Adicione ao final do  `bashrc` a seguinte linha:
@@ -137,28 +137,6 @@ Recarrege o as permissões via o comando a seguir:
 
 ``` bash
 $ sudo service udev restart
-```
-
-## Configurando variáveis de ambiente
-
-Abra o seu `bashrc`
-
-``` bash
-code ~/.bashrc
-``` 
-
-Adicione ao final do `bashrc` as seguintes linhas:
-
-
-```diff
-export ALTERAPATH=$HOME/intelFPGA_lite/20.1
-export PATH=$PATH:${ALTERAPATH}/quartus/bin
-export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
-export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
-export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
-export VUNIT_SIMULATOR=modelsim
-export QSYS_ROOTDIR="$HOME/intelFPGA_lite/20.1/quartus/sopc_builder/bin"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
 ```
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.
@@ -298,53 +276,20 @@ Adicione ao final do `bashrc` as seguintes linhas:
 
 ``` bash
 ##########################
-# 3.o Semestre Comp.     #
+# 3s
 ##########################
 
-#############
-# Robotica  #
-#############
+source ~/elementos.sh
+source ~/robotica.sh
+``` 
 
-export IPBerry=192.168.50.250
-# CANCELE  com # as linhas ROS_MASTER_URI  e ROS_IP se estiver usando com Gazebo, Sphinx ou Bebop
-#export ROS_MASTER_URI="http://"$IPBerry":11311" 
-#export ROS_IP=`hostname -I`
+faça o download dos seguintes arquivos:
 
-#escolha qual o modelo robo sera usado no simulador
-export TURTLEBOT3_MODEL=burger 
-#export TURTLEBOT3_MODEL=waffle_pi
+``` bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/robotica.sh)"
 
-#importar corretamente o robo no Rviz 
-export LC_NUMERIC="en_US.UTF-8"
-export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/my_simulation/models:
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/elementos.sh)"
 
-
-# PATH usado para o drone
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/noetic/lib/parrot_arsdk/
-export PYTHONPATH=/usr/local/python:/usr/lib/python:$PYTHONPATH:
-
-# PATH Gazebo
-export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/my_simulation/models:${GAZEBO_MODEL_PATH}
-
-#Garra
-alias abre_garra="rostopic pub -1 servo_garra/command std_msgs/String "abre""
-alias fecha_garra="rostopic pub -1 servo_garra/command std_msgs/String "fecha""
-alias stop_garra="rostopic pub -1 servo_garra/command std_msgs/String "stop""
-
-#Braço
-alias sobe_braco="rostopic pub -1 servo_braco/command std_msgs/String "sobe""
-alias desce_braco="rostopic pub -1 servo_braco/command std_msgs/String "desce""
-alias recolhe_braco="rostopic pub -1 servo_braco/command std_msgs/String "recolhe""
-alias stop_braco="rostopic pub -1 servo_braco/command std_msgs/String "stop""
-
-#Camera
-alias sobe_camera="rostopic pub -1 servo_camera/command std_msgs/String "sobe""
-alias desce_camera="rostopic pub -1 servo_camera/command std_msgs/String "desce""
-alias stop_camera="rostopic pub -1 servo_camera/command std_msgs/String "stop""
-
-# ROS 1
-source /opt/ros/noetic/setup.bash
-source $HOME/catkin_ws/devel/setup.bash
 ``` 
 
 # Instalando e Compilando Opencv 4.5
@@ -368,7 +313,7 @@ cv2.__version__
 quit()
 ``` 
 
-A resposta deve ser "'4.5.0'"
+A resposta deve ser "'4.5.5'"
 
 # Instalando e configurando o Ros Noetic
 
