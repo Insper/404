@@ -286,9 +286,9 @@ source ~/robotica.sh
 faça o download dos seguintes arquivos:
 
 ``` bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/robotica.sh)"
+wget "https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/robotica.sh"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/elementos.sh)"
+wget "https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/elementos.sh"
 
 ``` 
 
