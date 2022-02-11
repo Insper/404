@@ -22,3 +22,9 @@ roslaunch realsense2_camera demo_pointcloud.launch
 ```
 
 ![camera](https://github.com/Insper/404/blob/master/tutoriais/robotica/img/camera.png)
+
+
+
+
+
+Referência: https://github.com/IntelRealSense/realsense-ros#installation-instructions
