@@ -13,6 +13,7 @@ Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular
 
 1.Abra um novo terminal Ctrl+Alt+T e digite:
 
+    sudo apt install -y maven
     sudo apt install -y git 
     sudo apt install -y curl
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
