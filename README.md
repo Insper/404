@@ -321,7 +321,7 @@ A resposta deve ser "'4.5.5'"
 Faça o Download deste [script](https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/install_ros_noetic.sh) com o comando abaixo:
 
 ``` bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/install_ros_noetic.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/Instala_infra_robotica.sh)"
 
 ```
 
