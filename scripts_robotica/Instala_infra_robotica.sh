@@ -16,6 +16,9 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
+# install Gazebo
+sudo apt install libdart-all-dev
+curl -sSL http://get.gazebosim.org | sh
 
 # 2. KEEP UBUNTU OR DEBIAN UP TO DATE
 
