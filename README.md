@@ -251,6 +251,19 @@ Em um novo terminal, teste o Modelsim novamente
 vsim
 ```
 
+Caso ainda não consiga abrir o VSIM tente baixar [este arquivo](https://alinsperedu-my.sharepoint.com/:u:/g/personal/andreb10_al_insper_edu_br/EaqkLVOjxBJFoadlUQOEYrQBn5uMgWcNW-ZYuc1xjLWlhA?e=Z7OIOh).
+
+Extraia o a pasta `modelsim_ase`que está dentro do arquivo `.zip` em uma pasta da sua preferência. Em seguida execute o comando:
+
+```bash
+rm -r $HOME/intelFPGA_lite/20.1/lib32 $HOME/intelFPGA_lite/20.1/modelsim_ase
+```
+
+Em seguida, abra o diretório que você extraiu a pasta `modelsim_ase` no terminal e execute o comando:
+
+```bash
+mv modelsim_ase $HOME/intelFPGA_lite/20.1/lib32 $HOME/intelFPGA_lite/20.1/modelsim_ase
+```
 
 Caso ainda tenha problemas, entre em contato com a gente!
 
