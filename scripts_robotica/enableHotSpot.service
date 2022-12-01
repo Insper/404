@@ -1,0 +1,14 @@
+#systemctl enable enableHotSpot.service
+
+[Unit]
+Description=enableHotSpot
+After=network.target
+
+[Service]
+User=root
+Type=forking
+ExecStart=/usr/bin/enableHotSpot.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
