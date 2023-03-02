@@ -3,8 +3,8 @@
 # INSTALL ROS ON UBUNTU              #
 ######################################
 #!/bin/bash
-#Autor Lícia Sales / Rogerio Cuenca
-#16-Jun-2022
+#Autor Lícia Sales
+#28-Dez-2020
 
 
 path=$(pwd)
@@ -14,7 +14,7 @@ echo $path
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
 # 2. KEEP UBUNTU OR DEBIAN UP TO DATE
 
@@ -22,9 +22,7 @@ sudo apt -y update
 sudo apt -y upgrade
 
 # 3. INSTALL ROS DESKTOP
-
 sudo apt install -y ros-noetic-desktop-full
-
 
 # 4. DEPENDECIES FOR BUILDING PACKAGES
 # Build tools:
@@ -66,8 +64,6 @@ sudo apt install -y ros-noetic-rgbd-launch
 # Build Turtlebot3 tools:
 sudo apt install -y ros-noetic-turtlebot3
 sudo apt install -y ros-noetic-ddynamic-reconfigure
-sudo apt install -y ros-noetic-effort-controllers
-
 
 # Stream vídeo packages"
 
@@ -75,16 +71,8 @@ sudo apt install -y libgstreamer1.0-dev
 sudo apt install -y gstreamer1.0-libav
 sudo apt install -y gdal-bin
 
-# INSTALL GIT AND GIT LFS
-
-sudo apt install -y git
-sudo apt install -y curl
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get -y  install git-lfs
-git lfs install
-
 # 5. ENVIRONMENT SETUP
-echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+echo "\nsource /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 source /opt/ros/noetic/setup.bash
 
@@ -105,8 +93,6 @@ cd ~/catkin_ws/src
 git clone https://github.com/ros-teleop/teleop_twist_keyboard.git    
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git   
-git clone https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins.git
-git clone https://github.com/Insper/insperbot.git
 rm -rf turtlebot3_applications/turtlebot3_panorama
 rm -rf turtlebot3_applications/turtlebot3_automatic*
 
@@ -120,12 +106,12 @@ catkin_make
 sudo rosdep init
 rosdep update
 
-#10. OTHER
-sudo apt-get install -y python3-pip
-pip3 install --upgrade imutils
-sudo -H pip3 install jupyter
-python3 -m pip install -U matplotlib
+
+#11. bUILD IGNITION GAZEBO
+cd ~/catkin_ws/src
+
+
+cd ..
 
 echo "-------------------FINISH INSTALL ---------------------"
-
 
