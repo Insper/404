@@ -65,6 +65,9 @@ sudo apt install -y ros-noetic-rgbd-launch
 sudo apt install -y ros-noetic-turtlebot3
 sudo apt install -y ros-noetic-ddynamic-reconfigure
 
+# Build Controller tools:
+sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers
+
 # Stream vídeo packages"
 
 sudo apt install -y libgstreamer1.0-dev 
