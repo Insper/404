@@ -48,6 +48,8 @@ sudo apt install -y ros-noetic-xacro
 sudo apt install -y ros-noetic-navigation 
 sudo apt install -y ros-noetic-interactive-markers 
 sudo apt install -y ros-noetic-kobuki-ftdi 
+sudo apt install -y ros-noetic-effort-controllers
+sudo apt install -y ros-noetic-joint-*
 
 # Build Image tools:
 sudo apt install -y ros-noetic-compressed-image-transport
@@ -85,14 +87,16 @@ cd ~/catkin_ws
 
 
 
-echo "instalou o opencv4 no ros"
-
 #8. BUILDING TURTLEBOT3 DEPENDECES
 
 cd ~/catkin_ws/src
 git clone https://github.com/ros-teleop/teleop_twist_keyboard.git    
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git   
+git clone https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins.git
+git clone https://github.com/arnaldojr/my_simulation.git
+git clone https://github.com/arnaldojr/mybot_description.git
+
 rm -rf turtlebot3_applications/turtlebot3_panorama
 rm -rf turtlebot3_applications/turtlebot3_automatic*
 
