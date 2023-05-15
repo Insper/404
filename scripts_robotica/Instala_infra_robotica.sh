@@ -93,7 +93,7 @@ cd ~/catkin_ws/src
 git clone https://github.com/ros-teleop/teleop_twist_keyboard.git    
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_applications.git   
-git clone https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins.git
+git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git
 git clone https://github.com/arnaldojr/my_simulation.git
 git clone https://github.com/arnaldojr/mybot_description.git
 
