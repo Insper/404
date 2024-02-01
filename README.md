@@ -244,7 +244,7 @@ quit()
 
 A resposta deve ser "'4.5.5'"
 
-# Instalando e configurando o Ros Noetic
+# Instalando e configurando o Ros Humble
 
 Para instalar o Ros2 Humble, vamos seguir os seguinte comandos:
 
