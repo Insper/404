@@ -3,65 +3,66 @@ Infraestrutura para suporte as materias de Engenharia da Computação
 > Guias e tutorias de infra estão em [tutoriais](./tutoriais). 
 
 
-## Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 20.04
+## Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 22.04
 
 **É importante que você tenha os drivers da sua placa de vídeo devidamente instalados e configurados.**
 
-Antes de clonar este repositório, certifique-se de ter instalado o git e git-lfs e o oh-my-bash. 
+Você pode usar o script encontrado em: https://github.com/Insper/404/blob/master/scripts_robotica/instala-infra_ros2.sh
 
-Se ainda não tiver instalado, siga os passos abaixo, caso contrario, pode pular esta etapa:
 
-1.Abra um novo terminal Ctrl+Alt+T e digite:
+Antes de clonar este repositório, é necessário que alguns pré-requisitos:
 
-    sudo apt install -y maven
-    sudo apt install -y git 
-    sudo apt install -y curl
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-    sudo apt-get -y  install git-lfs
-    git lfs install
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+Abra um novo terminal Ctrl+Alt+T e digite:
+
+``` bash
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+sudo apt install software-properties-common -y
+sudo add-apt-repository universe -y
+sudo apt update && sudo apt install curl -y
+sudo apt install maven -y
+sudo apt install git -y 
+sudo apt-get install libcanberra-gtk-module -y
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+```
+
+Vamos colocar algumas fontes novas no sistema para que o tema powerline do oh-my-bash. Recomendo que use uma fonte chamada Cousine for Powerline Regular.
+``` bash
+cd ~/
+git clone https://github.com/powerline/fonts
+cd fonts
+./install.sh
+cd ~/
+rm -fr fonts
+```
+Após terminar a instalação, feche o terminal e o abra novamente. Clique com o botão direito, preferência e em profile você altera a fote. Basta fechar e abrir novamente.
+
+Para trocar tema do oh-my-bash, você editará o aquivo .bashrc que se encontra na sua pasta home. Você encontrará uma linha como esta:
+
+OSH_THEME="tema_que_esta_usando" 
+
+E alterará para:
+
+OSH_THEME="powerline"
+
+Basta fechar e abrir o terminal novamente.
 
 ## Instalação infra Elementos
 
-- Ubuntu 20.04.1 LTS (Focal Fossa)
+- Ubuntu 22.04.x LTS (Jammy Jellyfish)
 
-## Quartus Prime e ModelSim
-
-Execute no terminal os comandos a seguir, o Quartus necessita de dependências da arquitetura i384.
-
-``` bash
-sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get install gcc make libxft2:i386 libxext6:i386 \
-  libncurses5:i386 libstdc++6:i386 libpng-dev \
-  libpng16-16:i386 libpng16-16 python-gobject libnotify-bin 
-```
-
-Instale o canberra-gtk-module:
-``` {.sourceCode .bash}
- sudo apt-get install libcanberra-gtk-module
-```
-
-### [Libpng12](http://www.bitsnbites.eu/installing-intelaltera-quartus-in-ubuntu-17-10/)
-
-> The simplest way is to build and install libpng12 from source (requires build-essential).
->    Install build-essential (to get gcc etc): sudo apt install build-essential
->    [Download the source code from sourceforge](https://sourceforge.net/projects/libpng/files/libpng12/1.2.59/libpng-1.2.59.tar.xz/download) (select a suitable version and tar archive).
->    Unpack the tar archive to /tmp
->    Build and install:
-
-```bash
-cd $HOME/Downloads/libpng-1.2.59
-./configure --prefix=/usr/local
-make
-sudo make install
-sudo ldconfig
-```
+## Instalando Quartus Prime e ModelSim
 
 
-## Instalando  
-
-Faça o download dos arquivos a seguir (salve na mesma pasta todos os arquivos):
+Para a instalação do Quartus e do ModelSim você pode baixar todos os arquivos na pasta Download ou executar os comandos a seguir que o baixarão e iniciará a instação para você:
 
 - Quartus Lite 20.01 : http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/QuartusLiteSetup-20.1.0.711-linux.run
 
@@ -72,39 +73,14 @@ Faça o download dos arquivos a seguir (salve na mesma pasta todos os arquivos):
 Abra o terminal na pasta que os arquivos foram salvos e execute os dois comandos a seguir:
 
 ``` bash
-chmod +x QuartusLiteSetup-20.1.0.771-linux.run
-./QuartusLiteSetup-20.1.0.771-linux.run
-```
 
->  Grave o caminho na qual o **Quartus** foi instalado, ele será utilizado na próxima etapa.
+cd ~/Downloads
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/QuartusLiteSetup-20.1.0.711-linux.run
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/ModelSimSetup-20.1.0.711-linux.run
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/cyclonev-20.1.0.711.qdz
 
-> Se o Quartus falhar na instalação, mova o modelsim dessa pasta e instale novamente. Depois será necessário instalar o modelsim a parte.
-
-## Modelsim
-
-1. Editar vco
-
-Vamos editar o arquivo `vco` que está na pasta do modelsim (exe: `$HOME/intelFPGA_lite/20.1/modelsim_ase/vco`):
-
-```bash
-$ sudo sed -i '209 a\        4.[0-9]*)             vco="linux" ;;' $HOME/intelFPGA_lite/20.1/modelsim_ase/vco
-```
-
-2. Libfreetype 6.10.1 (versão 2.6)
-
-Será necessário carregarmos uma versão anterior dessa lib. Seguir os passos [nesse roteiro](https://gist.github.com/PrieureDeSion/e2c0945cc78006b00d4206846bdb7657#stage-2) ou fazer o download de uma versão [pré compilada pelo Corsi](https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz)
-
-```bash
- cd ~/Downloads
- wget https://github.com/Insper/Z01-tools/raw/master/Extra/Libfreetype-6.10.1-lib32.tar.gz
- mkdir $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
- tar zxf Libfreetype-6.10.1-lib32.tar.gz -C $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
-```
-
-Adicione ao final do  `bashrc` a seguinte linha:
-
-```diff
-export LD_LIBRARY_PATH=$HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
+chmod +x QuartusLiteSetup-20.1.0.711-linux.run
+./QuartusLiteSetup-20.1.0.711-linux.run
 ```
 
 ## Configurando o USB Blaster
@@ -114,8 +90,10 @@ export LD_LIBRARY_PATH=$HOME/intelFPGA_lite/20.1/modelsim_ase/lib32
 Para o gravador Jtag blaster funcionar
 
 ``` bash
-$ sudo apt-get install libudev1:i386
-$ sudo ln -sf /lib/x86_64-linux-gnu/libudev.so.1 /lib/x86_64-linux-gnu/libudev.so.0
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libudev1:i386
+sudo ln -sf /lib/x86_64-linux-gnu/libudev.so.1 /lib/x86_64-linux-gnu/libudev.so.0
 ```
 
 Execute o comando a seguir para criar o arquivo de regra:
@@ -153,130 +131,30 @@ Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar
 
 
 
-**Para a mensagem de erro "error message it is clear that libfontconfig.so tries to use function called FT_Done_MM_Var and is unable to find it."**
-
-Primeiro instale esses pacotes:
-
-``` bash
-sudo apt install -y automake
-sudo apt install -y libxml2-dev:i386 uuid-dev:i386
-sudo apt install -y libtool
-sudo apt install -y gperf 
-sudo apt install -y gettext
-sudo apt install -y itstool
-sudo apt install -y libfreetype6-dev
-sudo apt install -y uuid
-sudo apt install -y uuid-dev
-
-``` 
-
-Clone o seguinte repositório na sua pasta de Downloads:
-
-``` bash
-cd ~/Downloads
-git clone https://gitlab.freedesktop.org/fontconfig/fontconfig.git
-
-``` 
-Troque para a seguinte branch
-
-``` bash
-cd ~/Downloads/fontconfig
-git checkout -b 2.12.92 2.12.92
-
-``` 
-Configure o autogen para rodar com o python3
-
-``` bash
-sed -i 's/PYTHON=${PYTHON-python}/PYTHON=${PYTHON-python3}/g' $HOME/Downloads/fontconfig/autogen.sh
-
-```
-Rode o autogen.sh 
-
-
-``` bash
-./autogen.sh 
-
-```
-
-Quando aparecer a mensagem *Press Return to acknowledge the previous two paragraphs.*, pressione Enter no terminal
-
-Quando aparecer a mensagem *Now type 'make' to compile Fontconfig.*
-
-
-```bash
-make
-sudo make install
-```
-
-Mova os arquivos que ja foram configuradas do modelsim, pra não ter que fazer novamente
-
-
-```bash
-mv $HOME/intelFPGA_lite/20.1/modelsim_ase/vco $HOME/intelFPGA_lite/20.1/
-mv $HOME/intelFPGA_lite/20.1/modelsim_ase/lib32 $HOME/intelFPGA_lite/20.1/
-
-```
-
-Desinstale o modelsim
-
-```bash
-exec $HOME/intelFPGA_lite/20.1/uninstall/modelsim_ase-20.1.0.711-linux-uninstall.run
-rm  -rf $HOME/intelFPGA_lite/20.1/modelsim_ase/
-```
-Reinicie o computador
-
-```bash
-sudo reboot
-
-```
-Instale o Modelsim novamente
-
-
-```bash
-exec $HOME/Downloads/ModelSimSetup-20.1.0.711-linux.run
-
-```
-Devolva os arquivos configurados pro lugar
-
-```bash
-mv $HOME/intelFPGA_lite/20.1/vco $HOME/intelFPGA_lite/20.1/modelsim_ase
-mv $HOME/intelFPGA_lite/20.1/lib32 $HOME/intelFPGA_lite/20.1/modelsim_ase
-
-```
-
-Em um novo terminal, teste o Modelsim novamente
-
-```bash
-
-vsim
-```
-
-Caso ainda não consiga abrir o VSIM tente baixar [este arquivo](https://alinsperedu-my.sharepoint.com/:u:/g/personal/andreb10_al_insper_edu_br/EaqkLVOjxBJFoadlUQOEYrQBn5uMgWcNW-ZYuc1xjLWlhA?e=Z7OIOh).
-
-Extraia o a pasta `modelsim_ase`que está dentro do arquivo `.zip` em uma pasta da sua preferência. Em seguida execute o comando:
-
-```bash
-rm -r $HOME/intelFPGA_lite/20.1/lib32 $HOME/intelFPGA_lite/20.1/modelsim_ase
-```
-
-Em seguida, abra o diretório que você extraiu a pasta `modelsim_ase` no terminal e execute o comando:
-
-```bash
-mv modelsim_ase $HOME/intelFPGA_lite/20.1/lib32 $HOME/intelFPGA_lite/20.1/modelsim_ase
-```
-
 Caso ainda tenha problemas, entre em contato com a gente!
 
-Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
+Lícia Sales Email: liciascl@insper.edu.br
 
-Arnaldo Junior Email: arnaldoavj@insper.edu.br Teams: arnaldo.junior2
+Rogério Cuenca Email: rogeriobc@insper.edu.br
 
 
 
 
 ## Instalação infra de Robótica
 
+
+# instalando os repositórios do ROS
+
+É necessário adicionar os repositórios e as respectivas chaves:
+``` bash
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+sudo apt update && sudo apt upgrade -y
+```
+
 Antes de mais nada, configure seu ambiente
+
+
 
 # Configurando variáveis de ambiente
 
@@ -289,20 +167,57 @@ code ~/.bashrc
 Adicione ao final do `bashrc` as seguintes linhas:
 
 ``` bash
-##########################
-# 3s
-##########################
-
-source ~/elementos.sh
+##################################################
+### Adicionado 3o Sem Comp 2024 - Lab 404 - INF ###
 source ~/robotica.sh
+source ~/elementos.sh
+##################################################
 ``` 
 
-faça o download dos seguintes arquivos:
+Agora crie os arquivos robotica.sh e elementos.sh:
 
 ``` bash
-wget "https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/robotica.sh"
+cd ~/
+touch ~/robotica.sh
+cat <<EOF > ~/robotica.sh
+alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
 
-wget "https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/elementos.sh"
+###########################################
+### variaveis relacionadas ao ROS2 Humble
+source /opt/ros/humble/setup.bash
+source /usr/share/gazebo/setup.sh
+source ~/colcon_ws/install/setup.bash
+export ROS_DOMAIN_ID=30 #TURTLEBOT3
+export TURTLEBOT3_MODEL=burger_insper
+###
+###########################################
+
+###########################################
+### extras do colcon
+source /usr/share/colcon_cd/function/colcon_cd.sh
+alias cdc="cd ~/colcon_ws"
+alias nb="nano ~/.bashrc"
+alias nr="nano ~/robotica.sh"
+alias cb="cd ~/colcon_ws && colcon build && source install/setup.bash"
+###
+###########################################
+EOF
+
+touch ~/elementos.sh
+cat <<EOF > ~/elementos.sh
+################################################################################
+export ALTERAPATH=$HOME/intelFPGA_lite/20.1
+export PATH=$PATH:${ALTERAPATH}/quartus/bin
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/lib32
+export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
+export VUNIT_SIMULATOR=modelsim
+export QSYS_ROOTDIR="$HOME/intelFPGA_lite/20.1/quartus/sopc_builder/bin"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
+################################################################################
+EOF
+
+
 
 ``` 
 
@@ -331,30 +246,41 @@ A resposta deve ser "'4.5.5'"
 
 # Instalando e configurando o Ros Noetic
 
-Faça o Download deste [script](https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/Instala_infra_robotica.sh) com o comando abaixo:
+Para instalar o Ros2 Humble, vamos seguir os seguinte comandos:
 
 ``` bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Insper/404/master/scripts_robotica/Instala_infra_robotica.sh)"
+sudo apt install -y ros-humble-desktop ros-dev-tools
 
+sudo apt install -y ros-humble-gazebo-*
+sudo apt install -y ros-humble-cartographer
+sudo apt install -y ros-humble-cartographer-ros
+sudo apt install -y ros-humble-navigation2
+sudo apt install -y ros-humble-nav2-bringup
+source ~/.bashrc
+sudo apt install -y ros-humble-dynamixel-sdk
+sudo apt install -y ros-humble-turtlebot3-msgs
+sudo apt install -y ros-humble-turtlebot3
+sudo apt install -y ros-humble-rqt-tf-tree
+
+sudo apt install -y python3-colcon-common-extensions
+mkdir -p ~/colcon_ws/src
+cd ~/colcon_ws/src
+git clone https://github.com/rbcuenca/my_simulation
+git clone https://github.com/rbcuenca/insperbot
 ```
 
 Para validar a instalação do ROS Noetic, digite no terminal:
 
 ``` bash
-cd catkin_ws/
-catkin_make
+cd ~/colcon_ws
+colcon build
 ``` 
-
-A resposta deve ser algo parecido com isso:
-
-![](https://github.com/Insper/404/blob/master/tutoriais/robotica/img/catkin.png)
-
 
 Caso tenha algum problema, entre em contato com a gente!
 
 Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
 
-Arnaldo Junior Email: arnaldoavj@insper.edu.br Teams: arnaldo.junior2
+Rogério Cuenca Email: rogeriobc@insper.edu.br
 
 
 **Referências:**
@@ -368,7 +294,7 @@ https://forums.intel.com/s/question/0D50P00003yySE5SAM/newbie-usb-blaster-on-ubu
 
 https://gist.github.com/PrieureDeSion/e2c0945cc78006b00d4206846bdb7657#stage-2
 
-https://github.com/Insper/404/blob/master/scripts_robotica/Instala_infra_robotica.sh
+https://github.com/Insper/404/blob/master/scripts_robotica/instala-infra_ros2.sh
 
 https://github.com/Insper/404/blob/master/scripts_robotica/install_opencv4.sh
 
