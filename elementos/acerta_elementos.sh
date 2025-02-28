@@ -6,4 +6,12 @@ echo "reinstalando dependencias"
 pip3 install --force-reinstall pytest-sugar
 pip3 install --force-reinstall cocotb
 pip3 install --force-reinstall cocotb-test
+echo "atualizando elementos.sh"
+cd
+cat << EOF >> elementos.sh
+## simulador ghdl
+SIM=ghdl
+EOF
+
+source .bashrc
 echo "resolvido!!!"
