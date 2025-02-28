@@ -10,7 +10,7 @@ echo "atualizando elementos.sh"
 cd
 cat << EOF >> elementos.sh
 ## simulador ghdl
-SIM=ghdl
+export SIM=ghdl
 EOF
 
 source .bashrc
