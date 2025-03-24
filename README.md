@@ -3,7 +3,7 @@ Infraestrutura para suporte as materias de Engenharia da Computação
 > Guias e tutorias de infra estão em [tutoriais](./tutoriais). 
 
 
-## Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 22.04
+# Quero instalar a infra de Robótica e Elementos no meu linux ubuntu 22.04
 
 **É importante que você tenha os drivers da sua placa de vídeo devidamente instalados e configurados.**
 
@@ -46,6 +46,8 @@ rm -fr fonts
 ```
 Após terminar a instalação, feche o terminal e o abra novamente. Clique com o botão direito, preferência e em profile você altera a fote. Basta fechar e abrir novamente.
 
+Lembre-se de usar uma fonte que seja compativel com o PowerLine, pois existem símbolos que são utilizados para representar os repositórios do GitHub.
+
 Para trocar tema do oh-my-bash, você editará o aquivo .bashrc que se encontra na sua pasta home. Você encontrará uma linha como esta:
 
 OSH_THEME="tema_que_esta_usando" 
@@ -56,7 +58,7 @@ OSH_THEME="powerline"
 
 Basta fechar e abrir o terminal novamente.
 
-## Instalação infra Elementos
+# Instalação infra Elementos
 
 - Ubuntu 22.04.x LTS (Jammy Jellyfish)
 
@@ -121,7 +123,7 @@ sudo service udev restart
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.
 
-Alguns itens complementares que a disciplina precisa..
+## Instlando alguns itens para garantir os testes dos trabalhos de Elementos.
 
 ``` bash
 sudo apt install ghdl -y
@@ -131,42 +133,30 @@ pip install --force-reinstall cocotb
 pip install --force-reinstall cocotb-test
 ```
 
-# Validando 
+## Validando 
 
 >  Reinicie o computador (ou máquina virtual) para concluir a instalação
 
 1. **Quartus:** Escreva `quartus` no terminal, o mesmo deve abrir a janela do Quartus
 1. **Programador:** Com a FPGA plugada no pc, digite `jtagconfig` ele deve aparecer o device.
-1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim
+Obs. Não estamos utilizando o Modelsim, mas ele está disponível para uso.
+1. **Modelsim:** Escreva `vsim` no terminal, o mesmo deve abrir a janela do ModeolSim 
 
 
 
 Caso ainda tenha problemas, entre em contato com a gente!
-
-Lícia Sales Email: liciascl@insper.edu.br
 
 Rogério Cuenca Email: rogeriobc@insper.edu.br
 
 
 
 
-## Instalação infra de Robótica
+# Instalação infra de Robótica
 
 
-# instalando os repositórios do ROS
+O primeiro passo será configurar as variáveis de ambiente.
 
-É necessário adicionar os repositórios e as respectivas chaves:
-``` bash
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-sudo apt update && sudo apt upgrade -y
-```
-
-Antes de mais nada, configure seu ambiente
-
-
-
-# Configurando variáveis de ambiente
+## Configurando variáveis de ambiente
 
 Abra o seu `bashrc`
 
@@ -184,12 +174,16 @@ source ~/elementos.sh
 ##################################################
 ``` 
 
-Agora crie os arquivos robotica.sh e elementos.sh:
+Criando o arquivo robotica.sh
 
 ``` bash
 cd ~/
 touch ~/robotica.sh
-cat <<EOF > ~/robotica.sh
+code ~/robotica.sh
+``` 
+Agora copie e cole o conteúdo a seguir no arquivo robotica.sh. Não esqueça de salvar!
+
+``` bash
 alias update="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
 
 ###########################################
@@ -211,10 +205,18 @@ alias nr="nano ~/robotica.sh"
 alias cb="cd ~/colcon_ws && colcon build && source install/setup.bash"
 ###
 ###########################################
-EOF
+```
+Criando o arquivo elementos.sh
 
+``` bash
+cd ~/
 touch ~/elementos.sh
-cat <<EOF > ~/elementos.sh
+code ~/elementos.sh
+``` 
+Agora copie e cole o conteúdo a seguir no arquivo elementos.sh. Não esqueça de salvar!
+
+``` bash
+
 ################################################################################
 ### Exports Quartus
 export ALTERAPATH=$HOME/intelFPGA_lite/20.1
@@ -228,13 +230,20 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
 ### Outros Exports
 export SIM=ghdl
 ################################################################################
-EOF
-
-
-
 ``` 
 
-# Instalando e Compilando Opencv 4.5 e Numpy
+
+## instalando os repositórios do ROS
+
+É necessário adicionar os repositórios e as respectivas chaves:
+
+``` bash
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+sudo apt update && sudo apt upgrade -y
+```
+
+## Instalando e Compilando Opencv 4.5 e Numpy
 
 Use o pip para instalar com o comando abaixo
 
@@ -244,18 +253,20 @@ pip3 install opencv-python==4.5.5.62
 pip3 install --force-reinstall numpy==1.23.4
 ```
 
-Para validar a instalação do Opencv digite no terminal:
+Para validar a instalação do Opencv e do Numpy  digite no terminal:
 
 ``` bash
 python3
 import cv2
 cv2.__version__
+import numpy as np
+np.__version__
 quit()
 ``` 
 
-A resposta deve ser "'4.5.5'"
+A resposta deve ser "'4.5.5'" para o Opencv e "'1.23.4'" para o Numpy.
 
-# Instalando e configurando o Ros Humble
+## Instalando e configurando o Ros Humble
 
 Para instalar o Ros2 Humble, vamos seguir os seguinte comandos:
 
@@ -292,15 +303,13 @@ colcon build
 
 Caso tenha algum problema, entre em contato com a gente!
 
-Lícia Sales Email: liciascl@insper.edu.br Teams: liciascl1
-
 Rogério Cuenca Email: rogeriobc@insper.edu.br
 
 
 **Referências:**
 https://j-marjanovic.io/new-ubuntu-old-problems-with-modelsim.html 
 
-http://wiki.ros.org/noetic/Installation/Ubuntu
+http://wiki.ros.org/humble/Installation/Ubuntu
 
 http://milq.github.io/install-opencv-ubuntu-debian
 
