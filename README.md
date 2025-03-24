@@ -30,6 +30,7 @@ sudo apt update && sudo apt install curl -y
 sudo apt install maven -y
 sudo apt install git -y 
 sudo apt-get install libcanberra-gtk-module -y
+sudo apt install python3-pip -y
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 ```
@@ -99,7 +100,7 @@ sudo ln -sf /lib/x86_64-linux-gnu/libudev.so.1 /lib/x86_64-linux-gnu/libudev.so.
 Execute o comando a seguir para criar o arquivo de regra:
 
 ``` bash
-$ sudo gedit /etc/udev/rules.d/51-altera-usb-blaster.rules
+sudo gedit /etc/udev/rules.d/51-altera-usb-blaster.rules
 ```
 
 Adicione as seguintes linhas a esse arquivo criado e salve:
@@ -115,11 +116,20 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6810", MODE="0666"
 Recarrege o as permissões via o comando a seguir:
 
 ``` bash
-$ sudo service udev restart
+sudo service udev restart
 ```
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.
 
+Alguns itens complementares que a disciplina precisa..
+
+``` bash
+sudo apt install ghdl -y
+pip install --force-reinstall pytest
+pip install --force-reinstall pytest-sugar
+pip install --force-reinstall cocotb
+pip install --force-reinstall cocotb-test
+```
 
 # Validando 
 
@@ -206,6 +216,7 @@ EOF
 touch ~/elementos.sh
 cat <<EOF > ~/elementos.sh
 ################################################################################
+### Exports Quartus
 export ALTERAPATH=$HOME/intelFPGA_lite/20.1
 export PATH=$PATH:${ALTERAPATH}/quartus/bin
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
@@ -214,6 +225,8 @@ export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_SIMULATOR=modelsim
 export QSYS_ROOTDIR="$HOME/intelFPGA_lite/20.1/quartus/sopc_builder/bin"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
+### Outros Exports
+export SIM=ghdl
 ################################################################################
 EOF
 
@@ -221,19 +234,17 @@ EOF
 
 ``` 
 
-# Instalando e Compilando Opencv 4.5
+# Instalando e Compilando Opencv 4.5 e Numpy
 
 Use o pip para instalar com o comando abaixo
 
 ``` bash
 pip3 install opencv-contrib-python==4.5.5.62
-```
-
-``` bash
 pip3 install opencv-python==4.5.5.62
+pip3 install --force-reinstall numpy==1.23.4
 ```
 
-pip3 install opencv-contrib-python==4.5.5.62Para validar a instalação do Opencv digite no terminal:
+Para validar a instalação do Opencv digite no terminal:
 
 ``` bash
 python3
@@ -261,8 +272,11 @@ sudo apt install -y ros-humble-dynamixel-sdk
 sudo apt install -y ros-humble-turtlebot3-msgs
 sudo apt install -y ros-humble-turtlebot3
 sudo apt install -y ros-humble-rqt-tf-tree
+sudo apt install -y ros-humble-compressed-*
+sudo apt install -y ros-humble-image-*
 
 sudo apt install -y python3-colcon-common-extensions
+
 mkdir -p ~/colcon_ws/src
 cd ~/colcon_ws/src
 git clone https://github.com/rbcuenca/my_simulation
