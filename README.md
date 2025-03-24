@@ -229,6 +229,7 @@ export QSYS_ROOTDIR="$HOME/intelFPGA_lite/20.1/quartus/sopc_builder/bin"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ALTERAPATH}/modelsim_ase/lib32
 ### Outros Exports
 export SIM=ghdl
+export WAVES=1
 ################################################################################
 ``` 
 
