@@ -77,6 +77,7 @@ source /usr/share/gazebo/setup.sh
 source ~/colcon_ws/install/setup.bash
 export ROS_DOMAIN_ID=30 #TURTLEBOT3
 export TURTLEBOT3_MODEL=burger_insper
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ###
 ###########################################
 

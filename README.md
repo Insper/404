@@ -193,6 +193,7 @@ source /usr/share/gazebo/setup.sh
 source ~/colcon_ws/install/setup.bash
 export ROS_DOMAIN_ID=30 #TURTLEBOT3
 export TURTLEBOT3_MODEL=burger_insper
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ###
 ###########################################
 
@@ -286,6 +287,7 @@ sudo apt install -y ros-humble-turtlebot3
 sudo apt install -y ros-humble-rqt-tf-tree
 sudo apt install -y ros-humble-compressed-*
 sudo apt install -y ros-humble-image-*
+sudo apt install -y ros-humble-rmw-cyclonedds-cpp
 
 sudo apt install -y python3-colcon-common-extensions
 
