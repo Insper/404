@@ -1,20 +1,19 @@
 #!/bin/bash
-# Author: Licia Sales
-# 26-Jun-19
-# update 11-05-2022
+# Author: Licia Sales in 260Jun-19
+# update 08-04-2025
 
-#alterado Cuenca - instalação do GHDL no VS Code
+# instalação do GHDL no VS Code e GTWave
+
 code --install-extension johannesbonk.ghdl-interface
-#alterado Cuenca - instalação do GTWave
 sudo apt -y install gtkwave
 
 rm -rf ~/.config/google-chrome/Default/
 rm -rf ~/.cache/google-chrome
 rm -rf ~/.cache/mozilla
-sudo rm -rf /etc/NetworkManager/system-connections/*
+sudo rm -rf /etc/NetworkManager/system-connections/* # usar no ubuntu 22
+python3 ./Pictures/esquece_rede.py # usar no ubuntu 24
 git config --global --unset credential.helper
 rm -rf ~/Downloads/*
-rm -rf InsperBot_2022.img 
 history -c
 echo "Termineeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeei"
 
