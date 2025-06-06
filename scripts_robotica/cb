@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ~/colcon_ws || exit 1
+
+if [ $# -eq 0 ]; then
+    colcon build --symlink-install --parallel-workers $(nproc)
+else
+    colcon build --symlink-install --parallel-workers $(nproc) --packages-select "$@"
+fi
+
+source ~/colcon_ws/install/setup.bash
