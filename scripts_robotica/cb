@@ -8,6 +8,7 @@ cd ~/colcon_ws || exit 1
 if [ "$#" -eq 1 ] && [ "$1" == "--force" ]; then
     rm -rf build install log
     echo "Diretórios build, install e log removidos com sucesso."
+    colcon build --symlink-install --parallel-workers $(nproc)
     cd "$ORIG_DIR"
     exit 0
 fi
