@@ -1,6 +1,22 @@
 #!/bin/bash
 
+# Salva o diretório original
+ORIG_DIR="$(pwd)"
+
 cd ~/colcon_ws || exit 1
+
+if [ "$#" -eq 1 ] && [ "$1" == "--force" ]; then
+    rm -rf build install log
+    echo "Diretórios build, install e log removidos com sucesso."
+    cd "$ORIG_DIR"
+    exit 0
+fi
+
+if [[ "$@" =~ --force ]]; then
+    echo "Erro: O argumento --force só deve ser usado sozinho, sem outros parâmetros."
+    cd "$ORIG_DIR"
+    exit 1
+fi
 
 if [ $# -eq 0 ]; then
     colcon build --symlink-install --parallel-workers $(nproc)
@@ -9,3 +25,5 @@ else
 fi
 
 source ~/colcon_ws/install/setup.bash
+
+cd "$ORIG_DIR"
