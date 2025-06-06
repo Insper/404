@@ -4,6 +4,14 @@
 Este script tem por objetivo facilitar a vida do usuário que precisa de uma sequencia
 de comandos para fazer o colcon build após qualquer alteração em um pacote ROS2.
 
+## Utilização
+
+Para fazer o build de todos os pacotes, basta digitar cb em qualquer diretório. O script irá para o diretorio colcon_ws, fará o build, recarregará o source e retornará para o diretório atual.
+
+Para fazer o build de um pacote específico, basta usar cb <nome_do_pacote> que ele realizará o procedimento acima, mas no pacote específico.
+
+Se você precisa apagar todos os builds anteriores e fazer "do zero" um build novo, basta usar cb --force. Ele *apagará as pastas ~/colcon_ws/build; ~/colcon_ws/install e ~/colcon_ws/log*, depois fará o cb.
+
 ### Lembrando como faz o colcon build
 Após alterações em um pacote ROS2 precisamos fazer o "build" do pacote, o que implica
 em colocar cada arquivo no seu devido lugar para que o ROS2 os encontre e rode da forma
