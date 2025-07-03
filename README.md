@@ -30,8 +30,14 @@ sudo apt update && sudo apt install curl -y
 sudo apt install maven -y
 sudo apt install git -y 
 sudo apt-get install libcanberra-gtk-module -y
+sudo apt install gtkwave -y
 sudo apt install python3-pip -y
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+cd ~/Downloads
+curl -L -o code_latest_amd64.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+curl -L -o google-chrome-stable_current_amd64.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+sudo dpkg -i *.deb
+code --install-extension johannesbonk.ghdl-interface
 
 ```
 
@@ -245,7 +251,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Instalando e Compilando Opencv 4.5 e Numpy
+## Instalando e Testando Opencv 4.5 e Numpy
 
 Use o pip para instalar com o comando abaixo
 
