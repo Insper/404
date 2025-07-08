@@ -316,6 +316,7 @@ Faça o download do script "cb" que será muito utilizado durante as aulas e mov
 ``` bash
 cd ~/Downlaods
 wget https://github.com/Insper/404/blob/master/scripts_robotica/cb
+chmod +x cb
 sudo cp cb /bin
 ```
 Aconselho a ver o manual deste script em: 
