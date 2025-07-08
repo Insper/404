@@ -32,6 +32,7 @@ sudo apt install git -y
 sudo apt-get install libcanberra-gtk-module -y
 sudo apt install gtkwave -y
 sudo apt install python3-pip -y
+sudo apt install trash-cli -y
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 cd ~/Downloads
 curl -L -o code_latest_amd64.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
@@ -177,6 +178,7 @@ Adicione ao final do `bashrc` as seguintes linhas:
 ### Adicionado 3o Sem Comp 2024 - Lab 404 - INF ###
 source ~/robotica.sh
 source ~/elementos.sh
+alias rm='trash-put'
 ##################################################
 ``` 
 
@@ -209,7 +211,7 @@ source /usr/share/colcon_cd/function/colcon_cd.sh
 alias cdc="cd ~/colcon_ws"
 alias nb="nano ~/.bashrc"
 alias nr="nano ~/robotica.sh"
-alias cb="cd ~/colcon_ws && colcon build && source install/setup.bash"
+# alias cb="cd ~/colcon_ws && colcon build && source install/setup.bash"
 ###
 ###########################################
 ```
@@ -294,20 +296,33 @@ sudo apt install -y ros-humble-rqt-tf-tree
 sudo apt install -y ros-humble-compressed-*
 sudo apt install -y ros-humble-image-*
 sudo apt install -y ros-humble-rmw-cyclonedds-cpp
+sudo apt install -y ros-humble-ros-gz-bridge
 
 sudo apt install -y python3-colcon-common-extensions
 
 mkdir -p ~/colcon_ws/src
 cd ~/colcon_ws/src
-git clone https://github.com/rbcuenca/my_simulation
-git clone https://github.com/rbcuenca/insperbot
+git clone -b 25-2 https://github.com/rbcuenca/my_simulation
 ```
 
-Para validar a instalação do ROS Noetic, digite no terminal:
+Vamos instalar agora as bibliotecas para utilizar a AprilTag e a Yolo:
+``` bash
+sudo apt install -y ros-humble-apriltag-ros
+pip install ultralytics
+pip install ros2_numpy
+```
+
+Faça o download do script "cb" que será muito utilizado durante as aulas e mova o script para o diretorio /bin:
+``` bash
+cd ~/Downlaods
+wget https://github.com/Insper/404/blob/master/scripts_robotica/cb
+sudo cp cb /bin
+```
+Aconselho a ver o manual deste script em: 
+Para validar a instalação do ROS Noetic, digite no terminal: [Manual do cb](https://github.com/Insper/404/blob/master/scripts_robotica/cb.md)
 
 ``` bash
-cd ~/colcon_ws
-colcon build
+cb --force
 ``` 
 
 Caso tenha algum problema, entre em contato com a gente!
