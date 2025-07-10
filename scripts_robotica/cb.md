@@ -12,6 +12,8 @@ Para fazer o build de um pacote específico, basta usar cb <nome_do_pacote> que 
 
 Se você precisa apagar todos os builds anteriores e fazer "do zero" um build novo, basta usar cb --force. Ele *apagará as pastas ~/colcon_ws/build; ~/colcon_ws/install e ~/colcon_ws/log*, depois fará o cb.
 
+Se você precisa apagar apenas os builds de um pacote específico e refazer "do zero" apenas este pacote, você pode usar cb --force nome_do_pacote. Ele *apagará apenas os diretorios deste pacote dentro do build e do install* e fará um "colcon build --packages select" com todos os parametros apenas do pacote que passou como argumento.
+
 ### Lembrando como faz o colcon build
 Após alterações em um pacote ROS2 precisamos fazer o "build" do pacote, o que implica
 em colocar cada arquivo no seu devido lugar para que o ROS2 os encontre e rode da forma
