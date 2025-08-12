@@ -315,7 +315,7 @@ pip install ros2_numpy
 Faça o download do script "cb" que será muito utilizado durante as aulas e mova o script para o diretorio /bin:
 ``` bash
 cd ~/Downlaods
-wget https://github.com/Insper/404/blob/master/scripts_robotica/cb
+wget https://raw.githubusercontent.com/Insper/404/refs/heads/master/scripts_robotica/cb
 chmod +x cb
 sudo cp cb /bin
 ```
