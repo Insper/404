@@ -253,7 +253,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Instalando e Testando Opencv 4.5 e Numpy
+## Instalando e Testando Opencv 4.5, Numpy e Ultralytics
 
 Use o pip para instalar com o comando abaixo
 
@@ -261,6 +261,8 @@ Use o pip para instalar com o comando abaixo
 pip3 install opencv-contrib-python==4.5.5.62
 pip3 install opencv-python==4.5.5.62
 pip3 install --force-reinstall numpy==1.23.4
+pip3 install ultralytics
+
 ```
 
 Para validar a instalação do Opencv e do Numpy  digite no terminal:
