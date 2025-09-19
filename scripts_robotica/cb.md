@@ -20,7 +20,7 @@ em colocar cada arquivo no seu devido lugar para que o ROS2 os encontre e rode d
 correta.
 
 O comnado completo para fazer o build de um pacote especifico é o seguinte:
-colcon build --symlink-install --parallel-workers $(nproc) --packages-select <nome do pacote>. Vou explicar os comandos e depois os significados de cada argumento.
+colcon build --parallel-workers $(nproc) --packages-select <nome do pacote>. Vou explicar os comandos e depois os significados de cada argumento.
 
 Para fazer um colcon build é necessário estár na WorkSpace correta, portanto começamos
 subindo para o diratório correto:
@@ -32,7 +32,7 @@ cd ~/colcon_ws
 Apos estar no diretorio correto, vamos mandar compilar *todos* os pacotes:
 
 ´´´
-colcon build --symlink-install --parallel-workers $(nproc)
+colcon build --parallel-workers $(nproc)
 ´´´
 
 Terminado o build, precisamos recarregar o arquivo com os paths:
@@ -48,12 +48,6 @@ source ~/colcon_ws/install/setup.bash
 #### 1. colcon build
 Função: Inicia o processo de compilação dos pacotes do seu workspace ROS 2.
 
-#### 2. --symlink-install
-Função: Em vez de copiar os arquivos de build para a pasta install, cria links simbólicos (symlinks) para os arquivos da pasta build.
-
-Vantagem: Permite que alterações feitas nos arquivos-fonte sejam refletidas imediatamente na instalação, facilitando o desenvolvimento e debug sem precisar rebuildar tudo.
-
-Quando usar: Durante o desenvolvimento ativo dos pacotes.
 
 #### 3. --parallel-workers $(nproc)
 Função: Compila os pacotes em paralelo, utilizando múltiplos núcleos do processador.

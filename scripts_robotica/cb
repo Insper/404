@@ -9,7 +9,7 @@ cd ~/colcon_ws || exit 1
 if [ "$#" -eq 1 ] && [ "$1" == "--force" ]; then
     rm -rf build install log
     echo "Diretórios build, install e log removidos com sucesso."
-    colcon build --symlink-install --parallel-workers $(nproc)
+    colcon build --parallel-workers $(nproc)
     cd "$ORIG_DIR"
     exit 0
 fi
@@ -19,7 +19,7 @@ if [ "$#" -eq 2 ] && [ "$1" == "--force" ]; then
     PKG="$2"
     rm -rf "build/$PKG" "install/$PKG"
     echo "Diretórios build/$PKG e install/$PKG removidos com sucesso."
-    colcon build --symlink-install --parallel-workers $(nproc) --packages-select "$PKG"
+    colcon build --parallel-workers $(nproc) --packages-select "$PKG"
     cd "$ORIG_DIR"
     exit 0
 fi
@@ -33,9 +33,9 @@ fi
 
 # Build padrão
 if [ $# -eq 0 ]; then
-    colcon build --symlink-install --parallel-workers $(nproc)
+    colcon build --parallel-workers $(nproc)
 else
-    colcon build --symlink-install --parallel-workers $(nproc) --packages-select "$@"
+    colcon build --parallel-workers $(nproc) --packages-select "$@"
 fi
 
 source ~/colcon_ws/install/setup.bash
