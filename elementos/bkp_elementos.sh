@@ -8,5 +8,10 @@ pip3 install --force-reinstall cocotb==1.8.1
 pip3 install --force-reinstall cocotb-test==0.2.5
 echo "atualizando elementos.sh"
 cd
+cat << EOF >> elementos.sh
+## simulador ghdl
+export SIM=ghdl
+EOF
+
 source .bashrc
 echo "resolvido!!!"
