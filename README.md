@@ -88,6 +88,7 @@ cd ~/Downloads
 wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/QuartusLiteSetup-20.1.0.711-linux.run
 wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/ModelSimSetup-20.1.0.711-linux.run
 wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/cyclonev-20.1.0.711.qdz
+wget http://download.altera.com/akdlm/software/acdsinst/20.1std/711/ib_installers/max10-20.1.0.711.qdz
 
 chmod +x QuartusLiteSetup-20.1.0.711-linux.run
 ./QuartusLiteSetup-20.1.0.711-linux.run
@@ -130,14 +131,15 @@ sudo service udev restart
 
 Se você alterou o caminho de instalação na etapa do `Quartus`, deve modificar a primeira linha inserindo o caminho da instalação.
 
-## Instlando alguns itens para garantir os testes dos trabalhos de Elementos.
+## Instlando alguns itens para garantir os testes dos trabalhos de Elementos. É importante manter as versões dos pacotes exatamente assim. Versões mais atuais podem gerar conflitos com os testes automatizados da disciplina.
 
 ``` bash
 sudo apt install ghdl -y
-pip install --force-reinstall pytest
-pip install --force-reinstall pytest-sugar
-pip install --force-reinstall cocotb
-pip install --force-reinstall cocotb-test
+pip uninstall -y pytest pluggy pytest-sugar cocotb cocotb-test
+pip install pytest==7.4.4
+pip install cocotb==1.8.1
+pip install cocotb-test==0.2.5
+pip install pytest-sugar==1.0.0
 ```
 
 ## Validando 
