@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Salva o diretório original
+ORIG_DIR="$(pwd)"
+
+cd ~/colcon_ws || exit 1
+
+# Caso: --force sozinho (apaga tudo)
+if [ "$#" -eq 1 ] && [ "$1" == "--force" ]; then
+    rm -rf build install log
+    echo "Diretórios build, install e log removidos com sucesso."
+    colcon build --parallel-workers $(nproc)
+    cd "$ORIG_DIR"
+    exit 0
+fi
+
+# Caso: --force nome_do_pacote
+if [ "$#" -eq 2 ] && [ "$1" == "--force" ]; then
+    PKG="$2"
+    rm -rf "build/$PKG" "install/$PKG"
+    echo "Diretórios build/$PKG e install/$PKG removidos com sucesso."
+    colcon build --parallel-workers $(nproc) --packages-select "$PKG"
+    cd "$ORIG_DIR"
+    exit 0
+fi
+
+# Protege contra uso incorreto de --force
+if [[ "$@" =~ --force ]]; then
+    echo "Erro: O argumento --force só deve ser usado sozinho ou seguido de um único nome de pacote."
+    cd "$ORIG_DIR"
+    exit 1
+fi
+
+# Build padrão
+if [ $# -eq 0 ]; then
+    colcon build --parallel-workers $(nproc)
+else
+    colcon build --parallel-workers $(nproc) --packages-select "$@"
+fi
+
+source ~/colcon_ws/install/setup.bash
+
+cd "$ORIG_DIR"

@@ -1,4 +1,4 @@
-# Instruções para  utilização do script CB (Colcon Build) [Versão Rogerio Cuenca]
+# Instruções para  utilização do script CB (Colcon Build) [Versão_2 Rogerio Cuenca]
 
 ## Objetivo
 Este script tem por objetivo facilitar a vida do usuário que precisa de uma sequencia
@@ -8,11 +8,11 @@ de comandos para fazer o colcon build após qualquer alteração em um pacote RO
 
 Para fazer o build de todos os pacotes, basta digitar cb em qualquer diretório. O script irá para o diretorio colcon_ws, fará o build, recarregará o source e retornará para o diretório atual.
 
-Para fazer o build de um pacote específico, basta usar cb <nome_do_pacote> que ele realizará o procedimento acima, mas no pacote específico.
+Para fazer o build de um pacote específico, basta usar cb <nome_do_pacote_01> <nome_do_pacote_02> .. que ele realizará o procedimento acima, mas no(s) pacote(s) específico(s).
 
 Se você precisa apagar todos os builds anteriores e fazer "do zero" um build novo, basta usar cb --force. Ele *apagará as pastas ~/colcon_ws/build; ~/colcon_ws/install e ~/colcon_ws/log*, depois fará o cb.
 
-Se você precisa apagar apenas os builds de um pacote específico e refazer "do zero" apenas este pacote, você pode usar cb --force nome_do_pacote. Ele *apagará apenas os diretorios deste pacote dentro do build e do install* e fará um "colcon build --packages select" com todos os parametros apenas do pacote que passou como argumento.
+Se você precisa apagar apenas os builds de um pacote específico e refazer "do zero" apenas este pacote, você pode usar cb --force nome_do_pacote01 nome_do_pacote_02. Ele *apagará apenas os diretorios deste(s) pacote(s) dentro do build e do install* e fará um "colcon build --packages select" com todos os parametros apenas do(s) pacote(s) que passou como argumento.
 
 ### Lembrando como faz o colcon build
 Após alterações em um pacote ROS2 precisamos fazer o "build" do pacote, o que implica
