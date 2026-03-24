@@ -71,25 +71,13 @@ Se nenhum pacote for especificado: O argumento é omitido e todos os pacotes do 
 
 ## "Instalando" o Script
 
-É necessário dar permissão de escrita ao script, que você já baixou deste repositório (o arquivo é o cb sem extensão).
-
-use o comando chmod para dar permissão de execução:
+Basta copiar o conteúdo do script e colar ao final do seu arquivo .bashrc
 
 ´´´
-chmod +x cb
+code ~/.bashrc
 ´´´
 
-Agora vamos mover para dentro do diretorio /bin:
-
-´´´
-sudo move cb /bin
-´´´
-
-Pronto, basta fechar e abrir novamente o terminal e utilizar!
-
-Se for usar para fazer o build em *todos os pacotes* basta digitar cb em qualquer janela que esteja, e se for utilizar apra um pacote especifico basta acrescentar o nome do pacote, exemplo: cb meu_pacote_ros.
-
-
+Depois de salvar a modificação, você deve fechar e abrir o terminal novamente.
 
 
 Created by [Rogério B. Cuenca](mailto:rogeriobcuenca@gmail.com)
